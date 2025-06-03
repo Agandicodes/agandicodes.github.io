@@ -551,16 +551,15 @@ Come be part
         'Accept': 'application/json'
       }
     })
-    .then(response => {
+    .then(async (response) => {
       loading.style.display = 'none';
       if (response.ok) {
         sentMsg.style.display = 'block';
         form.reset();
       } else {
-        return response.json().then(data => {
-          errorMsg.textContent = data.error || 'Oops! Something went wrong.';
-          errorMsg.style.display = 'block';
-        });
+        const data = await response.json();
+        errorMsg.textContent = data.error || 'Oops! Something went wrong.';
+        errorMsg.style.display = 'block';
       }
     })
     .catch(() => {
@@ -570,6 +569,7 @@ Come be part
     });
   });
 </script>
+
 
 
           </div>
