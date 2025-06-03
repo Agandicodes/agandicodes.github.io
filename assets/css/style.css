@@ -13,29 +13,12 @@ body {
   color: #444444;
   transition: background-color 0.3s, color 0.3s;
 }
-
-/* night */
-body.dark-mode {
-  background-color: #121212;
-  color: #f1f1f1;
+body,
+#footer,
+#footer .footer-top,
+#footer .footer-newsletter {
+  transition: background 0.3s, color 0.3s;
 }
-
-.dark-mode .navbar,
-.dark-mode header {
-  background-color: #1e1e1e !important;
-}
-
-.dark-mode a {
-  color: #a1cfff;
-}
-
-.dark-mode .btn {
-  background-color: #333;
-  color: #fff;
-  border-color: #555;
-}
-/* endnight */
-
 a {
   color: #877a45;
   text-decoration: none;
@@ -1877,3 +1860,561 @@ section {
     padding-top: 4px;
   }
 }
+/* night */
+/*----------------------------
+  DARK MODE
+-----------------------------*/
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+/* Back to Top Button */
+body.dark-mode .back-to-top {
+  background: #444;
+}
+
+body.dark-mode .back-to-top:hover {
+  background: #666;
+}
+
+/* Header */
+body.dark-mode #header {
+  background: rgba(20, 20, 20, 0.9);
+}
+
+body.dark-mode #header .logo a {
+  color: #f0f0f0;
+}
+
+/* Navigation Menu */
+body.dark-mode .navbar a,
+body.dark-mode .navbar a:focus {
+  color: #e0e0e0;
+}
+
+body.dark-mode .navbar a:hover,
+body.dark-mode .navbar .active,
+body.dark-mode .navbar li:hover > a {
+  color: #a8d8ff;
+}
+
+body.dark-mode .navbar .getstarted,
+body.dark-mode .navbar .getstarted:focus {
+  color: #f0f0f0;
+  border-color: #888;
+}
+
+body.dark-mode .navbar .getstarted:hover {
+  background: #333;
+}
+
+/* Dropdown Menus */
+body.dark-mode .navbar .dropdown ul,
+body.dark-mode .navbar-mobile ul,
+body.dark-mode .navbar-mobile .dropdown ul {
+  background: #1f1f1f;
+}
+
+body.dark-mode .navbar .dropdown ul a,
+body.dark-mode .navbar-mobile a {
+  color: #e0e0e0;
+}
+
+body.dark-mode .navbar .dropdown ul a:hover,
+body.dark-mode .navbar-mobile a:hover {
+  color: #47b2e4;
+}
+
+/* Mobile Navbar Background */
+body.dark-mode .navbar-mobile {
+  background: rgba(10, 10, 10, 0.95);
+}
+
+/* Hero Section */
+body.dark-mode #hero {
+  background: #222;
+}
+
+body.dark-mode #hero h1,
+body.dark-mode #hero h2 {
+  color: #f0f0f0;
+}
+
+body.dark-mode #hero h2 {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+body.dark-mode #hero .btn-get-started {
+  background: #555;
+  color: #fff;
+}
+
+body.dark-mode #hero .btn-get-started:hover {
+  background: #888;
+}
+
+body.dark-mode #hero .btn-watch-video {
+  color: #ccc;
+}
+
+body.dark-mode #hero .btn-watch-video:hover i {
+  color: #47b2e4;
+}
+
+/* Section Titles */
+body.dark-mode .section-bg {
+  background-color: #1a1a1a;
+}
+
+body.dark-mode .section-title h2 {
+  color: #e0e0e0;
+}
+
+body.dark-mode .section-title h2::before {
+  background: #555;
+}
+
+body.dark-mode .section-title h2::after {
+  background: #47b2e4;
+}
+
+body.dark-mode .section-title p {
+  color: #ccc;
+}
+
+/* Clients Section */
+body.dark-mode .clients img {
+  filter: grayscale(100) brightness(0.8);
+}
+
+body.dark-mode .clients img:hover {
+  filter: none;
+}
+
+/*----------------------------
+  DARK MODE — Mobile Navigation
+-----------------------------*/
+/* body.dark-mode .mobile-nav-toggle {
+  color: #e0e0e0;
+}
+
+body.dark-mode .navbar-mobile {
+  background: rgba(10, 10, 10, 0.95);
+}
+
+body.dark-mode .navbar-mobile ul {
+  background-color: #1e1e1e;
+}
+
+body.dark-mode .navbar-mobile a,
+body.dark-mode .navbar-mobile a:focus {
+  color: #f0f0f0;
+}
+
+body.dark-mode .navbar-mobile a:hover,
+body.dark-mode .navbar-mobile .active,
+body.dark-mode .navbar-mobile li:hover > a {
+  color: #47b2e4;
+}
+
+body.dark-mode .navbar-mobile .getstarted,
+body.dark-mode .navbar-mobile .getstarted:focus {
+  color: #ddd;
+  border: 2px solid #666;
+}
+
+body.dark-mode .navbar-mobile .dropdown ul {
+  background: #2c2c2c;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .navbar-mobile .dropdown ul a {
+  color: #f0f0f0;
+}
+
+body.dark-mode .navbar-mobile .dropdown ul a:hover,
+body.dark-mode .navbar-mobile .dropdown ul .active:hover,
+body.dark-mode .navbar-mobile .dropdown ul li:hover > a {
+  color: #e4c247;
+} */
+/* smooth darkness */
+.about .content h3,
+.about .content ul li,
+.about .content ul i,
+.about .content p,
+.about .content .btn-learn-more {
+  transition: color 0.3s, background 0.3s, border-color 0.3s;
+}
+body.dark-mode .about .content h3 {
+  color: #f5f5f5;
+}
+
+body.dark-mode .about .content ul i {
+  color: #80d0f0;
+}
+
+body.dark-mode .about .content ul li {
+  color: #dcdcdc;
+}
+
+body.dark-mode .about .content p {
+  color: #cfcfcf;
+}
+
+body.dark-mode .about .content .btn-learn-more {
+  color: #80d0f0;
+  border-color: #80d0f0;
+}
+
+body.dark-mode .about .content .btn-learn-more:hover {
+  background: #80d0f0;
+  color: #1e1e1e;
+}
+
+/* smooth */
+.skills .content h3,
+.skills .content ul i,
+.skills .progress .skill,
+.skills .progress-bar-wrap,
+.skills .progress-bar {
+  transition: background 0.3s, color 0.3s, width 0.9s ease-in-out;
+}
+body.dark-mode .skills .content h3 {
+  color: #f5f5f5;
+}
+
+body.dark-mode .skills .content ul i {
+  color: #f5e79e;
+}
+
+body.dark-mode .skills .progress .skill {
+  color: #f5e79e;
+}
+
+body.dark-mode .skills .progress-bar-wrap {
+  background: #2a2a2a;
+}
+
+body.dark-mode .skills .progress-bar {
+  background-color: #f5e79e;
+}
+
+.cta,
+.cta h3,
+.cta p,
+.cta .cta-btn,
+.portfolio #portfolio-flters li,
+.portfolio .portfolio-item .portfolio-info,
+.portfolio .portfolio-item .portfolio-info h4,
+.portfolio .portfolio-item .portfolio-info p,
+.portfolio .portfolio-item .portfolio-info a {
+  transition: background 0.3s, color 0.3s, transform 0.3s, border-color 0.3s;
+}
+
+body.dark-mode .portfolio #portfolio-flters li {
+  color: #ddd;
+  background: transparent;
+}
+
+body.dark-mode .portfolio #portfolio-flters li:hover,
+body.dark-mode .portfolio #portfolio-flters li.filter-active {
+  background: #f5e79e;
+  color: #000;
+}
+
+body.dark-mode .portfolio .portfolio-item .portfolio-info {
+  background: rgba(20, 20, 20, 0.8);
+}
+
+body.dark-mode .portfolio .portfolio-item .portfolio-info h4,
+body.dark-mode .portfolio .portfolio-item .portfolio-info p {
+  color: #f0f0f0;
+}
+
+body.dark-mode .portfolio .portfolio-item .portfolio-info .preview-link,
+body.dark-mode .portfolio .portfolio-item .portfolio-info .details-link {
+  color: #f5e79e;
+}
+
+body.dark-mode .portfolio .portfolio-item .portfolio-info .preview-link:hover,
+body.dark-mode .portfolio .portfolio-item .portfolio-info .details-link:hover {
+  color: #fff;
+}
+
+body.dark-mode .cta {
+  background: linear-gradient(rgba(15, 15, 15, 0.8), rgba(15, 15, 15, 0.9)), url("../img/cta-bg.jpg") fixed center center;
+  background-size: cover;
+}
+
+body.dark-mode .cta h3,
+body.dark-mode .cta p {
+  color: #f5f5f5;
+}
+
+body.dark-mode .cta .cta-btn {
+  color: #f5f5f5;
+  border-color: #f5f5f5;
+}
+
+body.dark-mode .cta .cta-btn:hover {
+  background: #f5e79e;
+  color: #000;
+  border-color: #f5e79e;
+}
+
+.services .icon-box,
+.services .icon-box h4 a,
+.services .icon-box p,
+.services .icon-box .icon i,
+.cta,
+.cta h3,
+.cta p,
+.cta .cta-btn {
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
+
+body.dark-mode .services .icon-box {
+  background: #1f1f1f;
+  box-shadow: 0px 0 25px 0 rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .services .icon-box h4 a {
+  color: #f5e79e;
+}
+
+body.dark-mode .services .icon-box:hover h4 a {
+  color: #fff3b5;
+}
+
+body.dark-mode .services .icon-box p {
+  color: #ccc;
+}
+
+body.dark-mode .services .icon-box .icon i {
+  color: #f5d76e;
+}
+
+body.dark-mode .cta {
+  background: linear-gradient(rgba(20, 20, 20, 0.7), rgba(20, 20, 20, 0.9)), url("../img/cta-bg.jpg") fixed center center;
+  background-size: cover;
+}
+
+body.dark-mode .cta h3,
+body.dark-mode .cta p {
+  color: #fff;
+}
+
+body.dark-mode .cta .cta-btn {
+  color: #fff;
+  border-color: #f5e79e;
+}
+
+body.dark-mode .cta .cta-btn:hover {
+  background: #f5e79e;
+  color: #000;
+  border-color: #f5e79e;
+}
+
+.team .member,
+.team .member h4,
+.team .member span,
+.team .member p,
+.team .member .social a {
+  transition: background 0.3s, color 0.3s;
+}
+
+body.dark-mode .team .member {
+  background: #1f1f1f;
+  box-shadow: none;
+}
+
+body.dark-mode .team .member h4 {
+  color: #f0f0f0;
+}
+
+body.dark-mode .team .member span {
+  color: #ccc;
+}
+
+body.dark-mode .team .member span::after {
+  background: #555;
+}
+
+body.dark-mode .team .member p {
+  color: #bbb;
+}
+
+body.dark-mode .team .member .social a {
+  background: #333;
+}
+
+body.dark-mode .team .member .social a i {
+  color: #ccc;
+}
+
+body.dark-mode .team .member .social a:hover {
+  background: #77704d;
+}
+
+body.dark-mode .team .member .social a:hover i {
+  color: #fff;
+}
+
+.contact .info,
+.contact .php-email-form,
+.contact .php-email-form input,
+.contact .php-email-form textarea {
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
+body.dark-mode .contact .info {
+  background: #1e1e1e;
+  color: #ddd;
+  box-shadow: none;
+  border-color: #555;
+}
+
+body.dark-mode .contact .info i {
+  background: #333;
+  color: #ccc;
+}
+
+body.dark-mode .contact .info h4 {
+  color: #fff;
+}
+
+body.dark-mode .contact .info p {
+  color: #aaa;
+}
+
+body.dark-mode .contact .info .social-links a {
+  background: #444;
+  color: #fff;
+}
+
+body.dark-mode .contact .info .social-links a:hover {
+  background: #666;
+}
+
+body.dark-mode .contact .info .email:hover i,
+body.dark-mode .contact .info .address:hover i,
+body.dark-mode .contact .info .phone:hover i {
+  background: #777;
+  color: #fff;
+}
+
+/* PHP Email Form */
+body.dark-mode .contact .php-email-form {
+  background: #1e1e1e;
+  border-color: #555;
+  box-shadow: none;
+}
+
+body.dark-mode .contact .php-email-form input,
+body.dark-mode .contact .php-email-form textarea {
+  background: #2a2a2a;
+  color: #f0f0f0;
+  border: 1px solid #555;
+}
+
+body.dark-mode .contact .php-email-form input:focus,
+body.dark-mode .contact .php-email-form textarea:focus {
+  border-color: #999159;
+  background: #333;
+}
+
+body.dark-mode .contact .php-email-form .error-message {
+  background: #b93232;
+  color: #fff;
+}
+
+body.dark-mode .contact .php-email-form .sent-message {
+  background: #1faa73;
+  color: #fff;
+}
+
+body.dark-mode .contact .php-email-form .loading {
+  background: #2e2e2e;
+  color: #ccc;
+}
+
+body.dark-mode .contact .php-email-form button[type=submit] {
+  background: #77704d;
+  color: #fff;
+}
+
+body.dark-mode .contact .php-email-form button[type=submit]:hover {
+  background: #999159;
+}
+body.dark-mode #footer {
+  background: #1e1e1e;
+  color: #ddd;
+}
+
+body.dark-mode #footer .footer-newsletter {
+  background: #2c2c2c;
+  color: #ccc;
+}
+
+body.dark-mode #footer .footer-newsletter h4 {
+  color: #fff;
+}
+
+body.dark-mode #footer .footer-newsletter form {
+  background: #1a1a1a;
+  box-shadow: none;
+}
+
+body.dark-mode #footer .footer-newsletter form input[type=email] {
+  background: #333;
+  color: #fff;
+}
+
+body.dark-mode #footer .footer-newsletter form input[type=submit] {
+  background: #444;
+  color: #fff;
+}
+
+body.dark-mode #footer .footer-top {
+  background: #1a1a1a;
+}
+
+body.dark-mode #footer .footer-top .footer-contact h3,
+body.dark-mode #footer .footer-top h4 {
+  color: #fff;
+}
+
+body.dark-mode #footer .footer-top .footer-contact p {
+  color: #bbb;
+}
+
+body.dark-mode #footer .footer-top .footer-links ul a {
+  color: #aaa;
+}
+
+body.dark-mode #footer .footer-top .footer-links ul a:hover {
+  color: #fff;
+}
+
+body.dark-mode #footer .footer-top .footer-links ul i {
+  color: #999;
+}
+
+body.dark-mode #footer .footer-top .social-links a {
+  background: #333;
+  color: #fff;
+}
+
+body.dark-mode #footer .footer-top .social-links a:hover {
+  background: #555;
+}
+
+body.dark-mode #footer .footer-bottom {
+  background: #111;
+  color: #ccc;
+}
+
+body.dark-mode #footer .credits a {
+  color: #fff;
+}
+
