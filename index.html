@@ -496,33 +496,7 @@ Come be part
           </div>
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-<!--             <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-              <div class="row">
-                <div class="form-group col-md-6">
-                  <label for="name">Your Name</label>
-                  <input type="text" name="name" class="form-control" id="name" required>
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="name">Your Email</label>
-                  <input type="email" class="form-control" name="email" id="email" required>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="name">Subject</label>
-                <input type="text" class="form-control" name="subject" id="subject" required>
-              </div>
-              <div class="form-group">
-                <label for="name">Message</label>
-                <textarea class="form-control" name="message" rows="10" required></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
-            </form> -->
-            <form action="https://formspree.io/f/mldnevkz" method="POST" role="form" class="php-email-form">
+<form action="https://formspree.io/f/mldnevkz" method="POST" role="form" class="php-email-form">
   <div class="row">
     <div class="form-group col-md-6">
       <label for="name">Your Name</label>
@@ -530,7 +504,7 @@ Come be part
     </div>
     <div class="form-group col-md-6">
       <label for="email">Your Email</label>
-      <input type="email" class="form-control" name="email" id="email" required>
+      <input type="email" class="form-control" name="email" id="email" required autocomplete="email">
     </div>
   </div>
   <div class="form-group">
@@ -550,12 +524,53 @@ Come be part
 
   <div class="my-3">
     <div class="loading" style="display: none;">Loading...</div>
-    <div class="error-message" style="display: none;"></div>
-    <div class="sent-message" style="display: none;">Your message has been sent. Thank you!</div>
+    <div class="error-message" style="display: none; color: red;"></div>
+    <div class="sent-message" style="display: none; color: green;">Your message has been sent. Thank you!</div>
   </div>
 
   <div class="text-center"><button type="submit">Send Message</button></div>
 </form>
+
+<script>
+  document.querySelector('.php-email-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const loading = form.querySelector('.loading');
+    const errorMsg = form.querySelector('.error-message');
+    const sentMsg = form.querySelector('.sent-message');
+
+    loading.style.display = 'block';
+    errorMsg.style.display = 'none';
+    sentMsg.style.display = 'none';
+
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+    .then(response => {
+      loading.style.display = 'none';
+      if (response.ok) {
+        sentMsg.style.display = 'block';
+        form.reset();
+      } else {
+        return response.json().then(data => {
+          errorMsg.textContent = data.error || 'Oops! Something went wrong.';
+          errorMsg.style.display = 'block';
+        });
+      }
+    })
+    .catch(() => {
+      loading.style.display = 'none';
+      errorMsg.textContent = 'Could not submit form. Please try again.';
+      errorMsg.style.display = 'block';
+    });
+  });
+</script>
+
 
           </div>
 
