@@ -27,6 +27,16 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <script>
+  // Apply dark mode class early for preloader to detect
+  (function() {
+    const theme = localStorage.getItem('theme');
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark-mode');
+    }
+  })();
+</script>
+<!-- change theme -->
    <script>
   document.addEventListener('DOMContentLoaded', () => {
     const toggleBtn = document.getElementById('theme-toggle');
@@ -655,6 +665,14 @@ Come be part
       </div>
     </div>
   </footer><!-- End Footer -->
+<script>
+  window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+      preloader.style.display = 'none';
+    }
+  });
+</script>
 
   <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
