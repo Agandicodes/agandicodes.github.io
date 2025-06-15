@@ -48,7 +48,11 @@ h6 {
   bottom: 0;
   z-index: 9999;
   overflow: hidden;
-  background: #7e7137;
+  background: #7e7137; /* Default light theme */
+}
+
+.dark-mode #preloader {
+  background: #1c1c1c; /* Dark background */
 }
 
 #preloader:before {
@@ -65,6 +69,18 @@ h6 {
   -webkit-animation: animate-preloader 1s linear infinite;
   animation: animate-preloader 1s linear infinite;
 }
+
+/* .dark-mode #preloader:before {
+  border: 6px solid #444;
+  border-top-color: #fff;
+  border-bottom-color: #fff;
+} */
+.dark-mode #preloader:before {
+  border: 6px solid #444;
+  border-top-color: #bbb;
+  border-bottom-color: #bbb;
+}
+
 
 @-webkit-keyframes animate-preloader {
   0% {
