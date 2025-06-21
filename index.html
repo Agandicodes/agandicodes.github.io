@@ -464,6 +464,7 @@ Come be part
     </section><!-- End Team Section -->
 
 <!-- ======= Custom Social Feed Section ======= -->
+<!-- ======= Custom Social Feed Section (Updated with Twitter iframe embeds) ======= -->
 <section id="social" class="py-5 bg-light">
   <div class="container">
     <div class="section-title text-center">
@@ -484,9 +485,8 @@ Come be part
         <a href="https://x.com/AgandiCodes" target="_blank" style="position: absolute; top: 10px; right: 10px;" class="btn btn-sm btn-outline-primary">Follow</a>
         <div class="card-body">
           <h5 class="card-title">Post from X</h5>
-          <blockquote class="twitter-tweet" data-theme="light">
-            <a href="https://x.com/AgandiCodes/status/1904074434878599647"></a>
-          </blockquote>
+          <iframe src="https://twitframe.com/show?url=https://x.com/AgandiCodes/status/1904074434878599647" 
+                  width="100%" height="300" frameborder="0" allowfullscreen></iframe>
           <p class="text-muted small mt-2">Posted: Apr 18, 2024</p>
         </div>
       </div>
@@ -496,9 +496,8 @@ Come be part
         <a href="https://x.com/AgandiCodes" target="_blank" style="position: absolute; top: 10px; right: 10px;" class="btn btn-sm btn-outline-primary">Follow</a>
         <div class="card-body">
           <h5 class="card-title">Post from X</h5>
-          <blockquote class="twitter-tweet" data-theme="light">
-            <a href="https://x.com/AgandiCodes/status/1634981902821228545"></a>
-          </blockquote>
+          <iframe src="https://twitframe.com/show?url=https://x.com/AgandiCodes/status/1634981902821228545" 
+                  width="100%" height="300" frameborder="0" allowfullscreen></iframe>
           <p class="text-muted small mt-2">Posted: Mar 10, 2023</p>
         </div>
       </div>
@@ -508,9 +507,8 @@ Come be part
         <a href="https://x.com/AgandiCodes" target="_blank" style="position: absolute; top: 10px; right: 10px;" class="btn btn-sm btn-outline-primary">Follow</a>
         <div class="card-body">
           <h5 class="card-title">Post from X</h5>
-          <blockquote class="twitter-tweet" data-theme="light">
-            <a href="https://x.com/AgandiCodes/status/1603623831951724545"></a>
-          </blockquote>
+          <iframe src="https://twitframe.com/show?url=https://x.com/AgandiCodes/status/1603623831951724545" 
+                  width="100%" height="300" frameborder="0" allowfullscreen></iframe>
           <p class="text-muted small mt-2">Posted: Dec 15, 2022</p>
         </div>
       </div>
@@ -527,24 +525,40 @@ Come be part
         </div>
       </div>
 
-      <!-- Add more YouTube cards here if needed -->
-
     </div>
   </div>
 </section>
 
+<!-- Scroll Controls Script -->
+<script>
+  const carousel = document.getElementById('social-carousel');
+
+  function scrollLeft() {
+    carousel.scrollBy({ left: -320, behavior: 'smooth' });
+  }
+
+  function scrollRight() {
+    carousel.scrollBy({ left: 320, behavior: 'smooth' });
+  }
+
+  // Auto-scroll every 5 seconds (change interval as needed)
+  setInterval(() => {
+    // Check if near the end, if so, scroll back to start
+    const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
+    if (carousel.scrollLeft + 340 >= maxScrollLeft) {
+      carousel.scrollTo({ left: 0, behavior: 'smooth' });
+    } else {
+      scrollRight();
+    }
+  }, 5000); // 5000 ms = 5 seconds
+</script>
+
+
+
 <!-- Twitter Embed Script -->
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-<!-- Manual Scroll Buttons (Mobile Support) -->
-<script>
-  function scrollLeft() {
-    document.getElementById('social-carousel').scrollBy({ left: -300, behavior: 'smooth' });
-  }
-  function scrollRight() {
-    document.getElementById('social-carousel').scrollBy({ left: 300, behavior: 'smooth' });
-  }
-</script>
+
 
 
 
