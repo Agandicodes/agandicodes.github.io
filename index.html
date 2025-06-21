@@ -464,8 +464,6 @@ Come be part
     </section><!-- End Team Section -->
 
 <!-- ======= Custom Social Feed Section ======= -->
-<!-- ======= Custom Social Feed Section (Updated with Twitter iframe embeds) ======= -->
-<!-- ======= Custom Social Feed Section ======= -->
 <section id="social" class="py-5 bg-light">
   <div class="container">
     <div class="section-title text-center">
@@ -479,17 +477,18 @@ Come be part
       <button onclick="scrollRight()" class="btn btn-outline-dark">➡️</button>
     </div>
 
-    <div id="social-carousel" class="d-flex overflow-auto gap-3 flex-nowrap px-2" style="scroll-behavior: smooth;">
+    <div id="social-carousel" class="d-flex overflow-auto gap-3 flex-nowrap px-2"
+         style="scroll-behavior: smooth; scroll-snap-type: x mandatory;">
       
       <!-- Twitter Card 1 -->
-      <div class="card flex-shrink-0" style="width: 320px; position: relative;">
+      <div class="card flex-shrink-0" style="width: 300px; height: 450px; overflow-y: auto; position: relative; scroll-snap-align: start;">
         <a href="https://twitter.com/AgandiCodes" target="_blank"
            style="position: absolute; top: 10px; right: 10px;"
            class="btn btn-sm btn-outline-primary">Follow</a>
         <div class="card-body">
           <h5 class="card-title">Post from X</h5>
           <blockquote class="twitter-tweet">
-            <p lang="en" dir="ltr">🧑‍💻Untilizing structured database with structed query language. for relational database management system <a href="https://t.co/1LwclB0EAm">pic.twitter.com/1LwclB0EAm</a></p>&mdash; AgandiCodes (@AgandiCodes) 
+            <p lang="en" dir="ltr">🧑‍💻Untilizing structured database with structed query language. for relational database management system <a href="https://t.co/1LwclB0EAm">pic.twitter.com/1LwclB0EAm</a></p>&mdash; AgandiCodes (@AgandiCodes)
             <a href="https://twitter.com/AgandiCodes/status/1904074434878599647">March 24, 2025</a>
           </blockquote>
           <p class="text-muted small mt-2">Posted: Mar 24, 2025</p>
@@ -497,7 +496,7 @@ Come be part
       </div>
 
       <!-- Twitter Card 2 -->
-      <div class="card flex-shrink-0" style="width: 320px; position: relative;">
+      <div class="card flex-shrink-0" style="width: 300px; height: 450px; overflow-y: auto; position: relative; scroll-snap-align: start;">
         <a href="https://twitter.com/AgandiCodes" target="_blank"
            style="position: absolute; top: 10px; right: 10px;"
            class="btn btn-sm btn-outline-primary">Follow</a>
@@ -511,7 +510,7 @@ Come be part
       </div>
 
       <!-- Twitter Card 3 -->
-      <div class="card flex-shrink-0" style="width: 320px; position: relative;">
+      <div class="card flex-shrink-0" style="width: 300px; height: 450px; overflow-y: auto; position: relative; scroll-snap-align: start;">
         <a href="https://twitter.com/AgandiCodes" target="_blank"
            style="position: absolute; top: 10px; right: 10px;"
            class="btn btn-sm btn-outline-primary">Follow</a>
@@ -525,7 +524,7 @@ Come be part
       </div>
 
       <!-- YouTube Video 1 -->
-      <div class="card flex-shrink-0" style="width: 320px; position: relative;">
+      <div class="card flex-shrink-0" style="width: 300px; height: 450px; overflow-y: auto; position: relative; scroll-snap-align: start;">
         <a href="https://www.youtube.com/@AgandiCodes" target="_blank" 
            style="position: absolute; top: 10px; right: 10px;" 
            class="btn btn-sm btn-outline-danger">Subscribe</a>
@@ -565,14 +564,8 @@ Come be part
   }, 5000);
 </script>
 
-<!-- Twitter Embed Script (only once!) -->
+<!-- Twitter Embed Script -->
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-
-
-
-
-
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
