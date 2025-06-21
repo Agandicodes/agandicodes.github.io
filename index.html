@@ -464,7 +464,7 @@ Come be part
     </section><!-- End Team Section -->
 
 <!-- ======= Custom Social Feed Section ======= -->
-<section id="social" class="py-5 bg-light">
+<section id="social" class="py-5 social-feed">
   <div class="container">
     <div class="section-title text-center">
       <h2>Social Feed</h2>
@@ -541,6 +541,7 @@ Come be part
   </div>
 </section>
 
+
 <!-- Scroll Controls Script -->
 <script>
   const carousel = document.getElementById('social-carousel');
@@ -566,6 +567,49 @@ Come be part
 
 <!-- Twitter Embed Script -->
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<!-- DarkMode Social Feeds -->
+    <style>
+  /* Dark mode for social feed */
+  body.dark-mode .social-feed {
+    background-color: #121212;
+    color: #e0e0e0;
+  }
+
+  body.dark-mode .social-feed .card {
+    background-color: #1e1e1e;
+    border: 1px solid #444;
+    color: #e0e0e0;
+  }
+
+  body.dark-mode .social-feed .card .btn-outline-primary {
+    border-color: #4dabf7;
+    color: #4dabf7;
+  }
+
+  body.dark-mode .social-feed .card .btn-outline-primary:hover {
+    background-color: #4dabf7;
+    color: #000;
+  }
+
+  body.dark-mode .social-feed .btn-outline-danger {
+    border-color: #f66;
+    color: #f66;
+  }
+
+  body.dark-mode .social-feed .btn-outline-danger:hover {
+    background-color: #f66;
+    color: #000;
+  }
+
+  body.dark-mode .social-feed .section-title h2,
+  body.dark-mode .social-feed .section-title p {
+    color: #f0f0f0;
+  }
+
+  body.dark-mode .social-feed .text-muted {
+    color: #bbb !important;
+  }
+</style>
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
