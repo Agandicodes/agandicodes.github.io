@@ -465,6 +465,7 @@ Come be part
 
 <!-- ======= Custom Social Feed Section ======= -->
 <!-- ======= Custom Social Feed Section (Updated with Twitter iframe embeds) ======= -->
+<!-- ======= Custom Social Feed Section ======= -->
 <section id="social" class="py-5 bg-light">
   <div class="container">
     <div class="section-title text-center">
@@ -480,51 +481,54 @@ Come be part
 
     <div id="social-carousel" class="d-flex overflow-auto gap-3 flex-nowrap px-2" style="scroll-behavior: smooth;">
       
-<!-- ======= Updated Twitter Card 1 ======= -->
-<div class="card flex-shrink-0" style="width: 300px; position: relative;">
-  <a href="https://x.com/AgandiCodes" target="_blank"
-     style="position: absolute; top: 10px; right: 10px;"
-     class="btn btn-sm btn-outline-primary">Follow</a>
-  <div class="card-body">
-    <h5 class="card-title">Post from X</h5>
-    <blockquote class="twitter-tweet">
-      <a href="https://x.com/AgandiCodes/status/1904074434878599647"></a>
-    </blockquote>
-    <p class="text-muted small mt-2">Posted: Apr 18, 2024</p>
-  </div>
-</div>
+      <!-- Twitter Card 1 -->
+      <div class="card flex-shrink-0" style="width: 320px; position: relative;">
+        <a href="https://twitter.com/AgandiCodes" target="_blank"
+           style="position: absolute; top: 10px; right: 10px;"
+           class="btn btn-sm btn-outline-primary">Follow</a>
+        <div class="card-body">
+          <h5 class="card-title">Post from X</h5>
+          <blockquote class="twitter-tweet">
+            <p lang="en" dir="ltr">🧑‍💻Untilizing structured database with structed query language. for relational database management system <a href="https://t.co/1LwclB0EAm">pic.twitter.com/1LwclB0EAm</a></p>&mdash; AgandiCodes (@AgandiCodes) 
+            <a href="https://twitter.com/AgandiCodes/status/1904074434878599647">March 24, 2025</a>
+          </blockquote>
+          <p class="text-muted small mt-2">Posted: Mar 24, 2025</p>
+        </div>
+      </div>
 
-<!-- ======= Updated Twitter Card 2 ======= -->
-<div class="card flex-shrink-0" style="width: 300px; position: relative;">
-  <a href="https://x.com/AgandiCodes" target="_blank"
-     style="position: absolute; top: 10px; right: 10px;"
-     class="btn btn-sm btn-outline-primary">Follow</a>
-  <div class="card-body">
-    <h5 class="card-title">Post from X</h5>
-    <blockquote class="twitter-tweet">
-      <a href="https://x.com/AgandiCodes/status/1634981902821228545"></a>
-    </blockquote>
-    <p class="text-muted small mt-2">Posted: Mar 10, 2023</p>
-  </div>
-</div>
+      <!-- Twitter Card 2 -->
+      <div class="card flex-shrink-0" style="width: 320px; position: relative;">
+        <a href="https://twitter.com/AgandiCodes" target="_blank"
+           style="position: absolute; top: 10px; right: 10px;"
+           class="btn btn-sm btn-outline-primary">Follow</a>
+        <div class="card-body">
+          <h5 class="card-title">Post from X</h5>
+          <blockquote class="twitter-tweet">
+            <a href="https://twitter.com/AgandiCodes/status/1634981902821228545"></a>
+          </blockquote>
+          <p class="text-muted small mt-2">Posted: Mar 10, 2023</p>
+        </div>
+      </div>
 
-<!-- ======= Updated Twitter Card 3 ======= -->
-<div class="card flex-shrink-0" style="width: 300px; position: relative;">
-  <a href="https://x.com/AgandiCodes" target="_blank"
-     style="position: absolute; top: 10px; right: 10px;"
-     class="btn btn-sm btn-outline-primary">Follow</a>
-  <div class="card-body">
-    <h5 class="card-title">Post from X</h5>
-    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">🧑‍💻Untilizing structured database with structed query language. for relational database management system <a href="https://t.co/1LwclB0EAm">pic.twitter.com/1LwclB0EAm</a></p>&mdash; AgandiCodes (@AgandiCodes) <a href="https://twitter.com/AgandiCodes/status/1904074434878599647?ref_src=twsrc%5Etfw">March 24, 2025</a></blockquote> 
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    <p class="text-muted small mt-2">Posted: Dec 15, 2022</p>
-  </div>
-</div>
-
+      <!-- Twitter Card 3 -->
+      <div class="card flex-shrink-0" style="width: 320px; position: relative;">
+        <a href="https://twitter.com/AgandiCodes" target="_blank"
+           style="position: absolute; top: 10px; right: 10px;"
+           class="btn btn-sm btn-outline-primary">Follow</a>
+        <div class="card-body">
+          <h5 class="card-title">Post from X</h5>
+          <blockquote class="twitter-tweet">
+            <a href="https://twitter.com/AgandiCodes/status/1603623831951724545"></a>
+          </blockquote>
+          <p class="text-muted small mt-2">Posted: Dec 15, 2022</p>
+        </div>
+      </div>
 
       <!-- YouTube Video 1 -->
-      <div class="card flex-shrink-0" style="width: 300px; position: relative;">
-        <a href="https://www.youtube.com/@AgandiCodes" target="_blank" style="position: absolute; top: 10px; right: 10px;" class="btn btn-sm btn-outline-danger">Subscribe</a>
+      <div class="card flex-shrink-0" style="width: 320px; position: relative;">
+        <a href="https://www.youtube.com/@AgandiCodes" target="_blank" 
+           style="position: absolute; top: 10px; right: 10px;" 
+           class="btn btn-sm btn-outline-danger">Subscribe</a>
         <div class="card-body">
           <h5 class="card-title">Latest YouTube Video</h5>
           <div class="ratio ratio-16x9">
@@ -543,29 +547,27 @@ Come be part
   const carousel = document.getElementById('social-carousel');
 
   function scrollLeft() {
-    carousel.scrollBy({ left: -320, behavior: 'smooth' });
+    carousel.scrollBy({ left: -340, behavior: 'smooth' });
   }
 
   function scrollRight() {
-    carousel.scrollBy({ left: 320, behavior: 'smooth' });
+    carousel.scrollBy({ left: 340, behavior: 'smooth' });
   }
 
-  // Auto-scroll every 5 seconds (change interval as needed)
+  // Auto-scroll every 5 seconds
   setInterval(() => {
-    // Check if near the end, if so, scroll back to start
     const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
-    if (carousel.scrollLeft + 340 >= maxScrollLeft) {
+    if (carousel.scrollLeft + 360 >= maxScrollLeft) {
       carousel.scrollTo({ left: 0, behavior: 'smooth' });
     } else {
       scrollRight();
     }
-  }, 5000); // 5000 ms = 5 seconds
+  }, 5000);
 </script>
 
-
-
-<!-- Twitter Embed Script -->
+<!-- Twitter Embed Script (only once!) -->
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 
 
 
