@@ -60,10 +60,7 @@
 </head>
 
 <body>
-
   <!-- ======= Header ======= -->
- 
-
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center">
 
@@ -77,8 +74,6 @@
           <li><a class="nav-link scrollto" href="#about">About</a></li>
           <li><a class="nav-link scrollto" href="#services">Services</a></li>
           <li><a class="nav-link scrollto" href="#team">Team</a></li>
-<!--           <li><button id="theme-toggle" class="nav-link scrollto btn btn-sm btn-outline-light ms-2"> 🌙 </button></li> -->
-<!--           <li><button id="theme-toggle" class="nav-link scrollto btn btn-sm btn-outline-light ms-2 px-3">🌙</button></li> -->
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
           <li><a class="nav-link" href="https://agandicodestrends.blogspot.com" target="_blank">Blog</a></li>
           <li><a class="getstarted scrollto" href="#about">Get Started</a></li>
@@ -113,9 +108,6 @@ Come be part
   </section><!-- End Hero -->
 
   <main id="main">
-
-
-
     <!-- ======= About Us Section ======= -->
     <section id="about" class="about">
       <div class="container" data-aos="fade-up">
@@ -144,8 +136,6 @@ Come be part
 
       </div>
     </section><!-- End About Us Section -->
-
-    <!-- ======= Why Us Section ======= -->
 
     <!-- ======= Skills Section ======= -->
     <section id="skills" class="skills">
@@ -594,6 +584,12 @@ Come be part
 <!-- DarkMode Social Feeds -->
     <style>
   /* Dark mode for social feed */
+      @media (max-width: 768px) {
+  #social-carousel > .card {
+    scroll-snap-align: center;
+  }
+}
+
   body.dark-mode .social-feed {
     background-color: #121212;
     color: #e0e0e0;
