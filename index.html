@@ -467,7 +467,7 @@ Come be part
 <section id="social" class="py-5 social-feed">
   <div class="container">
     <div class="section-title text-center">
-      <h2>Social Feed</h2>
+      <h2>SocialMedia Posts</h2>
       <p>Follow our latest updates</p>
     </div>
 
@@ -543,7 +543,7 @@ Come be part
 
 
 <!-- Scroll Controls Script -->
-<script>
+<!-- <script>
   const carousel = document.getElementById('social-carousel');
 
   function scrollLeft() {
@@ -563,7 +563,31 @@ Come be part
       scrollRight();
     }
   }, 5000);
+</script> -->
+    <script>
+  const carousel = document.getElementById('social-carousel');
+
+  function scrollLeft() {
+    carousel.scrollBy({ left: -340, behavior: 'smooth' });
+  }
+
+  function scrollRight() {
+    carousel.scrollBy({ left: 340, behavior: 'smooth' });
+  }
+
+  // Auto-scroll every 5 seconds
+  setInterval(() => {
+    const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
+    const isAtEnd = Math.ceil(carousel.scrollLeft + carousel.clientWidth) >= maxScrollLeft;
+
+    if (isAtEnd) {
+      carousel.scrollTo({ left: 0, behavior: 'smooth' });
+    } else {
+      scrollRight();
+    }
+  }, 5000);
 </script>
+
 
 <!-- Twitter Embed Script -->
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
