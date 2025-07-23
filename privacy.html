@@ -1,20 +1,16 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Privacy Policy</title>
-  <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Jost:300,400,500,600,700|Poppins:300,400,500,600,700" rel="stylesheet">
   
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
@@ -25,48 +21,22 @@
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-<!--   No right click -->
+  <!-- No right-click -->
   <script>
-  document.addEventListener('contextmenu', function (e) {
-    e.preventDefault();
-  });
-</script>
-
-<!--   change theme -->
-  <script>
-    // Apply early for preloader
-    (function () {
-      const theme = localStorage.getItem('theme');
-      if (theme === 'dark') {
-        document.documentElement.classList.add('dark-mode');
-      }
-    })();
+    document.addEventListener('contextmenu', function (e) {
+      e.preventDefault();
+    });
   </script>
+
+  <!-- Theme toggle script -->
+ 
+
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-<!-- change theme -->
-   <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const toggleBtn = document.getElementById('theme-toggle');
-    const currentTheme = localStorage.getItem('theme');
-
-    if (currentTheme === 'dark') {
-      document.body.classList.add('dark-mode');
-      toggleBtn.textContent = '☀️';
-    }
-
-    toggleBtn.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-      const isDark = document.body.classList.contains('dark-mode');
-      toggleBtn.textContent = isDark ? '☀️' : '🌙';
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    });
-  });
-</script>
 
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: "Open Sans", sans-serif;
       max-width: 900px;
       margin: 40px auto;
       padding: 20px;
@@ -83,6 +53,23 @@
     }
     a:hover {
       text-decoration: underline;
+    }
+    .visit-btn {
+      margin-top: 30px;
+      text-align: center;
+    }
+    .visit-btn a {
+      background-color: #007bff;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-block;
+      transition: background-color 0.3s;
+    }
+    .visit-btn a:hover {
+      background-color: #0056b3;
     }
   </style>
 </head>
@@ -174,5 +161,9 @@
     If you have questions or concerns regarding this policy or your data rights, contact us at:
   </p>
   <p>Email: <a href="mailto:agandicodes@gmail.com">agandicodes@gmail.com</a></p>
+
+  <div class="visit-btn">
+    <a href="https://agandicodes.github.io" target="_blank">🌐 Visit AgandiCodes Website</a>
+  </div>
 </body>
 </html>
