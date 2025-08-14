@@ -1,13 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
   <title>QR Code Generator</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <meta content="" name="description">
-  <meta content="" name="keywords">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -99,9 +95,24 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>
+let logoDataURL = null;
+
+// Read logo immediately after selection
+document.getElementById("logoInput").addEventListener("change", function(e) {
+    const file = e.target.files[0];
+    if (!file) {
+        logoDataURL = null;
+        return;
+    }
+    const reader = new FileReader();
+    reader.onload = function(event) {
+        logoDataURL = event.target.result; // Store Base64 image in memory
+    };
+    reader.readAsDataURL(file);
+});
+
 function generateQRCode() {
     const text = document.getElementById('textInput').value.trim();
-    const logoFile = document.getElementById('logoInput').files[0];
     if (!text) return alert("Please enter text!");
 
     let qrData = text;
@@ -124,26 +135,23 @@ function generateQRCode() {
         correctLevel: QRCode.CorrectLevel.H
     });
 
+    // Wait until QR is drawn, then overlay logo if available
     function tryAddLogo() {
         const canvas = document.querySelector('#qrcode canvas');
         if (!canvas) {
             requestAnimationFrame(tryAddLogo);
             return;
         }
-        if (logoFile) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const img = new Image();
-                img.src = e.target.result;
-                img.onload = function() {
-                    const ctx = canvas.getContext('2d');
-                    const logoSize = canvas.width * 0.2;
-                    const x = (canvas.width - logoSize) / 2;
-                    const y = (canvas.height - logoSize) / 2;
-                    ctx.drawImage(img, x, y, logoSize, logoSize);
-                }
+        if (logoDataURL) {
+            const img = new Image();
+            img.src = logoDataURL;
+            img.onload = function() {
+                const ctx = canvas.getContext('2d');
+                const logoSize = canvas.width * 0.2;
+                const x = (canvas.width - logoSize) / 2;
+                const y = (canvas.height - logoSize) / 2;
+                ctx.drawImage(img, x, y, logoSize, logoSize);
             };
-            reader.readAsDataURL(logoFile);
         }
     }
     requestAnimationFrame(tryAddLogo);
