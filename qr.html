@@ -4,7 +4,7 @@
   <title>QR Code Generator</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="" name="description">
+  <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
@@ -79,6 +79,18 @@
     #downloadBtn:hover {
       background: #1976D2;
     }
+    .logo-status {
+      margin: 5px 0;
+      font-size: 14px;
+      color: #666;
+      text-align: center;
+    }
+    .logo-success {
+      color: #4CAF50;
+    }
+    .logo-error {
+      color: #f44336;
+    }
   </style>
 </head>
 <body>
@@ -87,6 +99,7 @@
   <h2>QR Code Generator</h2>
   <input type="text" id="textInput" placeholder="Enter URL, phone, email..." />
   <input type="file" id="logoInput" accept="image/*">
+  <div id="logoStatus" class="logo-status"></div>
   <button onclick="generateQRCode()">Generate QR Code</button>
 
   <div id="qrcode-container">
@@ -98,95 +111,203 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>
 let logoDataURL = null;
+let lastSuccessfulLogo = null;
 
-function promptReselectLogo(message) {
-    if (confirm(message + "\nWould you like to reselect the logo now?")) {
-        document.getElementById("logoInput").click();
-    }
+function updateLogoStatus(message, isError = false) {
+  const statusElement = document.getElementById('logoStatus');
+  statusElement.textContent = message;
+  statusElement.className = isError ? 'logo-status logo-error' : 'logo-status logo-success';
 }
 
-// --- Updated FileReader handling ---
-document.getElementById("logoInput").addEventListener("change", function(e) {
-    const file = e.target.files[0];
-    if (!file) {
-        logoDataURL = null;
-        return;
+function promptReselectLogo(message) {
+  updateLogoStatus(message, true);
+  if (confirm(message + "\nWould you like to reselect the logo now?")) {
+    document.getElementById("logoInput").click();
+  }
+}
+
+// Store successful logo in localStorage
+function storeSuccessfulLogo(dataURL) {
+  try {
+    localStorage.setItem('lastSuccessfulLogo', dataURL);
+    lastSuccessfulLogo = dataURL;
+    updateLogoStatus("Logo loaded successfully!");
+  } catch (e) {
+    console.warn("Could not store logo in localStorage:", e);
+    // Fallback to memory storage only
+    lastSuccessfulLogo = dataURL;
+  }
+}
+
+// Try to load logo from localStorage on page load
+function loadStoredLogo() {
+  try {
+    const storedLogo = localStorage.getItem('lastSuccessfulLogo');
+    if (storedLogo) {
+      lastSuccessfulLogo = storedLogo;
+      updateLogoStatus("Previous logo loaded. Select a new one or generate QR code.");
     }
-    const reader = new FileReader();
-    reader.onload = function(event) {
-        try {
-            logoDataURL = event.target.result + "?t=" + Date.now(); // force reload if same file
-            console.log("Logo loaded successfully");
-        } catch (err) {
-            console.error("Error processing image:", err);
-            promptReselectLogo("Could not process logo.");
-            logoDataURL = null;
-        }
-    };
-    reader.onerror = function() {
-        promptReselectLogo("Error reading file.");
+  } catch (e) {
+    console.warn("Could not access localStorage:", e);
+  }
+}
+
+// Load any stored logo when page loads
+window.addEventListener('DOMContentLoaded', loadStoredLogo);
+
+document.getElementById("logoInput").addEventListener("change", function(e) {
+  const file = e.target.files[0];
+  if (!file) {
+    logoDataURL = null;
+    updateLogoStatus("No logo selected");
+    return;
+  }
+  
+  // Validate file type
+  if (!file.type.match('image.*')) {
+    promptReselectLogo("Please select a valid image file (JPEG, PNG, etc.)");
+    return;
+  }
+
+  // Validate file size (max 2MB)
+  if (file.size > 2 * 1024 * 1024) {
+    promptReselectLogo("Image file is too large (max 2MB)");
+    return;
+  }
+
+  const reader = new FileReader();
+  
+  reader.onloadstart = function() {
+    updateLogoStatus("Loading logo...");
+  };
+  
+  reader.onload = function(event) {
+    try {
+      // Create a new image to validate it loads properly
+      const testImg = new Image();
+      testImg.onload = function() {
+        logoDataURL = event.target.result;
+        storeSuccessfulLogo(logoDataURL);
+      };
+      testImg.onerror = function() {
+        promptReselectLogo("The selected file is not a valid image");
         logoDataURL = null;
-    };
-    reader.readAsDataURL(file);
+      };
+      testImg.src = event.target.result;
+    } catch (err) {
+      console.error("Error processing image:", err);
+      promptReselectLogo("Could not process logo.");
+      logoDataURL = null;
+    }
+  };
+  
+  reader.onerror = function() {
+    promptReselectLogo("Error reading file. Please try another image.");
+    logoDataURL = null;
+  };
+  
+  reader.readAsDataURL(file);
 });
 
 function generateQRCode() {
-    const text = document.getElementById('textInput').value.trim();
-    if (!text) return alert("Please enter text!");
+  const text = document.getElementById('textInput').value.trim();
+  if (!text) return alert("Please enter text!");
 
-    let qrData = text;
-    const phonePattern = /^\+?\d{7,15}$/;
-    const emailPattern = /^[^@]+@[^@]+\.[^@]+$/;
+  let qrData = text;
+  const phonePattern = /^\+?\d{7,15}$/;
+  const emailPattern = /^[^@]+@[^@]+\.[^@]+$/;
 
-    if (phonePattern.test(text)) qrData = `tel:${text}`;
-    else if (emailPattern.test(text)) qrData = `mailto:${text}`;
-    else if (text.toLowerCase().startsWith("wa:")) qrData = `https://wa.me/${text.slice(3)}`;
-    else if (!text.match(/^https?:\/\//)) qrData = `https://${text}`;
+  if (phonePattern.test(text)) qrData = `tel:${text}`;
+  else if (emailPattern.test(text)) qrData = `mailto:${text}`;
+  else if (text.toLowerCase().startsWith("wa:")) qrData = `https://wa.me/${text.slice(3)}`;
+  else if (!text.match(/^https?:\/\//)) qrData = `https://${text}`;
 
-    document.getElementById('qrcode').innerHTML = "";
+  document.getElementById('qrcode').innerHTML = "";
 
-    new QRCode(document.getElementById("qrcode"), {
-        text: qrData,
-        width: 250,
-        height: 250,
-        colorDark: "#000000",
-        colorLight: "#ffffff",
-        correctLevel: QRCode.CorrectLevel.H
-    });
+  new QRCode(document.getElementById("qrcode"), {
+    text: qrData,
+    width: 250,
+    height: 250,
+    colorDark: "#000000",
+    colorLight: "#ffffff",
+    correctLevel: QRCode.CorrectLevel.H
+  });
 
-    function tryAddLogo() {
-        const canvas = document.querySelector('#qrcode canvas');
-        if (!canvas) {
-            requestAnimationFrame(tryAddLogo);
-            return;
-        }
-        if (logoDataURL) {
-            const img = new Image();
-            img.crossOrigin = "anonymous"; // avoid tainting canvas
-            img.onload = function() {
-                const ctx = canvas.getContext('2d');
-                const logoSize = canvas.width * 0.2;
-                const x = (canvas.width - logoSize) / 2;
-                const y = (canvas.height - logoSize) / 2;
-                ctx.drawImage(img, x, y, logoSize, logoSize);
-            };
-            img.onerror = function() {
-                promptReselectLogo("Failed to load logo image.");
-            };
-            img.src = logoDataURL;
-        }
+  function tryAddLogo(retryCount = 0) {
+    const canvas = document.querySelector('#qrcode canvas');
+    if (!canvas) {
+      if (retryCount < 10) { // Limit retries to prevent infinite loop
+        setTimeout(() => tryAddLogo(retryCount + 1), 100);
+      } else {
+        console.error("QR code canvas not found after multiple attempts");
+      }
+      return;
     }
-    setTimeout(tryAddLogo, 50); // small delay for QR render stability
 
-    document.getElementById('downloadBtn').style.display = "block";
+    const logoToUse = logoDataURL || lastSuccessfulLogo;
+    if (logoToUse) {
+      const img = new Image();
+      img.crossOrigin = "anonymous";
+      
+      img.onload = function() {
+        try {
+          const ctx = canvas.getContext('2d');
+          const logoSize = canvas.width * 0.2;
+          const x = (canvas.width - logoSize) / 2;
+          const y = (canvas.height - logoSize) / 2;
+          
+          // Save the original QR code data
+          const qrImageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+          
+          // Draw the logo
+          ctx.drawImage(img, x, y, logoSize, logoSize);
+          
+          // If we used a stored logo, update the status
+          if (logoToUse === lastSuccessfulLogo && !logoDataURL) {
+            updateLogoStatus("Used previously saved logo");
+          }
+        } catch (err) {
+          console.error("Error drawing logo:", err);
+          promptReselectLogo("Error adding logo to QR code");
+        }
+      };
+      
+      img.onerror = function() {
+        if (logoToUse === lastSuccessfulLogo) {
+          // Clear the invalid stored logo
+          try {
+            localStorage.removeItem('lastSuccessfulLogo');
+          } catch (e) {
+            console.warn("Could not clear localStorage:", e);
+          }
+          lastSuccessfulLogo = null;
+        }
+        promptReselectLogo("Failed to load logo image.");
+      };
+      
+      img.src = logoToUse;
+    } else {
+      updateLogoStatus("No logo selected");
+    }
+  }
+
+  setTimeout(() => tryAddLogo(), 50); // initial delay for QR render stability
+  document.getElementById('downloadBtn').style.display = "block";
 }
 
 function downloadQR() {
-    const canvas = document.querySelector('#qrcode canvas');
-    const link = document.createElement('a');
-    link.href = canvas.toDataURL("image/png");
-    link.download = "qr_code.png";
-    link.click();
+  const canvas = document.querySelector('#qrcode canvas');
+  if (!canvas) {
+    alert("Please generate a QR code first");
+    return;
+  }
+  
+  const link = document.createElement('a');
+  link.href = canvas.toDataURL("image/png");
+  link.download = "qr_code.png";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
 }
 </script>
 
