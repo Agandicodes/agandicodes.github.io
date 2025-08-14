@@ -92,21 +92,17 @@ function generateQRCode() {
     const logoFile = document.getElementById('logoInput').files[0];
     if(!text) return alert("Please enter text!");
 
-    // Auto-detect type
     let qrData = text;
     const phonePattern = /^\+?\d{7,15}$/;
     const emailPattern = /^[^@]+@[^@]+\.[^@]+$/;
-    const whatsappPattern = /^\+?\d{7,15}$/; // same as phone
     if(phonePattern.test(text)) qrData = `tel:${text}`;
     else if(emailPattern.test(text)) qrData = `mailto:${text}`;
     else if(text.toLowerCase().startsWith("wa:")) qrData = `https://wa.me/${text.slice(3)}`;
     else if(!text.match(/^https?:\/\//)) qrData = `https://${text}`;
 
-    // Clear previous QR
     document.getElementById('qrcode').innerHTML = "";
 
-    // Generate QR code
-    qrCode = new QRCode(document.getElementById("qrcode"), {
+    new QRCode(document.getElementById("qrcode"), {
         text: qrData,
         width: 250,
         height: 250,
@@ -116,25 +112,28 @@ function generateQRCode() {
     });
 
     if(logoFile) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            const img = new Image();
-            img.src = e.target.result;
-            img.onload = function() {
-                const canvas = document.querySelector('#qrcode canvas');
-                const ctx = canvas.getContext('2d');
-                // Resize logo to 20% of QR code
-                const logoSize = canvas.width * 0.2;
-                const x = (canvas.width - logoSize) / 2;
-                const y = (canvas.height - logoSize) / 2;
-                ctx.drawImage(img, x, y, logoSize, logoSize);
+        setTimeout(() => {  // wait until QR is drawn
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const img = new Image();
+                img.src = e.target.result;
+                img.onload = function() {
+                    const canvas = document.querySelector('#qrcode canvas');
+                    if (!canvas) return;
+                    const ctx = canvas.getContext('2d');
+                    const logoSize = canvas.width * 0.2;
+                    const x = (canvas.width - logoSize) / 2;
+                    const y = (canvas.height - logoSize) / 2;
+                    ctx.drawImage(img, x, y, logoSize, logoSize);
+                }
             }
-        }
-        reader.readAsDataURL(logoFile);
+            reader.readAsDataURL(logoFile);
+        }, 100); // 100ms delay
     }
 
     document.getElementById('downloadBtn').style.display = "block";
 }
+
 
 function downloadQR() {
     const canvas = document.querySelector('#qrcode canvas');
