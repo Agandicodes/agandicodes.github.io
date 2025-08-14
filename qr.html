@@ -1,30 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>QR Code Generator with Logo</title>
-    <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
+      padding: 0;
       height: 100vh;
+      background: linear-gradient(135deg, #89f7fe, #66a6ff);
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(135deg, #89f7fe, #66a6ff);
     }
     .form-container {
       background: white;
-      padding: 30px;
-      border-radius: 20px;
+      padding: 20px;
+      border-radius: 15px;
       box-shadow: 0 0 20px rgba(0,0,0,0.2);
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 320px;
+      max-width: 90%;
+      width: 350px;
+    }
+    h2 {
+      margin-bottom: 15px;
+      text-align: center;
     }
     input, button {
       width: 100%;
@@ -33,6 +38,7 @@
       border-radius: 8px;
       border: 1px solid #ccc;
       font-size: 16px;
+      box-sizing: border-box;
     }
     button {
       background: #4CAF50;
@@ -44,7 +50,7 @@
       background: #45a049;
     }
     #qrcode-container {
-      margin-top: 20px;
+      margin-top: 15px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -85,20 +91,19 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>
-let qrCode;
-
 function generateQRCode() {
     const text = document.getElementById('textInput').value.trim();
     const logoFile = document.getElementById('logoInput').files[0];
-    if(!text) return alert("Please enter text!");
+    if (!text) return alert("Please enter text!");
 
     let qrData = text;
     const phonePattern = /^\+?\d{7,15}$/;
     const emailPattern = /^[^@]+@[^@]+\.[^@]+$/;
-    if(phonePattern.test(text)) qrData = `tel:${text}`;
-    else if(emailPattern.test(text)) qrData = `mailto:${text}`;
-    else if(text.toLowerCase().startsWith("wa:")) qrData = `https://wa.me/${text.slice(3)}`;
-    else if(!text.match(/^https?:\/\//)) qrData = `https://${text}`;
+
+    if (phonePattern.test(text)) qrData = `tel:${text}`;
+    else if (emailPattern.test(text)) qrData = `mailto:${text}`;
+    else if (text.toLowerCase().startsWith("wa:")) qrData = `https://wa.me/${text.slice(3)}`;
+    else if (!text.match(/^https?:\/\//)) qrData = `https://${text}`;
 
     document.getElementById('qrcode').innerHTML = "";
 
@@ -106,34 +111,37 @@ function generateQRCode() {
         text: qrData,
         width: 250,
         height: 250,
-        colorDark : "#000000",
-        colorLight : "#ffffff",
-        correctLevel : QRCode.CorrectLevel.H
+        colorDark: "#000000",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H
     });
 
-    if(logoFile) {
-        setTimeout(() => {  // wait until QR is drawn
+    function tryAddLogo() {
+        const canvas = document.querySelector('#qrcode canvas');
+        if (!canvas) {
+            requestAnimationFrame(tryAddLogo);
+            return;
+        }
+        if (logoFile) {
             const reader = new FileReader();
             reader.onload = function(e) {
                 const img = new Image();
                 img.src = e.target.result;
                 img.onload = function() {
-                    const canvas = document.querySelector('#qrcode canvas');
-                    if (!canvas) return;
                     const ctx = canvas.getContext('2d');
                     const logoSize = canvas.width * 0.2;
                     const x = (canvas.width - logoSize) / 2;
                     const y = (canvas.height - logoSize) / 2;
                     ctx.drawImage(img, x, y, logoSize, logoSize);
                 }
-            }
+            };
             reader.readAsDataURL(logoFile);
-        }, 100); // 100ms delay
+        }
     }
+    requestAnimationFrame(tryAddLogo);
 
     document.getElementById('downloadBtn').style.display = "block";
 }
-
 
 function downloadQR() {
     const canvas = document.querySelector('#qrcode canvas');
