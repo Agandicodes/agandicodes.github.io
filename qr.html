@@ -91,6 +91,25 @@
     .logo-error {
       color: #f44336;
     }
+    #clearLogoBtn {
+      margin-top: 5px;
+      padding: 8px 15px;
+      border-radius: 8px;
+      border: none;
+      background: #f44336;
+      color: white;
+      cursor: pointer;
+      display: none;
+    }
+    #clearLogoBtn:hover {
+      background: #d32f2f;
+    }
+    .logo-controls {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
   </style>
 </head>
 <body>
@@ -98,7 +117,10 @@
 <div class="form-container">
   <h2>QR Code Generator</h2>
   <input type="text" id="textInput" placeholder="Enter URL, phone, email..." />
-  <input type="file" id="logoInput" accept="image/*">
+  <div class="logo-controls">
+    <input type="file" id="logoInput" accept="image/*">
+    <button id="clearLogoBtn" onclick="clearLogo()">Clear Logo</button>
+  </div>
   <div id="logoStatus" class="logo-status"></div>
   <button onclick="generateQRCode()">Generate QR Code</button>
 
@@ -119,6 +141,15 @@ function updateLogoStatus(message, isError = false) {
   statusElement.className = isError ? 'logo-status logo-error' : 'logo-status logo-success';
 }
 
+function updateClearLogoButton() {
+  const clearBtn = document.getElementById('clearLogoBtn');
+  if (lastSuccessfulLogo || logoDataURL) {
+    clearBtn.style.display = 'block';
+  } else {
+    clearBtn.style.display = 'none';
+  }
+}
+
 function promptReselectLogo(message) {
   updateLogoStatus(message, true);
   if (confirm(message + "\nWould you like to reselect the logo now?")) {
@@ -132,10 +163,12 @@ function storeSuccessfulLogo(dataURL) {
     localStorage.setItem('lastSuccessfulLogo', dataURL);
     lastSuccessfulLogo = dataURL;
     updateLogoStatus("Logo loaded successfully!");
+    updateClearLogoButton();
   } catch (e) {
     console.warn("Could not store logo in localStorage:", e);
     // Fallback to memory storage only
     lastSuccessfulLogo = dataURL;
+    updateClearLogoButton();
   }
 }
 
@@ -146,10 +179,24 @@ function loadStoredLogo() {
     if (storedLogo) {
       lastSuccessfulLogo = storedLogo;
       updateLogoStatus("Previous logo loaded. Select a new one or generate QR code.");
+      updateClearLogoButton();
     }
   } catch (e) {
     console.warn("Could not access localStorage:", e);
   }
+}
+
+function clearLogo() {
+  logoDataURL = null;
+  try {
+    localStorage.removeItem('lastSuccessfulLogo');
+  } catch (e) {
+    console.warn("Could not clear localStorage:", e);
+  }
+  lastSuccessfulLogo = null;
+  document.getElementById('logoInput').value = '';
+  updateLogoStatus("Logo cleared");
+  updateClearLogoButton();
 }
 
 // Load any stored logo when page loads
@@ -160,6 +207,7 @@ document.getElementById("logoInput").addEventListener("change", function(e) {
   if (!file) {
     logoDataURL = null;
     updateLogoStatus("No logo selected");
+    updateClearLogoButton();
     return;
   }
   
@@ -192,18 +240,21 @@ document.getElementById("logoInput").addEventListener("change", function(e) {
       testImg.onerror = function() {
         promptReselectLogo("The selected file is not a valid image");
         logoDataURL = null;
+        updateClearLogoButton();
       };
       testImg.src = event.target.result;
     } catch (err) {
       console.error("Error processing image:", err);
       promptReselectLogo("Could not process logo.");
       logoDataURL = null;
+      updateClearLogoButton();
     }
   };
   
   reader.onerror = function() {
     promptReselectLogo("Error reading file. Please try another image.");
     logoDataURL = null;
+    updateClearLogoButton();
   };
   
   reader.readAsDataURL(file);
@@ -281,6 +332,7 @@ function generateQRCode() {
             console.warn("Could not clear localStorage:", e);
           }
           lastSuccessfulLogo = null;
+          updateClearLogoButton();
         }
         promptReselectLogo("Failed to load logo image.");
       };
