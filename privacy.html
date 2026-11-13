@@ -5,8 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy Policy — AgandiCodes</title>
   <meta name="theme-color" content="#FFFFFF">
-  
-    <!-- Favicons -->
+  <!-- Favicons -->
   <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
@@ -50,25 +49,65 @@
       overflow-x: hidden; 
     }
 
-    /* Tech Waves Background */
-    .tech-waves { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; pointer-events: none; overflow: hidden; background: var(--bg-color); transition: background 0.3s; }
-    .wave { position: absolute; width: 200%; height: 200%; background: rgba(97, 165, 52, 0.03); border-radius: 45%; animation: wave-rotate 25s infinite linear; }
-    .wave:nth-child(2) { background: rgba(146, 144, 145, 0.03); border-radius: 40%; animation: wave-rotate 35s infinite linear reverse; }
-    body.dark-mode .wave { background: rgba(97, 165, 52, 0.05); }
-    body.dark-mode .wave:nth-child(2) { background: rgba(255, 255, 255, 0.02); }
-    @keyframes wave-rotate { 0% { transform: translate(-25%, -25%) rotate(0deg); } 100% { transform: translate(-25%, -25%) rotate(360deg); } }
+    /* =========================================
+       2. BACKGROUND ANIMATIONS (Gears + IoT + Math + Waves)
+       ========================================= */
+    .tech-waves { 
+      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; 
+      z-index: -1; pointer-events: none; overflow: hidden; 
+      background: var(--bg-color); transition: background 0.3s; 
+    }
+    .wave { 
+      position: absolute; width: 200%; height: 200%; 
+      background: rgba(97, 165, 52, 0.04); border-radius: 45%; 
+      animation: wave-rotate 25s infinite linear; 
+    }
+    .wave:nth-child(2) { 
+      background: rgba(146, 144, 145, 0.04); border-radius: 40%; 
+      animation: wave-rotate 35s infinite linear reverse; 
+    }
+    body.dark-mode .wave { background: rgba(97, 165, 52, 0.08); }
+    body.dark-mode .wave:nth-child(2) { background: rgba(255, 255, 255, 0.04); }
 
-    /* Header & Nav Fix */
+    /* Gear GIF Animation */
+    .bg-gear {
+      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+      background: url('https://github.com/Agandicodes/agandicodes.github.io/blob/main/assets/img/skills.gif?raw=true') no-repeat center center;
+      background-size: cover; opacity: 0.10; pointer-events: none; z-index: -2;
+      mix-blend-mode: overlay; animation: gearFloat 40s infinite alternate ease-in-out;
+    }
+    body.dark-mode .bg-gear { opacity: 0.08; }
+
+    /* IoT & Math subtle icons */
+    .bg-icons {
+      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+      pointer-events: none; z-index: -1; opacity: 0.06;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='10' y='30' font-size='20' fill='%2361A534'%3E∑%3C/text%3E%3Ctext x='50' y='60' font-size='18' fill='%23929091'%3Eπ%3C/text%3E%3Ctext x='80' y='20' font-size='22' fill='%2361A534'%3E∞%3C/text%3E%3Ctext x='20' y='80' font-size='16' fill='%23929091'%3E⚙%3C/text%3E%3Ctext x='70' y='90' font-size='20' fill='%2361A534'%3E📡%3C/text%3E%3C/svg%3E");
+      background-size: 300px 300px; background-repeat: repeat;
+      animation: iconDrift 60s infinite linear;
+    }
+    body.dark-mode .bg-icons { opacity: 0.08; }
+
+    @keyframes wave-rotate { 
+      0% { transform: translate(-25%, -25%) rotate(0deg); } 
+      100% { transform: translate(-25%, -25%) rotate(360deg); } 
+    }
+    @keyframes gearFloat {
+      0% { transform: scale(1) rotate(0deg); }
+      100% { transform: scale(1.1) rotate(5deg); }
+    }
+    @keyframes iconDrift {
+      0% { background-position: 0 0; }
+      100% { background-position: 300px 300px; }
+    }
+
+    /* =========================================
+       3. HEADER & NAVIGATION
+       ========================================= */
     header { 
-      padding: 20px 40px; 
-      display: flex; 
-      justify-content: space-between; 
-      align-items: center; 
-      background: var(--nav-bg); 
-      backdrop-filter: blur(10px); 
-      position: sticky; 
-      top: 0; 
-      z-index: 100; 
+      padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; 
+      background: var(--nav-bg); backdrop-filter: blur(10px); 
+      position: sticky; top: 0; z-index: 100; 
       border-bottom: 1px solid var(--border); 
       transition: background-color 0.3s, border-color 0.3s;
     }
@@ -80,44 +119,55 @@
     
     .nav-links { display: flex; align-items: center; }
     .nav-links a { 
-      margin-left: 20px; 
-      text-decoration: none; 
-      color: var(--nav-text); 
-      font-weight: 600; 
-      transition: color 0.3s; 
+      margin-left: 20px; text-decoration: none; color: var(--nav-text); 
+      font-weight: 600; transition: color 0.3s; 
     }
     .nav-links a:hover { color: var(--codes); }
     
     .theme-btn { 
-      background: transparent; 
-      border: 1px solid var(--nav-text); 
-      padding: 5px 10px; 
-      border-radius: 5px; 
-      cursor: pointer; 
-      color: var(--nav-text); 
-      margin-left: 20px; 
-      font-size: 1.1rem;
+      background: transparent; border: 1px solid var(--nav-text); 
+      padding: 5px 10px; border-radius: 5px; cursor: pointer; 
+      color: var(--nav-text); margin-left: 20px; font-size: 1.1rem;
       transition: all 0.3s;
     }
 
-    /* Layout */
+    /* =========================================
+       4. LAYOUT & CONTENT
+       ========================================= */
     .hero { text-align: center; padding: 60px 20px 40px; }
     .hero h1 { font-family: "Poppins", sans-serif; font-size: 2.5rem; margin-bottom: 10px; }
     .hero p { color: var(--tagline); max-width: 600px; margin: 0 auto; }
     
-    .container-layout { display: grid; grid-template-columns: 280px 1fr; gap: 40px; max-width: 1100px; margin: 0 auto; padding: 0 20px 80px; }
+    .container-layout { 
+      display: grid; grid-template-columns: 280px 1fr; gap: 40px; 
+      max-width: 1100px; margin: 0 auto; padding: 0 20px 80px; 
+    }
     
     /* TOC */
-    .toc { position: sticky; top: 100px; background: var(--card-bg); padding: 20px; border-radius: 12px; border: 1px solid var(--border); height: fit-content; transition: background 0.3s, border 0.3s; }
-    .toc h2 { font-size: 1rem; font-family: "Poppins", sans-serif; margin-bottom: 15px; color: var(--tagline); text-transform: uppercase; letter-spacing: 0.05em; }
+    .toc { 
+      position: sticky; top: 100px; background: var(--card-bg); padding: 20px; 
+      border-radius: 12px; border: 1px solid var(--border); height: fit-content; 
+      transition: background 0.3s, border 0.3s; 
+    }
+    .toc h2 { 
+      font-size: 1rem; font-family: "Poppins", sans-serif; margin-bottom: 15px; 
+      color: var(--tagline); text-transform: uppercase; letter-spacing: 0.05em; 
+    }
     .toc ol { padding-left: 20px; color: var(--tagline); }
     .toc li { margin-bottom: 8px; }
     .toc a { text-decoration: none; color: var(--text-color); transition: color 0.3s; }
     .toc a:hover { color: var(--codes); }
 
     /* Content */
-    .content { background: var(--card-bg); padding: 40px; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.02); transition: background 0.3s, border 0.3s; }
-    .content h2 { font-family: "Poppins", sans-serif; margin: 30px 0 15px; color: var(--codes); font-size: 1.3rem; scroll-margin-top: 100px; }
+    .content { 
+      background: var(--card-bg); padding: 40px; border-radius: 12px; 
+      border: 1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.02); 
+      transition: background 0.3s, border 0.3s; 
+    }
+    .content h2 { 
+      font-family: "Poppins", sans-serif; margin: 30px 0 15px; color: var(--codes); 
+      font-size: 1.3rem; scroll-margin-top: 100px; 
+    }
     .content h2:first-child { margin-top: 0; }
     .content p { margin-bottom: 15px; color: var(--text-color); }
     .content ul { margin-bottom: 15px; padding-left: 20px; }
@@ -126,7 +176,7 @@
     .content a:hover { text-decoration: underline; }
 
     /* =========================================
-       2. CHATBOT WIDGET
+       5. CHATBOT WIDGET
        ========================================= */
     .chat-widget-btn {
       position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px;
@@ -138,8 +188,8 @@
     .chat-widget-btn:hover { transform: scale(1.1); }
     
     .chat-window {
-      position: fixed; bottom: 90px; right: 20px; width: 320px; height: 400px;
-      background: var(--card-bg); border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      position: fixed; bottom: 90px; right: 20px; width: 340px; height: 420px;
+      background: var(--card-bg); border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);
       display: none; flex-direction: column; z-index: 1000; overflow: hidden;
       border: 1px solid var(--border);
     }
@@ -168,6 +218,9 @@
 </head>
 <body>
 
+  <!-- Background Layers -->
+  <div class="bg-gear"></div>
+  <div class="bg-icons"></div>
   <div class="tech-waves"><div class="wave"></div><div class="wave"></div></div>
 
   <header>
@@ -184,51 +237,120 @@
 
   <section class="hero">
     <h1>Privacy Policy</h1>
-    <p>This policy explains what information AgandiCodes collects, how we use it, and the choices available to you.</p>
+    <p>This policy explains what information AgandiCodes collects across all our apps, games, IoT, and HSE tools — and the choices available to you.</p>
   </section>
 
   <div class="container-layout">
     <aside class="toc">
       <h2>On this page</h2>
       <ol>
+        <li><a href="#scope">Scope of This Policy</a></li>
         <li><a href="#collect">Information We Collect</a></li>
         <li><a href="#use">How We Use Data</a></li>
+        <li><a href="#legal-basis">Legal Basis (GDPR)</a></li>
         <li><a href="#third-party">Third-Party Services</a></li>
+        <li><a href="#games-iot">Games, IoT & HSE Data</a></li>
         <li><a href="#compliance">International Compliance</a></li>
         <li><a href="#children">Children's Privacy</a></li>
         <li><a href="#rights">Your Rights</a></li>
         <li><a href="#security">Data Security</a></li>
+        <li><a href="#retention">Data Retention</a></li>
         <li><a href="#changes">Changes</a></li>
         <li><a href="#contact">Contact Us</a></li>
       </ol>
     </aside>
 
     <main class="content">
-      <h2 id="collect">1. Information We Collect</h2>
-      <p>We may collect non-personal data to improve our services and user experience. This includes usage data, device data, and crash logs. Personally identifiable information is only collected with your explicit consent.</p>
+      <h2 id="scope">1. Scope of This Policy</h2>
+      <p>This Privacy Policy applies to all AgandiCodes products and services, including but not limited to:</p>
+      <ul>
+        <li>Mobile and web applications (e.g., Luganda Bible, educational tools)</li>
+        <li>Games (casual, educational, and interactive experiences)</li>
+        <li>IoT (Internet of Things) software and device integrations</li>
+        <li>HSE (Health, Safety, and Environment) monitoring and compliance tools</li>
+        <li>Developer utilities, APIs, and this website</li>
+      </ul>
+      <p>By using any of these Services, you agree to the collection and use of information as described in this policy.</p>
 
-      <h2 id="use">2. How We Use Data</h2>
-      <p>We use collected data to provide and maintain our services, improve app performance, display personalized content or ads (if applicable), and analyze user behavior anonymously.</p>
+      <h2 id="collect">2. Information We Collect</h2>
+      <p>We collect different types of information depending on which Service you use:</p>
+      <ul>
+        <li><strong>Device & Usage Data:</strong> device type, operating system, app version, IP address, crash logs, and general usage statistics.</li>
+        <li><strong>Account Data:</strong> if you create an account, we may collect your email address and display name.</li>
+        <li><strong>Game Data:</strong> in-game progress, virtual item inventory, and gameplay analytics.</li>
+        <li><strong>IoT & HSE Data:</strong> sensor readings, device status, and environmental metrics collected by your IoT/HSE devices (only with your consent and configured settings).</li>
+        <li><strong>Communications:</strong> messages you send through our contact forms or chatbot.</li>
+      </ul>
+      <p>Personally identifiable information (PII) is only collected with your explicit consent or as required to provide a Service.</p>
 
-      <h2 id="third-party">3. Third-Party Services</h2>
-      <p>We may integrate third-party tools and SDKs that have their own privacy practices, such as Google Play Services, Firebase, and AdMob.</p>
+      <h2 id="use">3. How We Use Data</h2>
+      <p>We use collected data to:</p>
+      <ul>
+        <li>Provide, maintain, and improve our Services</li>
+        <li>Personalize your experience (e.g., game recommendations, app settings)</li>
+        <li>Display relevant ads (with your consent where required)</li>
+        <li>Analyze usage trends and fix bugs</li>
+        <li>Ensure the safety and security of our IoT and HSE tools</li>
+        <li>Comply with legal obligations</li>
+      </ul>
 
-      <h2 id="compliance">4. International Compliance</h2>
-      <p>We are committed to complying with global privacy regulations, including GDPR, CCPA, and COPPA.</p>
+      <h2 id="legal-basis">4. Legal Basis for Processing (GDPR)</h2>
+      <p>If you are in the EU/EEA, we process your data under the following legal bases:</p>
+      <ul>
+        <li><strong>Consent:</strong> for personalized ads, optional analytics, and IoT data collection.</li>
+        <li><strong>Contract:</strong> to provide Services you have requested.</li>
+        <li><strong>Legitimate Interest:</strong> for security, fraud prevention, and service improvement.</li>
+        <li><strong>Legal Obligation:</strong> to comply with applicable laws.</li>
+      </ul>
 
-      <h2 id="children">5. Children's Privacy</h2>
-      <p>Our services are not directed to children under the age of 13 without verifiable parental consent. If we become aware that a child has submitted personal information, we will delete it immediately.</p>
+      <h2 id="third-party">5. Third-Party Services</h2>
+      <p>We may integrate third-party tools and SDKs that have their own privacy practices, including:</p>
+      <ul>
+        <li>Google Play Services</li>
+        <li>Firebase (analytics, crash reporting)</li>
+        <li>AdMob (advertising)</li>
+        <li>Cloud hosting and data storage providers</li>
+      </ul>
+      <p>We encourage you to review their privacy policies. We do not control their data practices.</p>
 
-      <h2 id="rights">6. Your Rights</h2>
-      <p>Depending on your location, you have the right to request access to your data, request deletion, or withdraw consent at any time.</p>
+      <h2 id="games-iot">6. Games, IoT & HSE Data</h2>
+      <p><strong>Games:</strong> We collect gameplay analytics to improve game balance and user experience. In-app purchases are processed by platform providers (Google Play, Apple App Store) — we do not store payment card details.</p>
+      <p><strong>IoT & HSE:</strong> Sensor data from IoT/HSE devices is collected only if you enable data sharing. This data is used to provide monitoring, alerts, and compliance reports. You can disable data collection at any time in your device settings. We do not share raw IoT data with third parties without your explicit consent.</p>
 
-      <h2 id="security">7. Data Security</h2>
-      <p>We take reasonable security measures to protect your data. All sensitive transmissions are encrypted, and no unnecessary data is stored on our servers.</p>
+      <h2 id="compliance">7. International Compliance</h2>
+      <p>We are committed to complying with global privacy regulations, including:</p>
+      <ul>
+        <li><strong>GDPR (EU/EEA):</strong> including data subject rights and lawful processing.</li>
+        <li><strong>CCPA/CPRA (California):</strong> including the right to know, delete, and opt-out of the sale of personal information.</li>
+        <li><strong>COPPA (US):</strong> protecting children's privacy online.</li>
+        <li><strong>PIPEDA (Canada)</strong> and other applicable local laws.</li>
+      </ul>
 
-      <h2 id="changes">8. Changes to This Policy</h2>
-      <p>We may update this privacy policy from time to time. Changes will be posted on this page with an updated date.</p>
+      <h2 id="children">8. Children's Privacy</h2>
+      <p>Our Services are not directed to children under the age of 13 (or 16 in the EU/EEA where applicable) without verifiable parental consent. For games and HSE tools intended for younger users, we implement age-gating and parental consent mechanisms. If we become aware that a child has submitted personal information without consent, we will delete it immediately.</p>
 
-      <h2 id="contact">9. Contact Us</h2>
+      <h2 id="rights">9. Your Rights</h2>
+      <p>Depending on your location, you may have the right to:</p>
+      <ul>
+        <li>Access the personal data we hold about you</li>
+        <li>Request correction or deletion of your data</li>
+        <li>Object to or restrict processing</li>
+        <li>Data portability</li>
+        <li>Withdraw consent at any time</li>
+        <li>Lodge a complaint with your local data protection authority</li>
+      </ul>
+      <p>To exercise any of these rights, contact us at <a href="mailto:agandicodes@gmail.com">agandicodes@gmail.com</a>.</p>
+
+      <h2 id="security">10. Data Security</h2>
+      <p>We take reasonable technical and organizational security measures to protect your data, including encryption of sensitive transmissions and access controls. No system is 100% secure, but we continuously review and improve our safeguards.</p>
+
+      <h2 id="retention">11. Data Retention</h2>
+      <p>We retain personal data only as long as necessary to provide the Services, comply with legal obligations, resolve disputes, and enforce agreements. When data is no longer needed, it is securely deleted or anonymized.</p>
+
+      <h2 id="changes">12. Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time. Material changes will be notified through the Services or via email. The "last updated" date will be revised accordingly. Continued use after changes constitutes acceptance.</p>
+
+      <h2 id="contact">13. Contact Us</h2>
       <p>If you have questions or concerns regarding this policy or your data rights, contact us at: <a href="mailto:agandicodes@gmail.com">agandicodes@gmail.com</a></p>
     </main>
   </div>
@@ -241,7 +363,7 @@
       <span id="close-chat" style="cursor:pointer;">✖</span>
     </div>
     <div class="chat-body" id="chat-body">
-      <div class="chat-message msg-bot">Hello! 👋 How can we help you today?</div>
+      <div class="chat-message msg-bot">Hey there! 👋 I'm the AgandiCodes bot. Ask me anything about our privacy practices! 😄</div>
     </div>
     <form class="chat-input-area" id="chat-form">
       <input type="text" id="chat-input" placeholder="Type a message..." autocomplete="off" required>
@@ -275,13 +397,32 @@
       if (e.key === 'theme') { applyTheme(e.newValue === 'dark'); }
     });
 
-    // 2. Chatbot Logic
+    // 2. Chatbot Logic – Fun & Engaging
     const chatBtn = document.getElementById('chat-btn');
     const chatWindow = document.getElementById('chat-window');
     const closeChat = document.getElementById('close-chat');
     const chatForm = document.getElementById('chat-form');
     const chatInput = document.getElementById('chat-input');
     const chatBody = document.getElementById('chat-body');
+
+    const funResponses = [
+      "That's awesome! 😎 Tell me more!",
+      "Ooh, interesting! 🤔 I'm all ears (or circuits).",
+      "You just made my LEDs blink with joy! 💡",
+      "Nice one! 🚀 Keep 'em coming!",
+      "I'm learning so much from you! 📚",
+      "Whoa, you're on fire! 🔥 What else?",
+      "Beep boop! 🤖 That's cool.",
+      "I like your style! 😄",
+      "Fascinating! Let me process that... done! ✅",
+      "You're speaking my language! 💻",
+      "High five! ✋ (virtually, of course)",
+      "That's a great point! 🌟"
+    ];
+
+    function replyFunny() {
+      return funResponses[Math.floor(Math.random() * funResponses.length)];
+    }
 
     chatBtn.addEventListener('click', () => chatWindow.classList.toggle('open'));
     closeChat.addEventListener('click', () => chatWindow.classList.remove('open'));
@@ -311,7 +452,13 @@
       }).then(() => {
         const botBubble = document.createElement('div');
         botBubble.className = 'chat-message msg-bot';
-        botBubble.textContent = "Thanks for reaching out! We have received your message and will reply shortly.";
+        botBubble.textContent = replyFunny();
+        chatBody.appendChild(botBubble);
+        chatBody.scrollTop = chatBody.scrollHeight;
+      }).catch(() => {
+        const botBubble = document.createElement('div');
+        botBubble.className = 'chat-message msg-bot';
+        botBubble.textContent = "Oops! My gears slipped a bit 😅 But I got your message! " + replyFunny();
         chatBody.appendChild(botBubble);
         chatBody.scrollTop = chatBody.scrollHeight;
       });
