@@ -40,36 +40,35 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { 
-      font-family: "Open Sans", sans-serif; 
-      background-color: var(--bg-color); 
-      color: var(--text-color); 
-      line-height: 1.6; 
-      transition: background-color 0.3s, color 0.3s; 
-      overflow-x: hidden; 
+    body {
+      font-family: "Open Sans", sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      transition: background-color 0.3s, color 0.3s;
+      overflow-x: hidden;
     }
 
     /* =========================================
-       2. BACKGROUND ANIMATIONS (Gears + IoT + Math + Waves)
+       2. BACKGROUND ANIMATIONS
        ========================================= */
-    .tech-waves { 
-      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; 
-      z-index: -1; pointer-events: none; overflow: hidden; 
-      background: var(--bg-color); transition: background 0.3s; 
+    .tech-waves {
+      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+      z-index: -1; pointer-events: none; overflow: hidden;
+      background: var(--bg-color); transition: background 0.3s;
     }
-    .wave { 
-      position: absolute; width: 200%; height: 200%; 
-      background: rgba(97, 165, 52, 0.04); border-radius: 45%; 
-      animation: wave-rotate 25s infinite linear; 
+    .wave {
+      position: absolute; width: 200%; height: 200%;
+      background: rgba(97, 165, 52, 0.04); border-radius: 45%;
+      animation: wave-rotate 25s infinite linear;
     }
-    .wave:nth-child(2) { 
-      background: rgba(146, 144, 145, 0.04); border-radius: 40%; 
-      animation: wave-rotate 35s infinite linear reverse; 
+    .wave:nth-child(2) {
+      background: rgba(146, 144, 145, 0.04); border-radius: 40%;
+      animation: wave-rotate 35s infinite linear reverse;
     }
     body.dark-mode .wave { background: rgba(97, 165, 52, 0.08); }
     body.dark-mode .wave:nth-child(2) { background: rgba(255, 255, 255, 0.04); }
 
-    /* Gear GIF Animation */
     .bg-gear {
       position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
       background: url('https://github.com/Agandicodes/agandicodes.github.io/blob/main/assets/img/skills.gif?raw=true') no-repeat center center;
@@ -78,7 +77,6 @@
     }
     body.dark-mode .bg-gear { opacity: 0.08; }
 
-    /* IoT & Math subtle icons */
     .bg-icons {
       position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
       pointer-events: none; z-index: -1; opacity: 0.06;
@@ -88,9 +86,9 @@
     }
     body.dark-mode .bg-icons { opacity: 0.08; }
 
-    @keyframes wave-rotate { 
-      0% { transform: translate(-25%, -25%) rotate(0deg); } 
-      100% { transform: translate(-25%, -25%) rotate(360deg); } 
+    @keyframes wave-rotate {
+      0% { transform: translate(-25%, -25%) rotate(0deg); }
+      100% { transform: translate(-25%, -25%) rotate(360deg); }
     }
     @keyframes gearFloat {
       0% { transform: scale(1) rotate(0deg); }
@@ -104,11 +102,11 @@
     /* =========================================
        3. HEADER & NAVIGATION
        ========================================= */
-    header { 
-      padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; 
-      background: var(--nav-bg); backdrop-filter: blur(10px); 
-      position: sticky; top: 0; z-index: 100; 
-      border-bottom: 1px solid var(--border); 
+    header {
+      padding: 20px 40px; display: flex; justify-content: space-between; align-items: center;
+      background: var(--nav-bg); backdrop-filter: blur(10px);
+      position: sticky; top: 0; z-index: 100;
+      border-bottom: 1px solid var(--border);
       transition: background-color 0.3s, border-color 0.3s;
     }
     .brand { text-decoration: none; display: flex; flex-direction: column; }
@@ -116,17 +114,17 @@
     .brand-name .agandi { color: var(--agandi); }
     .brand-name .codes { color: var(--codes); }
     .brand-tagline { font-size: 0.65rem; font-weight: 600; color: var(--tagline); letter-spacing: 0.05em; margin-top: 2px; }
-    
+
     .nav-links { display: flex; align-items: center; }
-    .nav-links a { 
-      margin-left: 20px; text-decoration: none; color: var(--nav-text); 
-      font-weight: 600; transition: color 0.3s; 
+    .nav-links a {
+      margin-left: 20px; text-decoration: none; color: var(--nav-text);
+      font-weight: 600; transition: color 0.3s;
     }
     .nav-links a:hover { color: var(--codes); }
-    
-    .theme-btn { 
-      background: transparent; border: 1px solid var(--nav-text); 
-      padding: 5px 10px; border-radius: 5px; cursor: pointer; 
+
+    .theme-btn {
+      background: transparent; border: 1px solid var(--nav-text);
+      padding: 5px 10px; border-radius: 5px; cursor: pointer;
       color: var(--nav-text); margin-left: 20px; font-size: 1.1rem;
       transition: all 0.3s;
     }
@@ -136,37 +134,35 @@
        ========================================= */
     .hero { text-align: center; padding: 60px 20px 40px; }
     .hero h1 { font-family: "Poppins", sans-serif; font-size: 2.5rem; margin-bottom: 10px; }
-    .hero p { color: var(--tagline); max-width: 600px; margin: 0 auto; }
-    
-    .container-layout { 
-      display: grid; grid-template-columns: 280px 1fr; gap: 40px; 
-      max-width: 1100px; margin: 0 auto; padding: 0 20px 80px; 
+    .hero p { color: var(--tagline); max-width: 640px; margin: 0 auto; }
+
+    .container-layout {
+      display: grid; grid-template-columns: 280px 1fr; gap: 40px;
+      max-width: 1100px; margin: 0 auto; padding: 0 20px 80px;
     }
-    
-    /* TOC */
-    .toc { 
-      position: sticky; top: 100px; background: var(--card-bg); padding: 20px; 
-      border-radius: 12px; border: 1px solid var(--border); height: fit-content; 
-      transition: background 0.3s, border 0.3s; 
+
+    .toc {
+      position: sticky; top: 100px; background: var(--card-bg); padding: 20px;
+      border-radius: 12px; border: 1px solid var(--border); height: fit-content;
+      transition: background 0.3s, border 0.3s;
     }
-    .toc h2 { 
-      font-size: 1rem; font-family: "Poppins", sans-serif; margin-bottom: 15px; 
-      color: var(--tagline); text-transform: uppercase; letter-spacing: 0.05em; 
+    .toc h2 {
+      font-size: 1rem; font-family: "Poppins", sans-serif; margin-bottom: 15px;
+      color: var(--tagline); text-transform: uppercase; letter-spacing: 0.05em;
     }
     .toc ol { padding-left: 20px; color: var(--tagline); }
     .toc li { margin-bottom: 8px; }
     .toc a { text-decoration: none; color: var(--text-color); transition: color 0.3s; }
     .toc a:hover { color: var(--codes); }
 
-    /* Content */
-    .content { 
-      background: var(--card-bg); padding: 40px; border-radius: 12px; 
-      border: 1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.02); 
-      transition: background 0.3s, border 0.3s; 
+    .content {
+      background: var(--card-bg); padding: 40px; border-radius: 12px;
+      border: 1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+      transition: background 0.3s, border 0.3s;
     }
-    .content h2 { 
-      font-family: "Poppins", sans-serif; margin: 30px 0 15px; color: var(--codes); 
-      font-size: 1.3rem; scroll-margin-top: 100px; 
+    .content h2 {
+      font-family: "Poppins", sans-serif; margin: 30px 0 15px; color: var(--codes);
+      font-size: 1.3rem; scroll-margin-top: 100px;
     }
     .content h2:first-child { margin-top: 0; }
     .content p { margin-bottom: 15px; color: var(--text-color); }
@@ -186,7 +182,7 @@
       z-index: 999; transition: transform 0.3s; border: none;
     }
     .chat-widget-btn:hover { transform: scale(1.1); }
-    
+
     .chat-window {
       position: fixed; bottom: 90px; right: 20px; width: 340px; height: 420px;
       background: var(--card-bg); border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);
@@ -195,7 +191,7 @@
     }
     .chat-window.open { display: flex; animation: slideUp 0.3s ease; }
     @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    
+
     .chat-header { background: var(--agandi); color: white; padding: 15px; font-weight: 600; display: flex; justify-content: space-between; align-items: center; }
     .chat-body { flex: 1; padding: 15px; overflow-y: auto; background: var(--bg-color); display: flex; flex-direction: column; gap: 10px; }
     .chat-message { padding: 10px 14px; border-radius: 12px; max-width: 85%; font-size: 0.9rem; line-height: 1.4; }
@@ -231,13 +227,14 @@
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="terms.html">Terms</a>
+      <a href="https://play.google.com/store/apps/dev?id=7165250292071576506" target="_blank" rel="noopener">Apps</a>
       <button class="theme-btn" id="theme-toggle">🌙</button>
     </div>
   </header>
 
   <section class="hero">
     <h1>Privacy Policy</h1>
-    <p>This policy explains what information AgandiCodes collects across all our apps, games, IoT, and HSE tools — and the choices available to you.</p>
+    <p>This policy explains what information AgandiCodes collects across all our apps and games, how we protect it, and the choices available to you — worldwide.</p>
   </section>
 
   <div class="container-layout">
@@ -249,8 +246,11 @@
         <li><a href="#use">How We Use Data</a></li>
         <li><a href="#legal-basis">Legal Basis (GDPR)</a></li>
         <li><a href="#third-party">Third-Party Services</a></li>
-        <li><a href="#games-iot">Games, IoT & HSE Data</a></li>
-        <li><a href="#compliance">International Compliance</a></li>
+        <li><a href="#games">Games & Virtual Items</a></li>
+        <li><a href="#data-protection">Data Protection Principles</a></li>
+        <li><a href="#cybersecurity">Cybersecurity & Breach Response</a></li>
+        <li><a href="#international-transfers">International Data Transfers</a></li>
+        <li><a href="#compliance">Global Compliance</a></li>
         <li><a href="#children">Children's Privacy</a></li>
         <li><a href="#rights">Your Rights</a></li>
         <li><a href="#security">Data Security</a></li>
@@ -266,8 +266,6 @@
       <ul>
         <li>Mobile and web applications (e.g., Luganda Bible, educational tools)</li>
         <li>Games (casual, educational, and interactive experiences)</li>
-        <li>IoT (Internet of Things) software and device integrations</li>
-        <li>HSE (Health, Safety, and Environment) monitoring and compliance tools</li>
         <li>Developer utilities, APIs, and this website</li>
       </ul>
       <p>By using any of these Services, you agree to the collection and use of information as described in this policy.</p>
@@ -278,7 +276,6 @@
         <li><strong>Device & Usage Data:</strong> device type, operating system, app version, IP address, crash logs, and general usage statistics.</li>
         <li><strong>Account Data:</strong> if you create an account, we may collect your email address and display name.</li>
         <li><strong>Game Data:</strong> in-game progress, virtual item inventory, and gameplay analytics.</li>
-        <li><strong>IoT & HSE Data:</strong> sensor readings, device status, and environmental metrics collected by your IoT/HSE devices (only with your consent and configured settings).</li>
         <li><strong>Communications:</strong> messages you send through our contact forms or chatbot.</li>
       </ul>
       <p>Personally identifiable information (PII) is only collected with your explicit consent or as required to provide a Service.</p>
@@ -290,14 +287,14 @@
         <li>Personalize your experience (e.g., game recommendations, app settings)</li>
         <li>Display relevant ads (with your consent where required)</li>
         <li>Analyze usage trends and fix bugs</li>
-        <li>Ensure the safety and security of our IoT and HSE tools</li>
+        <li>Detect, prevent, and respond to security incidents and fraud</li>
         <li>Comply with legal obligations</li>
       </ul>
 
       <h2 id="legal-basis">4. Legal Basis for Processing (GDPR)</h2>
       <p>If you are in the EU/EEA, we process your data under the following legal bases:</p>
       <ul>
-        <li><strong>Consent:</strong> for personalized ads, optional analytics, and IoT data collection.</li>
+        <li><strong>Consent:</strong> for personalized ads and optional analytics.</li>
         <li><strong>Contract:</strong> to provide Services you have requested.</li>
         <li><strong>Legitimate Interest:</strong> for security, fraud prevention, and service improvement.</li>
         <li><strong>Legal Obligation:</strong> to comply with applicable laws.</li>
@@ -313,45 +310,98 @@
       </ul>
       <p>We encourage you to review their privacy policies. We do not control their data practices.</p>
 
-      <h2 id="games-iot">6. Games, IoT & HSE Data</h2>
-      <p><strong>Games:</strong> We collect gameplay analytics to improve game balance and user experience. In-app purchases are processed by platform providers (Google Play, Apple App Store) — we do not store payment card details.</p>
-      <p><strong>IoT & HSE:</strong> Sensor data from IoT/HSE devices is collected only if you enable data sharing. This data is used to provide monitoring, alerts, and compliance reports. You can disable data collection at any time in your device settings. We do not share raw IoT data with third parties without your explicit consent.</p>
+      <h2 id="games">6. Games & Virtual Items</h2>
+      <p><strong>Games:</strong> We collect gameplay analytics to improve game balance and user experience. In-app purchases are processed by platform providers (Google Play, Apple App Store) — we do not store payment card details. Virtual items are licensed, not sold, and have no real-world monetary value.</p>
 
-      <h2 id="compliance">7. International Compliance</h2>
-      <p>We are committed to complying with global privacy regulations, including:</p>
+      <h2 id="data-protection">7. Data Protection Principles</h2>
+      <p>AgandiCodes is committed to processing personal data in accordance with globally recognized data protection principles:</p>
       <ul>
-        <li><strong>GDPR (EU/EEA):</strong> including data subject rights and lawful processing.</li>
-        <li><strong>CCPA/CPRA (California):</strong> including the right to know, delete, and opt-out of the sale of personal information.</li>
-        <li><strong>COPPA (US):</strong> protecting children's privacy online.</li>
-        <li><strong>PIPEDA (Canada)</strong> and other applicable local laws.</li>
+        <li><strong>Lawfulness, Fairness & Transparency:</strong> We process data lawfully and transparently, and only for purposes we have clearly explained.</li>
+        <li><strong>Purpose Limitation:</strong> Data is collected for specified, explicit, and legitimate purposes and not further processed in an incompatible manner.</li>
+        <li><strong>Data Minimization:</strong> We collect only the data that is strictly necessary for the stated purpose.</li>
+        <li><strong>Accuracy:</strong> We take reasonable steps to keep personal data accurate and up to date.</li>
+        <li><strong>Storage Limitation:</strong> Data is retained only as long as necessary (see Section 14).</li>
+        <li><strong>Integrity & Confidentiality:</strong> We protect data with appropriate technical and organizational security measures (see Sections 12 & 13).</li>
+        <li><strong>Accountability:</strong> We maintain records of processing activities and are able to demonstrate compliance upon request by competent authorities.</li>
+        <li><strong>Privacy by Design & by Default:</strong> We embed privacy protections into our products from the outset and configure default settings to protect your privacy.</li>
       </ul>
+      <p>These principles apply globally, regardless of where you are located.</p>
 
-      <h2 id="children">8. Children's Privacy</h2>
-      <p>Our Services are not directed to children under the age of 13 (or 16 in the EU/EEA where applicable) without verifiable parental consent. For games and HSE tools intended for younger users, we implement age-gating and parental consent mechanisms. If we become aware that a child has submitted personal information without consent, we will delete it immediately.</p>
+      <h2 id="cybersecurity">8. Cybersecurity & Breach Response</h2>
+      <p>We take cybersecurity seriously and implement industry-standard safeguards to protect your data:</p>
+      <ul>
+        <li><strong>Encryption:</strong> We use TLS/HTTPS for all data in transit and encryption-at-rest for sensitive data stored on our servers and cloud providers.</li>
+        <li><strong>Access Controls:</strong> Role-based access control, multi-factor authentication for administrative accounts, and the principle of least privilege are enforced.</li>
+        <li><strong>Secure Development:</strong> We follow secure coding practices, conduct periodic vulnerability scans, and patch identified vulnerabilities in a timely manner.</li>
+        <li><strong>Monitoring & Logging:</strong> We monitor our systems for suspicious activity and maintain audit logs to detect and investigate security incidents.</li>
+        <li><strong>Third-Party Vetting:</strong> Vendors and SDKs are reviewed for security and privacy compliance before integration.</li>
+        <li><strong>Employee Awareness:</strong> Our team receives ongoing training on data protection and cybersecurity best practices.</li>
+      </ul>
+      <p><strong>Breach Notification:</strong> In the unlikely event of a personal data breach, we will:</p>
+      <ul>
+        <li>Contain the breach and assess its scope and impact;</li>
+        <li>Notify affected users without undue delay if the breach is likely to result in a risk to their rights and freedoms;</li>
+        <li>Notify the relevant supervisory authority within 72 hours where required by law (e.g., GDPR Art. 33);</li>
+        <li>Provide affected users with clear information about what happened, what we are doing, and what steps they should take.</li>
+      </ul>
+      <p>For US residents, we comply with applicable state breach-notification laws. For other jurisdictions, we follow local breach notification requirements.</p>
 
-      <h2 id="rights">9. Your Rights</h2>
+      <h2 id="international-transfers">9. International Data Transfers</h2>
+      <p>AgandiCodes is based in Uganda, and our service providers may process data in the European Union, the United States, and other countries. When we transfer personal data internationally, we use appropriate safeguards, including:</p>
+      <ul>
+        <li><strong>Standard Contractual Clauses (SCCs)</strong> approved by the European Commission for transfers out of the EU/EEA;</li>
+        <li><strong>Adequacy decisions</strong> where the destination country has been recognized as providing adequate protection;</li>
+        <li><strong>Contractual and technical safeguards</strong> (encryption, access controls) consistent with the laws of the destination country.</li>
+      </ul>
+      <p>For users in Brazil (LGPD), South Africa (POPIA), Nigeria (NDPR), and other jurisdictions, we comply with the international transfer requirements of those laws.</p>
+
+      <h2 id="compliance">10. Global Compliance</h2>
+      <p>We are committed to complying with privacy and data protection laws worldwide, including:</p>
+      <ul>
+        <li><strong>GDPR (EU/EEA):</strong> including data subject rights, lawful processing, and breach notification.</li>
+        <li><strong>CCPA/CPRA (California, USA):</strong> including the right to know, delete, correct, and opt-out of the sale/sharing of personal information. <em>We do not sell personal information.</em></li>
+        <li><strong>COPPA (USA):</strong> protecting children's privacy online.</li>
+        <li><strong>PIPEDA (Canada):</strong> fair information principles and consent-based processing.</li>
+        <li><strong>LGPD (Brazil):</strong> lawful bases, data subject rights, and the role of the ANPD.</li>
+        <li><strong>POPIA (South Africa):</strong> eight processing conditions and the Information Regulator.</li>
+        <li><strong>NDPR (Nigeria):</strong> data protection principles and the Nigeria Data Protection Commission.</li>
+        <li><strong>Kenya Data Protection Act, Ghana DPA,</strong> and other African data laws.</li>
+        <li><strong>PDPA (Singapore, Thailand, Malaysia):</strong> consent-based processing and access/correction rights.</li>
+        <li><strong>APPI (Japan), PIPL (China), PIPA (South Korea):</strong> cross-border transfer and consent requirements.</li>
+        <li><strong>India DPDP Act:</strong> consent, purpose limitation, and data principal rights.</li>
+      </ul>
+      <p>Where local law grants you additional rights or protections, we honor them.</p>
+
+      <h2 id="children">11. Children's Privacy</h2>
+      <p>Our Services are not directed to children under the age of 13 (or 16 in the EU/EEA where applicable) without verifiable parental consent. For games intended for younger users, we implement age-gating and parental consent mechanisms. If we become aware that a child has submitted personal information without consent, we will delete it immediately.</p>
+      <p>For US parents, COPPA provides specific rights to review and delete your child's information. Contact us at <a href="mailto:agandicodes@gmail.com">agandicodes@gmail.com</a> to exercise these rights.</p>
+
+      <h2 id="rights">12. Your Rights</h2>
       <p>Depending on your location, you may have the right to:</p>
       <ul>
         <li>Access the personal data we hold about you</li>
-        <li>Request correction or deletion of your data</li>
+        <li>Request correction of inaccurate data</li>
+        <li>Request deletion of your data ("right to be forgotten")</li>
         <li>Object to or restrict processing</li>
-        <li>Data portability</li>
+        <li>Data portability (receive your data in a machine-readable format)</li>
         <li>Withdraw consent at any time</li>
+        <li>Opt out of the sale or sharing of personal information (we do not sell data)</li>
         <li>Lodge a complaint with your local data protection authority</li>
       </ul>
-      <p>To exercise any of these rights, contact us at <a href="mailto:agandicodes@gmail.com">agandicodes@gmail.com</a>.</p>
+      <p>To exercise any of these rights, contact us at <a href="mailto:agandicodes@gmail.com">agandicodes@gmail.com</a>. We will respond within the timeframe required by applicable law (typically 30 days for GDPR, 45 days for CCPA).</p>
 
-      <h2 id="security">10. Data Security</h2>
-      <p>We take reasonable technical and organizational security measures to protect your data, including encryption of sensitive transmissions and access controls. No system is 100% secure, but we continuously review and improve our safeguards.</p>
+      <h2 id="security">13. Data Security</h2>
+      <p>We take reasonable technical and organizational security measures to protect your data, including encryption of sensitive transmissions, access controls, and continuous review of our safeguards. No system is 100% secure, but we are committed to protecting your information. See Section 8 for our full cybersecurity practices and breach response commitments.</p>
 
-      <h2 id="retention">11. Data Retention</h2>
-      <p>We retain personal data only as long as necessary to provide the Services, comply with legal obligations, resolve disputes, and enforce agreements. When data is no longer needed, it is securely deleted or anonymized.</p>
+      <h2 id="retention">14. Data Retention</h2>
+      <p>We retain personal data only as long as necessary to provide the Services, comply with legal obligations, resolve disputes, and enforce agreements. When data is no longer needed, it is securely deleted or anonymized. Retention periods vary by data type and legal requirements in your jurisdiction.</p>
 
-      <h2 id="changes">12. Changes to This Policy</h2>
+      <h2 id="changes">15. Changes to This Policy</h2>
       <p>We may update this Privacy Policy from time to time. Material changes will be notified through the Services or via email. The "last updated" date will be revised accordingly. Continued use after changes constitutes acceptance.</p>
 
-      <h2 id="contact">13. Contact Us</h2>
+      <h2 id="contact">16. Contact Us</h2>
       <p>If you have questions or concerns regarding this policy or your data rights, contact us at: <a href="mailto:agandicodes@gmail.com">agandicodes@gmail.com</a></p>
+      <p><em>Last updated: January 2025</em></p>
     </main>
   </div>
 
@@ -372,9 +422,7 @@
   </div>
 
   <script>
-    // 1. Theme Toggle & Instant Live Load
     const themeBtn = document.getElementById('theme-toggle');
-    
     function applyTheme(isDark) {
       if (isDark) {
         document.body.classList.add('dark-mode');
@@ -384,20 +432,16 @@
         themeBtn.textContent = '🌙';
       }
     }
-
     if (localStorage.getItem('theme') === 'dark') { applyTheme(true); }
-
     themeBtn.addEventListener('click', () => {
       const isDark = !document.body.classList.contains('dark-mode');
       applyTheme(isDark);
       localStorage.setItem('theme', isDark ? 'dark' : 'light');
     });
-
     window.addEventListener('storage', (e) => {
       if (e.key === 'theme') { applyTheme(e.newValue === 'dark'); }
     });
 
-    // 2. Chatbot Logic – Fun & Engaging
     const chatBtn = document.getElementById('chat-btn');
     const chatWindow = document.getElementById('chat-window');
     const closeChat = document.getElementById('close-chat');
@@ -419,10 +463,7 @@
       "High five! ✋ (virtually, of course)",
       "That's a great point! 🌟"
     ];
-
-    function replyFunny() {
-      return funResponses[Math.floor(Math.random() * funResponses.length)];
-    }
+    function replyFunny() { return funResponses[Math.floor(Math.random() * funResponses.length)]; }
 
     chatBtn.addEventListener('click', () => chatWindow.classList.toggle('open'));
     closeChat.addEventListener('click', () => chatWindow.classList.remove('open'));
@@ -431,12 +472,10 @@
       e.preventDefault();
       const msg = chatInput.value.trim();
       if(!msg) return;
-
       const userBubble = document.createElement('div');
       userBubble.className = 'chat-message msg-user';
       userBubble.textContent = msg;
       chatBody.appendChild(userBubble);
-      
       chatInput.value = '';
       chatBody.scrollTop = chatBody.scrollHeight;
 
