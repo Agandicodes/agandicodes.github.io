@@ -1,372 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy Policy — AgandiCodes</title>
-  <meta name="description" content="Privacy Policy for AgandiCodes websites and mobile applications, including the Luganda Bible app.">
-  <meta name="theme-color" content="#4B1E6F">
-
-  <!-- Favicons -->
-  <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="assets/img/android-chrome-192x192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="assets/img/android-chrome-512x512.png">
-  <link rel="manifest" href="assets/img/site.webmanifest">
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-  <!-- Apply saved theme early -->
-  <script>
-    (function () {
-      const theme = localStorage.getItem('theme');
-      if (theme === 'dark') {
-        document.documentElement.classList.add('dark-mode');
-        document.documentElement.classList.add('theme-ready');
-      }
-    })();
-  </script>
+  <meta name="theme-color" content="#FFFFFF">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
   <style>
     :root {
-      --purple-deep: #2B0B40;
-      --purple-primary: #4B1E6F;
-      --purple-light: #6B3B93;
-      --purple-soft: #EADCF6;
-      --gold: #D4AF37;
-      --gold-dark: #A67C00;
-      --warm-white: #FFFDF8;
-      --ink: #241A2B;
-      --muted-ink: #5B4A66;
-      --surface: #FFFFFF;
-      --surface-alt: #F7F2FB;
-      --border: #E5D9F0;
-      --link: #4B1E6F;
+      --agandi: #929091;
+      --codes: #61A534;
+      --tagline: #999999;
+      --bg: #FFFFFF;
+      --text: #333;
+      --card-bg: #FFFFFF;
+      --border: #EAEAEA;
     }
 
-    html.dark-mode,
     body.dark-mode {
-      --warm-white: #160A22;
-      --surface: #221030;
-      --surface-alt: #2B1839;
-      --ink: #F4EEFA;
-      --muted-ink: #C9B8D9;
-      --border: #3A2549;
-      --purple-soft: #3A1E56;
-      --link: #E8CB6A;
+      --bg: #121212;
+      --text: #E0E0E0;
+      --card-bg: #1E1E1E;
+      --border: #333333;
+      --agandi: #D7D7D7;
+      --tagline: #B5B5B5;
     }
 
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: "Open Sans", sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; transition: background 0.3s; overflow-x: hidden; }
 
-    html, body { margin: 0; padding: 0; }
+    /* Tech Waves Background */
+    .tech-waves { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; pointer-events: none; overflow: hidden; background: var(--bg); }
+    .wave { position: absolute; width: 200%; height: 200%; background: rgba(97, 165, 52, 0.03); border-radius: 45%; animation: wave-rotate 25s infinite linear; }
+    .wave:nth-child(2) { background: rgba(146, 144, 145, 0.03); border-radius: 40%; animation: wave-rotate 35s infinite linear reverse; }
+    body.dark-mode .wave { background: rgba(97, 165, 52, 0.05); }
+    body.dark-mode .wave:nth-child(2) { background: rgba(255, 255, 255, 0.02); }
+    @keyframes wave-rotate { 0% { transform: translate(-25%, -25%) rotate(0deg); } 100% { transform: translate(-25%, -25%) rotate(360deg); } }
 
-    body {
-      font-family: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-      background: var(--warm-white);
-      color: var(--ink);
-      line-height: 1.65;
-      font-size: 16px;
-      -webkit-font-smoothing: antialiased;
-      transition: background-color .25s ease, color .25s ease;
+    /* Header */
+    header { padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.9); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid var(--border); }
+    body.dark-mode header { background: rgba(18,18,18,0.9); }
+    .brand { text-decoration: none; display: flex; flex-direction: column; }
+    .brand-name { font-family: "Poppins", sans-serif; font-weight: 700; font-size: 1.5rem; letter-spacing: -0.5px; }
+    .brand-name .agandi { color: var(--agandi); }
+    .brand-name .codes { color: var(--codes); }
+    .brand-tagline { font-size: 0.65rem; font-weight: 600; color: var(--tagline); letter-spacing: 0.05em; margin-top: 2px; }
+    .nav-links a { margin-left: 20px; text-decoration: none; color: var(--text); font-weight: 600; transition: color 0.3s; }
+    .nav-links a:hover { color: var(--codes); }
+    .theme-btn { background: none; border: 1px solid var(--border); padding: 5px 10px; border-radius: 5px; cursor: pointer; color: var(--text); margin-left: 20px; }
+
+    /* Layout */
+    .hero { text-align: center; padding: 60px 20px 40px; }
+    .hero h1 { font-family: "Poppins", sans-serif; font-size: 2.5rem; margin-bottom: 10px; }
+    .hero p { color: var(--tagline); max-width: 600px; margin: 0 auto; }
+    
+    .container-layout { display: grid; grid-template-columns: 280px 1fr; gap: 40px; max-width: 1100px; margin: 0 auto; padding: 0 20px 80px; }
+    
+    /* TOC */
+    .toc { position: sticky; top: 100px; background: var(--card-bg); padding: 20px; border-radius: 12px; border: 1px solid var(--border); height: fit-content; }
+    .toc h2 { font-size: 1rem; font-family: "Poppins", sans-serif; margin-bottom: 15px; color: var(--tagline); text-transform: uppercase; letter-spacing: 0.05em; }
+    .toc ol { padding-left: 20px; color: var(--tagline); }
+    .toc li { margin-bottom: 8px; }
+    .toc a { text-decoration: none; color: var(--text); transition: color 0.3s; }
+    .toc a:hover { color: var(--codes); }
+
+    /* Content */
+    .content { background: var(--card-bg); padding: 40px; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.02); }
+    .content h2 { font-family: "Poppins", sans-serif; margin: 30px 0 15px; color: var(--codes); font-size: 1.3rem; scroll-margin-top: 100px; }
+    .content h2:first-child { margin-top: 0; }
+    .content p { margin-bottom: 15px; }
+    .content ul { margin-bottom: 15px; padding-left: 20px; }
+    .content li { margin-bottom: 5px; }
+    .content a { color: var(--codes); text-decoration: none; }
+    .content a:hover { text-decoration: underline; }
+
+    /* Chatbot Widget */
+    .chat-widget-btn { position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; background: var(--codes); color: white; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.5rem; cursor: pointer; box-shadow: 0 4px 15px rgba(97, 165, 52, 0.4); z-index: 999; transition: transform 0.3s; border: none; }
+    .chat-widget-btn:hover { transform: scale(1.1); }
+    .chat-window { position: fixed; bottom: 90px; right: 20px; width: 320px; height: 400px; background: var(--card-bg); border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); display: none; flex-direction: column; z-index: 1000; overflow: hidden; border: 1px solid var(--border); }
+    .chat-window.open { display: flex; animation: slideUp 0.3s ease; }
+    @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .chat-header { background: var(--agandi); color: white; padding: 15px; font-weight: 600; display: flex; justify-content: space-between; align-items: center; }
+    .chat-body { flex: 1; padding: 15px; overflow-y: auto; background: var(--bg); display: flex; flex-direction: column; gap: 10px; }
+    .chat-message { padding: 10px 14px; border-radius: 12px; max-width: 85%; font-size: 0.9rem; line-height: 1.4; }
+    .msg-bot { background: #e9ecef; color: #333; align-self: flex-start; border-bottom-left-radius: 2px; }
+    body.dark-mode .msg-bot { background: #333; color: #eee; }
+    .msg-user { background: var(--codes); color: #fff; align-self: flex-end; border-bottom-right-radius: 2px; }
+    .chat-input-area { display: flex; border-top: 1px solid var(--border); padding: 10px; background: var(--card-bg); }
+    .chat-input-area input { flex: 1; border: none; outline: none; padding: 8px; font-size: 0.9rem; background: transparent; color: var(--text); }
+    .chat-input-area button { background: var(--codes); color: white; border: none; padding: 8px 15px; border-radius: 6px; cursor: pointer; }
+
+    @media (max-width: 800px) {
+      .container-layout { grid-template-columns: 1fr; }
+      .toc { position: relative; top: 0; }
+      header { flex-direction: column; gap: 10px; padding: 15px; text-align: center; }
+      .content { padding: 20px; }
     }
-
-    /* ---------- Header ---------- */
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: var(--purple-primary);
-      color: #fff;
-      box-shadow: 0 2px 14px rgba(43, 11, 64, .25);
-    }
-
-    .site-header .inner {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 14px 20px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .site-header .brand {
-      font-family: "Poppins", sans-serif;
-      font-weight: 700;
-      font-size: 1.15rem;
-      letter-spacing: .3px;
-      color: #fff;
-      text-decoration: none;
-    }
-
-    .site-header .brand span { color: var(--gold); }
-
-    .site-header .spacer { flex: 1; }
-
-    .site-header a.nav-link {
-      color: #fff;
-      text-decoration: none;
-      font-size: .9rem;
-      opacity: .9;
-      padding: 6px 10px;
-      border-radius: 8px;
-      transition: background-color .2s ease, opacity .2s ease;
-    }
-
-    .site-header a.nav-link:hover {
-      background: rgba(255, 255, 255, .12);
-      opacity: 1;
-    }
-
-    .theme-btn {
-      background: transparent;
-      border: 1px solid rgba(255, 255, 255, .35);
-      color: #fff;
-      border-radius: 10px;
-      padding: 6px 10px;
-      font-size: 1rem;
-      cursor: pointer;
-      line-height: 1;
-    }
-
-    .theme-btn:hover { background: rgba(255, 255, 255, .12); }
-
-    /* ---------- Hero ---------- */
-    .hero {
-      background: linear-gradient(135deg, var(--purple-primary) 0%, var(--purple-deep) 100%);
-      color: #fff;
-      padding: 56px 20px 64px;
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-family: "Poppins", sans-serif;
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
-      margin: 0 0 10px;
-      letter-spacing: .3px;
-      font-weight: 700;
-    }
-
-    .hero p {
-      margin: 0 auto;
-      max-width: 680px;
-      color: rgba(255, 255, 255, .85);
-      font-size: 1rem;
-    }
-
-    .hero .pill {
-      display: inline-block;
-      margin-top: 18px;
-      background: rgba(212, 175, 55, .18);
-      border: 1px solid rgba(212, 175, 55, .55);
-      color: var(--gold);
-      font-size: .78rem;
-      font-weight: 600;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      padding: 6px 14px;
-      border-radius: 999px;
-    }
-
-    /* ---------- Layout ---------- */
-    .layout {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 40px 20px 80px;
-      display: grid;
-      grid-template-columns: 240px 1fr;
-      gap: 40px;
-    }
-
-    @media (max-width: 860px) {
-      .layout { grid-template-columns: 1fr; gap: 24px; padding-top: 24px; }
-    }
-
-    /* ---------- TOC ---------- */
-    .toc {
-      position: sticky;
-      top: 78px;
-      align-self: start;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 18px 16px;
-      font-size: .9rem;
-      max-height: calc(100vh - 100px);
-      overflow-y: auto;
-    }
-
-    .toc h2 {
-      font-family: "Poppins", sans-serif;
-      font-size: .8rem;
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      color: var(--muted-ink);
-      margin: 0 0 10px;
-    }
-
-    .toc ol { margin: 0; padding-left: 18px; color: var(--muted-ink); }
-    .toc li { margin: 6px 0; }
-
-    .toc a {
-      color: var(--muted-ink);
-      text-decoration: none;
-      transition: color .15s ease;
-    }
-
-    .toc a:hover { color: var(--link); }
-
-    @media (max-width: 860px) {
-      .toc { position: static; max-height: none; }
-    }
-
-    /* ---------- Content ---------- */
-    .content {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 36px 34px;
-      box-shadow: 0 6px 30px rgba(43, 11, 64, .05);
-    }
-
-    @media (max-width: 520px) {
-      .content { padding: 24px 18px; border-radius: 16px; }
-    }
-
-    .content .meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px 20px;
-      font-size: .82rem;
-      color: var(--muted-ink);
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 16px;
-      margin-bottom: 24px;
-    }
-
-    .content .meta strong { color: var(--ink); font-weight: 600; }
-
-    .content h2 {
-      font-family: "Poppins", sans-serif;
-      font-size: 1.28rem;
-      color: var(--purple-primary);
-      margin: 34px 0 10px;
-      padding-top: 6px;
-      scroll-margin-top: 90px;
-    }
-
-    body.dark-mode .content h2 { color: #E8CB6A; }
-
-    .content h2:first-of-type { margin-top: 0; }
-
-    .content p { margin: 0 0 12px; }
-
-    .content ul, .content ol {
-      margin: 0 0 14px;
-      padding-left: 22px;
-    }
-
-    .content li { margin: 5px 0; }
-
-    .content a {
-      color: var(--link);
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: border-color .15s ease;
-    }
-
-    .content a:hover { border-bottom-color: var(--link); }
-
-    .callout {
-      background: var(--surface-alt);
-      border-left: 4px solid var(--gold);
-      border-radius: 10px;
-      padding: 14px 16px;
-      margin: 18px 0;
-      font-size: .95rem;
-      color: var(--muted-ink);
-    }
-
-    .callout strong { color: var(--ink); }
-
-    /* ---------- Print ---------- */
-    @media print {
-      .site-header, .toc, .theme-btn, .back-to-top, footer { display: none !important; }
-      body { background: #fff; color: #000; }
-      .hero { background: #fff !important; color: #000 !important; padding: 0 0 12px; text-align: left; }
-      .hero .pill { border-color: #999; color: #333; }
-      .layout { display: block; padding: 0; }
-      .content { border: none; box-shadow: none; padding: 0; }
-      .content h2 { color: #000; page-break-after: avoid; }
-      a { color: #000; text-decoration: underline; }
-    }
-
-    /* ---------- Back to top ---------- */
-    .back-to-top {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: var(--purple-primary);
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      box-shadow: 0 6px 18px rgba(43, 11, 64, .35);
-      font-size: 1.2rem;
-      z-index: 40;
-      opacity: .9;
-      transition: opacity .2s ease, transform .2s ease;
-    }
-
-    .back-to-top:hover { opacity: 1; transform: translateY(-2px); }
-
-    /* ---------- Footer ---------- */
-    footer {
-      background: var(--purple-deep);
-      color: rgba(255, 255, 255, .75);
-      padding: 28px 20px;
-      text-align: center;
-      font-size: .85rem;
-    }
-
-    footer a { color: var(--gold); text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
   </style>
 </head>
-
 <body>
 
-  <!-- ======= Header ======= -->
-  <header class="site-header">
-    <div class="inner">
-      <a href="https://agandicodes.github.io/index.html" class="brand">Agandi<span>Codes</span></a>
-      <div class="spacer"></div>
-      <a href="https://agandicodes.github.io/index.html" class="nav-link">Home</a>
-      <a href="terms.html" class="nav-link">Terms</a>
-      <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">🌙</button>
+  <div class="tech-waves"><div class="wave"></div><div class="wave"></div></div>
+
+  <header>
+    <a href="index.html" class="brand">
+      <span class="brand-name"><span class="agandi">Agandi</span><span class="codes">Codes</span></span>
+      <span class="brand-tagline">Infinite Loop Technology</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="terms.html">Terms</a>
+      <button class="theme-btn" id="theme-toggle">🌙</button>
     </div>
   </header>
 
-  <!-- ======= Hero ======= -->
   <section class="hero">
     <h1>Privacy Policy</h1>
     <p>This policy explains what information AgandiCodes collects, how we use it, and the choices available to you.</p>
-    <span class="pill">Last updated: July 23, 2025</span>
   </section>
 
-  <!-- ======= Layout ======= -->
-  <div class="layout">
-
-    <!-- Table of contents -->
+  <div class="container-layout">
     <aside class="toc">
       <h2>On this page</h2>
       <ol>
@@ -375,148 +131,111 @@
         <li><a href="#third-party">Third-Party Services</a></li>
         <li><a href="#compliance">International Compliance</a></li>
         <li><a href="#children">Children's Privacy</a></li>
-        <li><a href="#content-sensitivity">Content Sensitivity</a></li>
         <li><a href="#rights">Your Rights</a></li>
         <li><a href="#security">Data Security</a></li>
-        <li><a href="#changes">Changes to This Policy</a></li>
+        <li><a href="#changes">Changes</a></li>
         <li><a href="#contact">Contact Us</a></li>
       </ol>
     </aside>
 
-    <!-- Content -->
     <main class="content">
-      <div class="meta">
-        <span><strong>Applies to:</strong> AgandiCodes websites and mobile apps</span>
-        <span><strong>Last updated:</strong> July 23, 2025</span>
-      </div>
-
-      <p>
-        This privacy policy applies to all applications and services provided by AgandiCodes
-        ("we", "our", or "us"), including but not limited to mobile apps, web apps, games, and
-        learning platforms.
-      </p>
-
       <h2 id="collect">1. Information We Collect</h2>
-      <p>We may collect non-personal data to improve our services and user experience. This includes:</p>
-      <ul>
-        <li>Usage data (e.g., clicks, session duration, app features used)</li>
-        <li>Device data (e.g., model, OS version, IP address, screen size)</li>
-        <li>Crash logs and diagnostics</li>
-      </ul>
-      <p>
-        Personally identifiable information (such as name, email, or profile photo) is only collected
-        with your explicit consent (e.g., if you sign in using Google, Yahoo, or Facebook).
-      </p>
+      <p>We may collect non-personal data to improve our services and user experience. This includes usage data, device data, and crash logs. Personally identifiable information is only collected with your explicit consent.</p>
 
       <h2 id="use">2. How We Use Data</h2>
-      <p>We use collected data to:</p>
-      <ul>
-        <li>Provide and maintain our services</li>
-        <li>Improve app performance and user experience</li>
-        <li>Display personalized content or ads (if applicable)</li>
-        <li>Analyze user behavior anonymously</li>
-      </ul>
+      <p>We use collected data to provide and maintain our services, improve app performance, display personalized content or ads (if applicable), and analyze user behavior anonymously.</p>
 
       <h2 id="third-party">3. Third-Party Services</h2>
-      <p>
-        We may integrate third-party tools and SDKs that have their own privacy practices. These may
-        include:
-      </p>
-      <ul>
-        <li>Google Play Services</li>
-        <li>Firebase Analytics and Crashlytics</li>
-        <li>AdMob or other ad networks (for free apps)</li>
-        <li>Google Sign-In, Facebook Login, etc.</li>
-      </ul>
-      <p>
-        Please review their privacy policies for detailed information on their data usage.
-      </p>
+      <p>We may integrate third-party tools and SDKs that have their own privacy practices, such as Google Play Services, Firebase, and AdMob.</p>
 
       <h2 id="compliance">4. International Compliance</h2>
-      <p>We are committed to complying with global privacy regulations, including:</p>
-      <ul>
-        <li><strong>GDPR</strong> (European Union) – Right to access, delete or restrict your data</li>
-        <li><strong>CCPA</strong> (California) – Right to opt-out of sale of personal information</li>
-        <li><strong>COPPA</strong> (USA) – No data collection from children under 13 without parental consent</li>
-      </ul>
+      <p>We are committed to complying with global privacy regulations, including GDPR, CCPA, and COPPA.</p>
 
       <h2 id="children">5. Children's Privacy</h2>
-      <p>
-        Our services are not directed to children under the age of 13 without verifiable parental
-        consent. If we become aware that a child has submitted personal information, we will delete
-        it immediately.
-      </p>
+      <p>Our services are not directed to children under the age of 13 without verifiable parental consent. If we become aware that a child has submitted personal information, we will delete it immediately.</p>
 
-      <h2 id="content-sensitivity">6. Content Sensitivity</h2>
-      <p>
-        Our apps avoid harmful or inappropriate content, including violence, hate speech, and sexual
-        content, unless age-rated or permitted in your country.
-      </p>
-      <p>
-        If your region requires age confirmation or parental controls, we comply accordingly.
-      </p>
+      <h2 id="rights">6. Your Rights</h2>
+      <p>Depending on your location, you have the right to request access to your data, request deletion, or withdraw consent at any time.</p>
 
-      <h2 id="rights">7. Your Rights</h2>
-      <p>Depending on your location, you have rights such as:</p>
-      <ul>
-        <li>Request access to the data we hold about you</li>
-        <li>Request deletion or correction of your data</li>
-        <li>Withdraw consent at any time</li>
-      </ul>
+      <h2 id="security">7. Data Security</h2>
+      <p>We take reasonable security measures to protect your data. All sensitive transmissions are encrypted, and no unnecessary data is stored on our servers.</p>
 
-      <h2 id="security">8. Data Security</h2>
-      <p>
-        We take reasonable security measures to protect your data. All sensitive transmissions are
-        encrypted, and no unnecessary data is stored on our servers.
-      </p>
+      <h2 id="changes">8. Changes to This Policy</h2>
+      <p>We may update this privacy policy from time to time. Changes will be posted on this page with an updated date.</p>
 
-      <h2 id="changes">9. Changes to This Policy</h2>
-      <p>
-        We may update this privacy policy from time to time. Changes will be posted on this page with
-        an updated date. Continued use of the service implies your agreement to the updated policy.
-      </p>
-
-      <h2 id="contact">10. Contact Us</h2>
-      <p>
-        If you have questions or concerns regarding this policy or your data rights, contact us at:
-      </p>
-      <p>Email: <a href="mailto:agandicodes@gmail.com">agandicodes@gmail.com</a></p>
+      <h2 id="contact">9. Contact Us</h2>
+      <p>If you have questions or concerns regarding this policy or your data rights, contact us at: <a href="mailto:agandicodes@gmail.com">agandicodes@gmail.com</a></p>
     </main>
   </div>
 
-  <!-- ======= Back to top ======= -->
-  <a href="#" class="back-to-top" aria-label="Back to top">↑</a>
+  <!-- Chatbot Widget -->
+  <button class="chat-widget-btn" id="chat-btn">💬</button>
+  <div class="chat-window" id="chat-window">
+    <div class="chat-header">
+      <span>AgandiCodes Assistant</span>
+      <span id="close-chat" style="cursor:pointer;">✖</span>
+    </div>
+    <div class="chat-body" id="chat-body">
+      <div class="chat-message msg-bot">Hello! 👋 How can we help you today?</div>
+    </div>
+    <form class="chat-input-area" id="chat-form">
+      <input type="text" id="chat-input" placeholder="Type a message..." autocomplete="off" required>
+      <button type="submit">Send</button>
+    </form>
+  </div>
 
-  <!-- ======= Footer ======= -->
-  <footer>
-    &copy; <span id="year">2025</span> AgandiCodes. All Rights Reserved. &nbsp;·&nbsp;
-    <a href="https://agandicodes.github.io/index.html">Home</a> &nbsp;·&nbsp;
-    <a href="terms.html">Terms of Service</a>
-  </footer>
-
-  <!-- Theme toggle -->
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const toggleBtn = document.getElementById('theme-toggle');
-      const root = document.documentElement;
-
-      function setIcon() {
-        toggleBtn.textContent = root.classList.contains('dark-mode') ? '☀️' : '🌙';
-      }
-      setIcon();
-
-      toggleBtn.addEventListener('click', () => {
-        root.classList.toggle('dark-mode');
-        document.body.classList.toggle('dark-mode');
-        const isDark = root.classList.contains('dark-mode');
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        setIcon();
-      });
+    // Theme Toggle
+    const themeBtn = document.getElementById('theme-toggle');
+    if(localStorage.getItem('theme') === 'dark') { document.body.classList.add('dark-mode'); themeBtn.textContent = '☀️'; }
+    themeBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      themeBtn.textContent = isDark ? '☀️' : '🌙';
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
     });
 
-    document.getElementById('year').textContent = new Date().getFullYear();
+    // Chatbot Logic
+    const chatBtn = document.getElementById('chat-btn');
+    const chatWindow = document.getElementById('chat-window');
+    const closeChat = document.getElementById('close-chat');
+    const chatForm = document.getElementById('chat-form');
+    const chatInput = document.getElementById('chat-input');
+    const chatBody = document.getElementById('chat-body');
+
+    chatBtn.addEventListener('click', () => chatWindow.classList.toggle('open'));
+    closeChat.addEventListener('click', () => chatWindow.classList.remove('open'));
+
+    chatForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const msg = chatInput.value.trim();
+      if(!msg) return;
+
+      const userBubble = document.createElement('div');
+      userBubble.className = 'chat-message msg-user';
+      userBubble.textContent = msg;
+      chatBody.appendChild(userBubble);
+      
+      chatInput.value = '';
+      chatBody.scrollTop = chatBody.scrollHeight;
+
+      const formData = new FormData();
+      formData.append('name', 'Chatbot User');
+      formData.append('email', 'chatbot@agandicodes.github.io');
+      formData.append('subject', 'New Chatbot Message');
+      formData.append('message', msg);
+
+      fetch("https://script.google.com/macros/s/AKfycbwUNkPAEqVLXs2CwUtBRxgTVbcIGLWFaVHjS-jAetmOsLWHEy4W0T_eRe_rSFKO2hDM_g/exec", {
+        method: 'POST',
+        body: formData
+      }).then(() => {
+        const botBubble = document.createElement('div');
+        botBubble.className = 'chat-message msg-bot';
+        botBubble.textContent = "Thanks! We received your message.";
+        chatBody.appendChild(botBubble);
+        chatBody.scrollTop = chatBody.scrollHeight;
+      });
+    });
   </script>
-
 </body>
-
 </html>
