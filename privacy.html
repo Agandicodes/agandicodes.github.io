@@ -262,4 +262,261 @@
 
     body.dark-mode .content h2 { color: #E8CB6A; }
 
-    .content h2:first-of-type { margin-top:
+    .content h2:first-of-type { margin-top: 0; }
+
+    .content p { margin: 0 0 12px; }
+
+    .content ul, .content ol {
+      margin: 0 0 14px;
+      padding-left: 22px;
+    }
+
+    .content li { margin: 5px 0; }
+
+    .content a {
+      color: var(--link);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color .15s ease;
+    }
+
+    .content a:hover { border-bottom-color: var(--link); }
+
+    .callout {
+      background: var(--surface-alt);
+      border-left: 4px solid var(--gold);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin: 18px 0;
+      font-size: .95rem;
+      color: var(--muted-ink);
+    }
+
+    .callout strong { color: var(--ink); }
+
+    /* ---------- Print ---------- */
+    @media print {
+      .site-header, .toc, .theme-btn, .back-to-top, footer { display: none !important; }
+      body { background: #fff; color: #000; }
+      .hero { background: #fff !important; color: #000 !important; padding: 0 0 12px; text-align: left; }
+      .hero .pill { border-color: #999; color: #333; }
+      .layout { display: block; padding: 0; }
+      .content { border: none; box-shadow: none; padding: 0; }
+      .content h2 { color: #000; page-break-after: avoid; }
+      a { color: #000; text-decoration: underline; }
+    }
+
+    /* ---------- Back to top ---------- */
+    .back-to-top {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--purple-primary);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 6px 18px rgba(43, 11, 64, .35);
+      font-size: 1.2rem;
+      z-index: 40;
+      opacity: .9;
+      transition: opacity .2s ease, transform .2s ease;
+    }
+
+    .back-to-top:hover { opacity: 1; transform: translateY(-2px); }
+
+    /* ---------- Footer ---------- */
+    footer {
+      background: var(--purple-deep);
+      color: rgba(255, 255, 255, .75);
+      padding: 28px 20px;
+      text-align: center;
+      font-size: .85rem;
+    }
+
+    footer a { color: var(--gold); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header class="site-header">
+    <div class="inner">
+      <a href="https://agandicodes.github.io/index.html" class="brand">Agandi<span>Codes</span></a>
+      <div class="spacer"></div>
+      <a href="https://agandicodes.github.io/index.html" class="nav-link">Home</a>
+      <a href="terms.html" class="nav-link">Terms</a>
+      <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">🌙</button>
+    </div>
+  </header>
+
+  <!-- ======= Hero ======= -->
+  <section class="hero">
+    <h1>Privacy Policy</h1>
+    <p>This policy explains what information AgandiCodes collects, how we use it, and the choices available to you.</p>
+    <span class="pill">Last updated: July 23, 2025</span>
+  </section>
+
+  <!-- ======= Layout ======= -->
+  <div class="layout">
+
+    <!-- Table of contents -->
+    <aside class="toc">
+      <h2>On this page</h2>
+      <ol>
+        <li><a href="#collect">Information We Collect</a></li>
+        <li><a href="#use">How We Use Data</a></li>
+        <li><a href="#third-party">Third-Party Services</a></li>
+        <li><a href="#compliance">International Compliance</a></li>
+        <li><a href="#children">Children's Privacy</a></li>
+        <li><a href="#content-sensitivity">Content Sensitivity</a></li>
+        <li><a href="#rights">Your Rights</a></li>
+        <li><a href="#security">Data Security</a></li>
+        <li><a href="#changes">Changes to This Policy</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ol>
+    </aside>
+
+    <!-- Content -->
+    <main class="content">
+      <div class="meta">
+        <span><strong>Applies to:</strong> AgandiCodes websites and mobile apps</span>
+        <span><strong>Last updated:</strong> July 23, 2025</span>
+      </div>
+
+      <p>
+        This privacy policy applies to all applications and services provided by AgandiCodes
+        ("we", "our", or "us"), including but not limited to mobile apps, web apps, games, and
+        learning platforms.
+      </p>
+
+      <h2 id="collect">1. Information We Collect</h2>
+      <p>We may collect non-personal data to improve our services and user experience. This includes:</p>
+      <ul>
+        <li>Usage data (e.g., clicks, session duration, app features used)</li>
+        <li>Device data (e.g., model, OS version, IP address, screen size)</li>
+        <li>Crash logs and diagnostics</li>
+      </ul>
+      <p>
+        Personally identifiable information (such as name, email, or profile photo) is only collected
+        with your explicit consent (e.g., if you sign in using Google, Yahoo, or Facebook).
+      </p>
+
+      <h2 id="use">2. How We Use Data</h2>
+      <p>We use collected data to:</p>
+      <ul>
+        <li>Provide and maintain our services</li>
+        <li>Improve app performance and user experience</li>
+        <li>Display personalized content or ads (if applicable)</li>
+        <li>Analyze user behavior anonymously</li>
+      </ul>
+
+      <h2 id="third-party">3. Third-Party Services</h2>
+      <p>
+        We may integrate third-party tools and SDKs that have their own privacy practices. These may
+        include:
+      </p>
+      <ul>
+        <li>Google Play Services</li>
+        <li>Firebase Analytics and Crashlytics</li>
+        <li>AdMob or other ad networks (for free apps)</li>
+        <li>Google Sign-In, Facebook Login, etc.</li>
+      </ul>
+      <p>
+        Please review their privacy policies for detailed information on their data usage.
+      </p>
+
+      <h2 id="compliance">4. International Compliance</h2>
+      <p>We are committed to complying with global privacy regulations, including:</p>
+      <ul>
+        <li><strong>GDPR</strong> (European Union) – Right to access, delete or restrict your data</li>
+        <li><strong>CCPA</strong> (California) – Right to opt-out of sale of personal information</li>
+        <li><strong>COPPA</strong> (USA) – No data collection from children under 13 without parental consent</li>
+      </ul>
+
+      <h2 id="children">5. Children's Privacy</h2>
+      <p>
+        Our services are not directed to children under the age of 13 without verifiable parental
+        consent. If we become aware that a child has submitted personal information, we will delete
+        it immediately.
+      </p>
+
+      <h2 id="content-sensitivity">6. Content Sensitivity</h2>
+      <p>
+        Our apps avoid harmful or inappropriate content, including violence, hate speech, and sexual
+        content, unless age-rated or permitted in your country.
+      </p>
+      <p>
+        If your region requires age confirmation or parental controls, we comply accordingly.
+      </p>
+
+      <h2 id="rights">7. Your Rights</h2>
+      <p>Depending on your location, you have rights such as:</p>
+      <ul>
+        <li>Request access to the data we hold about you</li>
+        <li>Request deletion or correction of your data</li>
+        <li>Withdraw consent at any time</li>
+      </ul>
+
+      <h2 id="security">8. Data Security</h2>
+      <p>
+        We take reasonable security measures to protect your data. All sensitive transmissions are
+        encrypted, and no unnecessary data is stored on our servers.
+      </p>
+
+      <h2 id="changes">9. Changes to This Policy</h2>
+      <p>
+        We may update this privacy policy from time to time. Changes will be posted on this page with
+        an updated date. Continued use of the service implies your agreement to the updated policy.
+      </p>
+
+      <h2 id="contact">10. Contact Us</h2>
+      <p>
+        If you have questions or concerns regarding this policy or your data rights, contact us at:
+      </p>
+      <p>Email: <a href="mailto:agandicodes@gmail.com">agandicodes@gmail.com</a></p>
+    </main>
+  </div>
+
+  <!-- ======= Back to top ======= -->
+  <a href="#" class="back-to-top" aria-label="Back to top">↑</a>
+
+  <!-- ======= Footer ======= -->
+  <footer>
+    &copy; <span id="year">2025</span> AgandiCodes. All Rights Reserved. &nbsp;·&nbsp;
+    <a href="https://agandicodes.github.io/index.html">Home</a> &nbsp;·&nbsp;
+    <a href="terms.html">Terms of Service</a>
+  </footer>
+
+  <!-- Theme toggle -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggleBtn = document.getElementById('theme-toggle');
+      const root = document.documentElement;
+
+      function setIcon() {
+        toggleBtn.textContent = root.classList.contains('dark-mode') ? '☀️' : '🌙';
+      }
+      setIcon();
+
+      toggleBtn.addEventListener('click', () => {
+        root.classList.toggle('dark-mode');
+        document.body.classList.toggle('dark-mode');
+        const isDark = root.classList.contains('dark-mode');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        setIcon();
+      });
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+
+</html>
