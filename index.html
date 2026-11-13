@@ -4,14 +4,14 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>AgandiCodes — Infinite Loop Technology</title>
-  <meta content="AgandiCodes — Infinite Loop Technology. Build, equip and inspire with technology." name="description">
+  <title>AgandiCodes — Advanced Tech Hub & Infinite Loop Technology</title>
+  <meta content="AgandiCodes — Advanced Tech Hub. AI, IoT, LoRa, Cybersecurity, Cloud, and Enterprise Software Engineering." name="description">
   <meta name="theme-color" content="#FFFFFF">
 
   <!-- Favicons -->
-  <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico?v=5">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png?v=5">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png?v=5">
+  <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico?v=6">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png?v=6">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png?v=6">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Poppins:300,400,500,600,700" rel="stylesheet">
@@ -26,7 +26,7 @@
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Main CSS -->
-  <link href="assets/css/style.css?v=5" rel="stylesheet">
+  <link href="assets/css/style.css?v=6" rel="stylesheet">
 
   <style>
     /* =========================================
@@ -35,6 +35,7 @@
     :root {
       --brand-agandi: #929091;
       --brand-codes: #61A534;
+      --brand-codes-dark: #4d8529;
       --brand-tagline: #999999;
       --bg-color: #FFFFFF;
       --text-color: #333333;
@@ -42,17 +43,19 @@
       --nav-text: #333333;
       --card-bg: #FFFFFF;
       --border: #EAEAEA;
+      --muted: #6c757d;
     }
 
     body.dark-mode {
-      --bg-color: #121212;
+      --bg-color: #0f0f10;
       --text-color: #E0E0E0;
-      --nav-bg: rgba(18, 18, 18, 0.95);
+      --nav-bg: rgba(15, 15, 16, 0.95);
       --nav-text: #FFFFFF;
-      --card-bg: #1E1E1E;
+      --card-bg: #1a1a1c;
       --brand-agandi: #D7D7D7;
       --brand-tagline: #B5B5B5;
-      --border: #333333;
+      --border: #2a2a2c;
+      --muted: #a0a0a0;
     }
 
     body {
@@ -60,6 +63,7 @@
       color: var(--text-color) !important;
       overflow-x: hidden;
       transition: background-color 0.3s, color 0.3s;
+      font-family: "Open Sans", sans-serif;
     }
 
     /* =========================================
@@ -83,7 +87,7 @@
 
     .bg-gear {
       position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-      background: url('https://github.com/Agandicodes/agandicodes.github.io/blob/main/assets/img/skills.gif?raw=true&v=5') no-repeat center center;
+      background: url('https://github.com/Agandicodes/agandicodes.github.io/blob/main/assets/img/skills.gif?raw=true&v=6') no-repeat center center;
       background-size: cover;
       opacity: 0.10;
       pointer-events: none;
@@ -149,7 +153,7 @@
       border-radius: 50px;
       padding: 8px 20px;
     }
-    #navbar ul li .getstarted:hover { background: #4d8529 !important; color: #FFFFFF !important; }
+    #navbar ul li .getstarted:hover { background: var(--brand-codes-dark) !important; color: #FFFFFF !important; }
 
     #theme-toggle {
       color: var(--nav-text) !important;
@@ -160,7 +164,7 @@
     body.dark-mode #theme-toggle { color: #FFF !important; border-color: #FFF !important; }
 
     /* =========================================
-       4. ANIMATIONS & SECTIONS
+       4. SECTIONS & ANIMATIONS
        ========================================= */
     .scroll-reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
     .scroll-reveal.is-visible { opacity: 1; transform: translateY(0); }
@@ -206,7 +210,9 @@
       color: #fff !important;
     }
 
-    /* Apps Section */
+    /* =========================================
+       6. APPS SECTION & FOOTER
+       ========================================= */
     .apps-section {
       padding: 60px 0;
       background: var(--card-bg);
@@ -226,9 +232,6 @@
       margin: 0 auto 25px;
     }
 
-    /* =========================================
-       6. FOOTER WITH SKILLS.GIF
-       ========================================= */
     .footer-skill-img {
       max-width: 100%;
       height: auto;
@@ -299,98 +302,223 @@
     }
 
     /* =========================================
-       9. SPOTLIGHT SERVICES (VFL, LoRa, IoT)
+       9. ADVANCED TECH HUB — SERVICES REDESIGN
        ========================================= */
-    .spotlight-services {
-      background: linear-gradient(135deg, rgba(97, 165, 52, 0.08) 0%, rgba(146, 144, 145, 0.06) 100%);
-      border-radius: 20px;
-      padding: 40px 25px;
-      margin-top: 50px;
+    .tech-hub {
       position: relative;
+      padding: 20px 0 40px;
+    }
+    .tech-hub-header {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto 50px;
+    }
+    .tech-hub-header .hub-badge {
+      display: inline-block;
+      background: rgba(97, 165, 52, 0.1);
+      color: var(--brand-codes);
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 50px;
+      margin-bottom: 16px;
+      border: 1px solid rgba(97, 165, 52, 0.25);
+    }
+    .tech-hub-header h2 {
+      font-family: "Poppins", sans-serif;
+      font-weight: 800;
+      font-size: 2.4rem;
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+    .tech-hub-header h2 span {
+      background: linear-gradient(135deg, var(--brand-codes) 0%, #4d8529 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .tech-hub-header p {
+      color: var(--muted);
+      font-size: 1.02rem;
+      line-height: 1.7;
+    }
+
+    /* Core Service Cards */
+    .service-card {
+      position: relative;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 34px 28px;
+      height: 100%;
       overflow: hidden;
-      border: 1px solid rgba(97, 165, 52, 0.15);
+      transition: all 0.45s cubic-bezier(0.5, 0, 0, 1);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
     }
-    body.dark-mode .spotlight-services {
-      background: linear-gradient(135deg, rgba(97, 165, 52, 0.12) 0%, rgba(146, 144, 145, 0.08) 100%);
-      border-color: rgba(97, 165, 52, 0.25);
-    }
-    .spotlight-services::before {
+    .service-card::before {
       content: '';
       position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(97, 165, 52, 0.08) 0%, transparent 70%);
-      animation: spotlightRotate 20s linear infinite;
+      top: 0; left: 0;
+      width: 100%; height: 4px;
+      background: linear-gradient(90deg, var(--brand-codes), var(--brand-agandi));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(97, 165, 52, 0.35);
+      box-shadow: 0 18px 40px rgba(97, 165, 52, 0.12);
+    }
+    .service-card .card-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 62px; height: 62px;
+      border-radius: 16px;
+      font-size: 1.7rem;
+      margin-bottom: 20px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--brand-codes) 0%, #4d8529 100%);
+      box-shadow: 0 8px 20px rgba(97, 165, 52, 0.3);
+      transition: transform 0.4s ease;
+    }
+    .service-card:hover .card-icon { transform: rotate(-8deg) scale(1.08); }
+    .service-card .card-index {
+      position: absolute;
+      top: 20px; right: 24px;
+      font-family: "Poppins", sans-serif;
+      font-weight: 800;
+      font-size: 2.4rem;
+      color: rgba(97, 165, 52, 0.08);
+      line-height: 1;
+    }
+    .service-card h4 {
+      font-family: "Poppins", sans-serif;
+      font-weight: 700;
+      font-size: 1.18rem;
+      margin-bottom: 12px;
+      color: var(--text-color);
+    }
+    .service-card p {
+      font-size: 0.92rem;
+      line-height: 1.65;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .service-card .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: auto;
+    }
+    .service-card .card-tags span {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+      background: rgba(97, 165, 52, 0.08);
+      color: var(--brand-codes);
+      letter-spacing: 0.02em;
+    }
+    body.dark-mode .service-card .card-tags span { background: rgba(97, 165, 52, 0.15); }
+
+    /* Advanced Tech Spotlight */
+    .advanced-spotlight {
+      margin-top: 60px;
+      background: linear-gradient(135deg, rgba(97, 165, 52, 0.08) 0%, rgba(146, 144, 145, 0.05) 100%);
+      border-radius: 28px;
+      padding: 50px 30px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(97, 165, 52, 0.18);
+    }
+    body.dark-mode .advanced-spotlight {
+      background: linear-gradient(135deg, rgba(97, 165, 52, 0.12) 0%, rgba(146, 144, 145, 0.07) 100%);
+      border-color: rgba(97, 165, 52, 0.28);
+    }
+    .advanced-spotlight::before {
+      content: '';
+      position: absolute;
+      top: -60%; left: -60%;
+      width: 220%; height: 220%;
+      background: radial-gradient(circle, rgba(97, 165, 52, 0.10) 0%, transparent 65%);
+      animation: spotlightRotate 24s linear infinite;
       pointer-events: none;
     }
     @keyframes spotlightRotate {
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
-    .spotlight-title {
+    .spotlight-header {
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 40px;
       position: relative;
       z-index: 1;
     }
-    .spotlight-title h3 {
+    .spotlight-header .hub-badge {
+      background: var(--brand-codes);
+      color: #fff;
+      border: none;
+    }
+    .spotlight-header h3 {
       font-family: "Poppins", sans-serif;
-      font-weight: 700;
-      font-size: 1.6rem;
-      color: var(--brand-codes);
-      margin-bottom: 8px;
+      font-weight: 800;
+      font-size: 1.9rem;
+      margin-bottom: 10px;
     }
-    .spotlight-title p {
-      color: var(--brand-tagline);
-      font-size: 0.95rem;
+    .spotlight-header h3 span { color: var(--brand-codes); }
+    .spotlight-header p {
+      color: var(--muted);
+      max-width: 620px;
+      margin: 0 auto;
+      font-size: 0.98rem;
     }
+
     .spotlight-card {
-      background: var(--card-bg);
-      border-radius: 16px;
-      padding: 30px 22px;
-      text-align: center;
-      height: 100%;
       position: relative;
-      z-index: 1;
+      background: var(--card-bg);
       border: 1px solid var(--border);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.04);
-      transition: all 0.4s cubic-bezier(0.5, 0, 0, 1);
+      border-radius: 20px;
+      padding: 32px 26px;
+      height: 100%;
+      z-index: 1;
+      transition: all 0.45s cubic-bezier(0.5, 0, 0, 1);
+      box-shadow: 0 4px 18px rgba(0,0,0,0.04);
     }
     .spotlight-card:hover {
-      transform: translateY(-10px) scale(1.02);
-      box-shadow: 0 15px 35px rgba(97, 165, 52, 0.2);
+      transform: translateY(-10px) scale(1.015);
+      box-shadow: 0 20px 45px rgba(97, 165, 52, 0.22);
       border-color: var(--brand-codes);
     }
     .spotlight-icon {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 70px;
-      height: 70px;
+      width: 72px; height: 72px;
       border-radius: 50%;
       background: linear-gradient(135deg, var(--brand-codes) 0%, #4d8529 100%);
       color: #fff;
       font-size: 2rem;
       margin-bottom: 18px;
-      box-shadow: 0 8px 20px rgba(97, 165, 52, 0.35);
+      box-shadow: 0 8px 22px rgba(97, 165, 52, 0.35);
       transition: transform 0.4s ease;
     }
-    .spotlight-card:hover .spotlight-icon {
-      transform: rotate(10deg) scale(1.1);
-    }
+    .spotlight-card:hover .spotlight-icon { transform: rotate(10deg) scale(1.12); }
     .spotlight-card h4 {
       font-family: "Poppins", sans-serif;
       font-weight: 700;
       font-size: 1.15rem;
-      color: var(--text-color);
       margin-bottom: 10px;
+      color: var(--text-color);
     }
     .spotlight-card p {
-      font-size: 0.9rem;
-      color: var(--brand-tagline);
-      line-height: 1.5;
+      font-size: 0.92rem;
+      line-height: 1.65;
+      color: var(--muted);
       margin: 0;
     }
     .spotlight-badge {
@@ -399,11 +527,56 @@
       color: #fff;
       font-size: 0.65rem;
       font-weight: 700;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      padding: 3px 10px;
+      padding: 4px 12px;
       border-radius: 20px;
+      margin-bottom: 14px;
+    }
+
+    /* Tech Stack Grid */
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 60px;
+    }
+    .stack-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px 20px;
+      text-align: center;
+      transition: all 0.35s ease;
+    }
+    .stack-item:hover {
+      border-color: var(--brand-codes);
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(97, 165, 52, 0.12);
+    }
+    .stack-item i {
+      font-size: 2rem;
+      color: var(--brand-codes);
       margin-bottom: 12px;
+      display: block;
+    }
+    .stack-item h5 {
+      font-family: "Poppins", sans-serif;
+      font-weight: 700;
+      font-size: 0.98rem;
+      margin-bottom: 6px;
+      color: var(--text-color);
+    }
+    .stack-item p {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 768px) {
+      .tech-hub-header h2 { font-size: 1.8rem; }
+      .advanced-spotlight { padding: 35px 18px; }
     }
   </style>
 </head>
@@ -451,7 +624,7 @@
         <div class="row">
           <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1">
             <h1><span class="agandi" style="color:var(--brand-agandi)">Agandi</span><span class="codes" style="color:var(--brand-codes)">Codes</span></h1>
-            <h2><span class="brand-tagline" style="font-size:1rem;">Infinite Loop Technology</span></h2>
+            <h2><span class="brand-tagline" style="font-size:1rem;">Advanced Tech Hub & Infinite Loop Technology</span></h2>
             <div class="d-flex justify-content-center justify-content-lg-start mt-3 flex-wrap gap-2">
               <a href="#about" class="btn-get-started scrollto">Get Started</a>
               <a href="https://play.google.com/store/apps/dev?id=7165250292071576506" target="_blank" rel="noopener" class="btn-google-play">
@@ -461,7 +634,7 @@
             </div>
           </div>
           <div class="col-lg-6 order-1 order-lg-2 hero-img">
-            <img src="assets/img/hero-img.png?v=5" class="img-fluid animated" alt="">
+            <img src="assets/img/hero-img.png?v=6" class="img-fluid animated" alt="">
           </div>
         </div>
       </div>
@@ -473,94 +646,133 @@
         <div class="section-title"><h2>About Us</h2></div>
         <div class="row content">
           <div class="col-lg-6">
-            <p>Our goal is to build, equip in an endless loop of knowledge and technology for the better of the society.</p>
+            <p>We architect resilient digital ecosystems and intelligent infrastructure — bridging embedded systems, cloud-native software, and secure networks into cohesive platforms engineered for scale, observability, and long-term maintainability.</p>
             <ul>
-              <li><i class="ri-check-double-line"></i> Our goal is to impact future generation.</li>
-              <li><i class="ri-check-double-line"></i> Our mission is to increase knowledge among youth.</li>
+              <li><i class="ri-check-double-line"></i> Enabling next-generation innovation through applied research and engineering excellence.</li>
+              <li><i class="ri-check-double-line"></i> Cultivating a global talent pipeline in advanced computing and connected technologies.</li>
             </ul>
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0">
-            <p>Come join our growing network from day to day. We expect to work impact over millions of youth around the world. And increase on level of innovation world wide.</p>
+            <p>Our practice spans the full technology lifecycle — from silicon-adjacent firmware and RF telemetry through cloud orchestration and machine learning — delivering end-to-end solutions that are secure by design, data-driven, and future-proofed against evolving industry standards.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ======= Services Section ======= -->
+    <!-- ======= Services Section (Advanced Tech Hub) ======= -->
     <section id="services" class="services scroll-reveal">
-      <div class="container">
-        <div class="section-title">
-          <h2>Services</h2>
-          <p>Below are some of the services offered by our team.</p>
+      <div class="container tech-hub">
+        <div class="tech-hub-header">
+          <span class="hub-badge">Advanced Tech Hub</span>
+          <h2>Engineering <span>Intelligent Systems</span></h2>
+          <p>From low-level firmware and RF telemetry to cloud-native orchestration and applied AI, our multidisciplinary teams deliver end-to-end technology solutions engineered for resilience, observability, and measurable impact.</p>
         </div>
 
-        <!-- Existing Core Services -->
-        <div class="row">
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch">
-            <div class="icon-box">
-              <h4><a href="">Graphics Design</a></h4>
-              <p>Development of UI for application development use and Other commercial use.</p>
+        <!-- Core Service Cards -->
+        <div class="row g-4">
+          <div class="col-xl-3 col-md-6">
+            <div class="service-card">
+              <span class="card-index">01</span>
+              <div class="card-icon"><i class="bi bi-palette-fill"></i></div>
+              <h4>Graphics & Interaction Design</h4>
+              <p>Human-centered interface systems engineered around usability heuristics, accessibility (WCAG 2.2), and motion design principles — translating complex workflows into intuitive, high-fidelity experiences across web, mobile, and embedded displays.</p>
+              <div class="card-tags"><span>UI/UX</span><span>Design Systems</span><span>Prototyping</span></div>
             </div>
           </div>
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
-            <div class="icon-box">
-              <h4><a href="">Software Development</a></h4>
-              <p>Mobile development for cross platform (ReactNative/Kotlin/C#/flutter).</p>
+          <div class="col-xl-3 col-md-6">
+            <div class="service-card">
+              <span class="card-index">02</span>
+              <div class="card-icon"><i class="bi bi-code-slash"></i></div>
+              <h4>Full-Stack Software Engineering</h4>
+              <p>Cross-platform application development using modern toolchains (React Native, Kotlin, Flutter, C#) with clean architecture, automated testing pipelines, and CI/CD integration — delivering maintainable, high-performance products across mobile and web ecosystems.</p>
+              <div class="card-tags"><span>Mobile</span><span>Web</span><span>CI/CD</span></div>
             </div>
           </div>
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0">
-            <div class="icon-box">
-              <h4><a href="">Hardware Development</a></h4>
-              <p>Development of robot with arduino and other good hardware application.</p>
+          <div class="col-xl-3 col-md-6">
+            <div class="service-card">
+              <span class="card-index">03</span>
+              <div class="card-icon"><i class="bi bi-cpu"></i></div>
+              <h4>Embedded & Hardware Systems</h4>
+              <p>Microcontroller firmware, sensor integration, and robotics control loops built on Arduino, ESP32, and ARM architectures — with deterministic real-time behavior, power optimization, and hardware-in-the-loop validation for mission-critical deployments.</p>
+              <div class="card-tags"><span>Firmware</span><span>Robotics</span><span>RTOS</span></div>
             </div>
           </div>
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0">
-            <div class="icon-box">
-              <h4><a href="">Networking</a></h4>
-              <p>Networking programming with packet tracer, and network data processing.</p>
+          <div class="col-xl-3 col-md-6">
+            <div class="service-card">
+              <span class="card-index">04</span>
+              <div class="card-icon"><i class="bi bi-diagram-3-fill"></i></div>
+              <h4>Network Architecture & Telemetry</h4>
+              <p>Design and simulation of resilient network topologies, packet-level analysis, and distributed telemetry pipelines — leveraging Cisco Packet Tracer, protocol analyzers, and SDN principles to ensure low-latency, high-availability connectivity.</p>
+              <div class="card-tags"><span>SDN</span><span>Telemetry</span><span>Packet Analysis</span></div>
             </div>
           </div>
         </div>
 
-        <!-- Spotlight: VFL, LoRa, IoT -->
-        <div class="spotlight-services">
-          <div class="spotlight-title">
-            <h3>⚡ Advanced Tech Solutions</h3>
-            <p>Cutting-edge infrastructure for modern connectivity and monitoring</p>
+        <!-- Advanced Tech Solutions Spotlight -->
+        <div class="advanced-spotlight">
+          <div class="spotlight-header">
+            <span class="hub-badge">Advanced Infrastructure</span>
+            <h3>Connected <span>Systems & Sensing</span></h3>
+            <p>Purpose-built instrumentation and communication layers for next-generation networks, industrial IoT, and long-range telemetry.</p>
           </div>
           <div class="row g-4">
-            <!-- Visual Fault Locator (VFL) -->
             <div class="col-lg-4 col-md-6">
               <div class="spotlight-card">
-                <div class="spotlight-icon">
-                  <i class="bi bi-lightning-charge-fill"></i>
-                </div>
+                <div class="spotlight-icon"><i class="bi bi-lightning-charge-fill"></i></div>
                 <span class="spotlight-badge">Fiber Optics</span>
                 <h4>Visual Fault Locator (VFL)</h4>
-                <p>Precision fiber optic fault location and signal testing for reliable network maintenance.</p>
+                <p>Precision optical time-domain diagnostics for fiber link characterization — using calibrated laser sources to localize micro-bends, macro-bends, and connector faults across single-mode and multi-mode deployments.</p>
               </div>
             </div>
-            <!-- LoRa Gateways -->
             <div class="col-lg-4 col-md-6">
               <div class="spotlight-card">
-                <div class="spotlight-icon">
-                  <i class="bi bi-broadcast-pin"></i>
-                </div>
+                <div class="spotlight-icon"><i class="bi bi-broadcast-pin"></i></div>
                 <span class="spotlight-badge">Connectivity</span>
                 <h4>LoRa Gateways</h4>
-                <p>Long-range, low-power IoT gateway deployment and configuration for smart networks.</p>
+                <p>Sub-GHz LPWAN gateway orchestration with adaptive data-rate control, packet-forwarder tuning, and LoRaWAN Class A/B/C device provisioning — engineered for kilometer-scale range and multi-year battery autonomy.</p>
               </div>
             </div>
-            <!-- IoT Sensors -->
             <div class="col-lg-4 col-md-6">
               <div class="spotlight-card">
-                <div class="spotlight-icon">
-                  <i class="bi bi-cpu-fill"></i>
-                </div>
+                <div class="spotlight-icon"><i class="bi bi-cpu-fill"></i></div>
                 <span class="spotlight-badge">Smart Tech</span>
-                <h4>IoT Sensors</h4>
-                <p>Integration and deployment of smart sensors for environmental monitoring and automation.</p>
+                <h4>IoT Sensor Networks</h4>
+                <p>End-to-end sensor mesh deployment with edge pre-processing, time-series telemetry ingestion, and anomaly detection — supporting environmental, industrial, and asset-tracking use cases at scale.</p>
               </div>
+            </div>
+          </div>
+
+          <!-- Tech Stack Grid -->
+          <div class="stack-grid">
+            <div class="stack-item">
+              <i class="bi bi-brain"></i>
+              <h5>AI & Machine Learning</h5>
+              <p>Applied ML pipelines, model inference at the edge, and data-driven automation.</p>
+            </div>
+            <div class="stack-item">
+              <i class="bi bi-cloud-arrow-up-fill"></i>
+              <h5>Cloud & DevOps</h5>
+              <p>Containerized microservices, IaC, and observability-first cloud architecture.</p>
+            </div>
+            <div class="stack-item">
+              <i class="bi bi-shield-lock-fill"></i>
+              <h5>Cybersecurity</h5>
+              <p>Zero-trust design, threat modeling, and secure-by-default engineering.</p>
+            </div>
+            <div class="stack-item">
+              <i class="bi bi-boxes"></i>
+              <h5>Blockchain & DLT</h5>
+              <p>Immutable audit trails, smart contracts, and decentralized identity systems.</p>
+            </div>
+            <div class="stack-item">
+              <i class="bi bi-router-fill"></i>
+              <h5>5G & RF Engineering</h5>
+              <p>Spectrum planning, mmWave propagation modeling, and RF link budgeting.</p>
+            </div>
+            <div class="stack-item">
+              <i class="bi bi-bar-chart-line-fill"></i>
+              <h5>Data Engineering</h5>
+              <p>Streaming pipelines, lakehouse architecture, and real-time analytics.</p>
             </div>
           </div>
         </div>
@@ -605,10 +817,10 @@
         <div class="row">
           <div class="col-lg-6">
             <div class="member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/team-2.png?v=5" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="assets/img/team-2.png?v=6" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Mwebaze Moses</h4>
-                <span>Developer</span>
+                <span>Lead Engineer</span>
                 <p>Come let's build a better world through innovation.</p>
                 <div class="social">
                   <a href="https://twitter.com/mwebazemoze"><i class="ri-twitter-fill"></i></a>
@@ -669,7 +881,7 @@
             </ul>
           </div>
           <div class="col-lg-4 col-md-12 footer-skill-col mt-3 mt-lg-0">
-            <img src="https://github.com/Agandicodes/agandicodes.github.io/blob/main/assets/img/skills.gif?raw=true&v=5" alt="AgandiCodes Skills Animation" class="footer-skill-img" style="max-height: 180px;">
+            <img src="https://github.com/Agandicodes/agandicodes.github.io/blob/main/assets/img/skills.gif?raw=true&v=6" alt="AgandiCodes Skills Animation" class="footer-skill-img" style="max-height: 180px;">
           </div>
         </div>
       </div>
@@ -687,7 +899,7 @@
       <span id="close-chat" style="cursor:pointer;">✖</span>
     </div>
     <div class="chat-body" id="chat-body">
-      <div class="chat-message msg-bot">Hey there! 👋 I'm the AgandiCodes bot. Ask me anything — or just say hi! 😄</div>
+      <div class="chat-message msg-bot">Hey there! 👋 I'm the AgandiCodes bot. Ask me anything about our advanced tech services! 😄</div>
     </div>
     <form class="chat-input-area" id="chat-form">
       <input type="text" id="chat-input" placeholder="Type a message..." autocomplete="off" required>
@@ -700,12 +912,10 @@
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/js/main.js?v=5"></script>
+  <script src="assets/js/main.js?v=6"></script>
 
   <script>
-    // 1. Theme Toggle & Instant Live Load
     const themeBtn = document.getElementById('theme-toggle');
-    
     function applyTheme(isDark) {
       if (isDark) {
         document.body.classList.add('dark-mode');
@@ -715,24 +925,16 @@
         themeBtn.textContent = '🌙';
       }
     }
-
-    if (localStorage.getItem('theme') === 'dark') {
-      applyTheme(true);
-    }
-
+    if (localStorage.getItem('theme') === 'dark') { applyTheme(true); }
     themeBtn.addEventListener('click', () => {
       const isDark = !document.body.classList.contains('dark-mode');
       applyTheme(isDark);
       localStorage.setItem('theme', isDark ? 'dark' : 'light');
     });
-
     window.addEventListener('storage', (e) => {
-      if (e.key === 'theme') {
-        applyTheme(e.newValue === 'dark');
-      }
+      if (e.key === 'theme') { applyTheme(e.newValue === 'dark'); }
     });
 
-    // 2. Scroll Navigation Effect
     window.addEventListener('scroll', function() {
       const header = document.getElementById('header');
       if (window.scrollY > 50) {
@@ -742,7 +944,6 @@
       }
     });
 
-    // 3. Intersection Observer for Scroll Reveal Animations
     const revealElements = document.querySelectorAll('.scroll-reveal');
     const revealObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
@@ -754,7 +955,6 @@
     }, { threshold: 0.1 });
     revealElements.forEach(el => revealObserver.observe(el));
 
-    // 4. Chatbot Logic – Fun & Engaging
     const chatBtn = document.getElementById('chat-btn');
     const chatWindow = document.getElementById('chat-window');
     const closeChat = document.getElementById('close-chat');
@@ -776,10 +976,7 @@
       "High five! ✋ (virtually, of course)",
       "That's a great point! 🌟"
     ];
-
-    function replyFunny() {
-      return funResponses[Math.floor(Math.random() * funResponses.length)];
-    }
+    function replyFunny() { return funResponses[Math.floor(Math.random() * funResponses.length)]; }
 
     chatBtn.addEventListener('click', () => chatWindow.classList.toggle('open'));
     closeChat.addEventListener('click', () => chatWindow.classList.remove('open'));
@@ -788,12 +985,10 @@
       e.preventDefault();
       const msg = chatInput.value.trim();
       if(!msg) return;
-
       const userBubble = document.createElement('div');
       userBubble.className = 'chat-message msg-user';
       userBubble.textContent = msg;
       chatBody.appendChild(userBubble);
-      
       chatInput.value = '';
       chatBody.scrollTop = chatBody.scrollHeight;
 
@@ -821,7 +1016,6 @@
       });
     });
 
-    // Dynamic Year
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
