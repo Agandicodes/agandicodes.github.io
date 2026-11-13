@@ -1,196 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Privacy Policy</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — AgandiCodes</title>
+  <meta name="description" content="Privacy Policy for AgandiCodes websites and mobile applications, including the Luganda Bible app.">
+  <meta name="theme-color" content="#4B1E6F">
 
   <!-- Favicons -->
   <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
-
-  <!-- Apple Touch Icon -->
   <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
-
-  <!-- Android / Chrome Icons -->
   <link rel="icon" type="image/png" sizes="192x192" href="assets/img/android-chrome-192x192.png">
   <link rel="icon" type="image/png" sizes="512x512" href="assets/img/android-chrome-512x512.png">
-
-  <!-- Web App Manifest -->
   <link rel="manifest" href="assets/img/site.webmanifest">
 
-  <!-- Theme Color -->
-  <meta name="theme-color" content="#ffffff">
-
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-  
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Jost:300,400,500,600,700|Poppins:300,400,500,600,700" rel="stylesheet">
-  
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-  <!-- No right-click -->
+  <!-- Apply saved theme early -->
   <script>
-    document.addEventListener('contextmenu', function (e) {
-      e.preventDefault();
-    });
+    (function () {
+      const theme = localStorage.getItem('theme');
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark-mode');
+        document.documentElement.classList.add('theme-ready');
+      }
+    })();
   </script>
 
-  <!-- Theme toggle script -->
- 
-
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
-
   <style>
+    :root {
+      --purple-deep: #2B0B40;
+      --purple-primary: #4B1E6F;
+      --purple-light: #6B3B93;
+      --purple-soft: #EADCF6;
+      --gold: #D4AF37;
+      --gold-dark: #A67C00;
+      --warm-white: #FFFDF8;
+      --ink: #241A2B;
+      --muted-ink: #5B4A66;
+      --surface: #FFFFFF;
+      --surface-alt: #F7F2FB;
+      --border: #E5D9F0;
+      --link: #4B1E6F;
+    }
+
+    html.dark-mode,
+    body.dark-mode {
+      --warm-white: #160A22;
+      --surface: #221030;
+      --surface-alt: #2B1839;
+      --ink: #F4EEFA;
+      --muted-ink: #C9B8D9;
+      --border: #3A2549;
+      --purple-soft: #3A1E56;
+      --link: #E8CB6A;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body { margin: 0; padding: 0; }
+
     body {
-      font-family: "Open Sans", sans-serif;
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 20px;
-      background-color: #fdfdfd;
-      color: #333;
-      line-height: 1.6;
+      font-family: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--warm-white);
+      color: var(--ink);
+      line-height: 1.65;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color .25s ease, color .25s ease;
     }
-    h1, h2 {
-      color: #2c3e50;
+
+    /* ---------- Header ---------- */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--purple-primary);
+      color: #fff;
+      box-shadow: 0 2px 14px rgba(43, 11, 64, .25);
     }
-    a {
-      color: #0066cc;
+
+    .site-header .inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .site-header .brand {
+      font-family: "Poppins", sans-serif;
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: .3px;
+      color: #fff;
       text-decoration: none;
     }
-    a:hover {
-      text-decoration: underline;
+
+    .site-header .brand span { color: var(--gold); }
+
+    .site-header .spacer { flex: 1; }
+
+    .site-header a.nav-link {
+      color: #fff;
+      text-decoration: none;
+      font-size: .9rem;
+      opacity: .9;
+      padding: 6px 10px;
+      border-radius: 8px;
+      transition: background-color .2s ease, opacity .2s ease;
     }
-    .visit-btn {
-      margin-top: 30px;
+
+    .site-header a.nav-link:hover {
+      background: rgba(255, 255, 255, .12);
+      opacity: 1;
+    }
+
+    .theme-btn {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, .35);
+      color: #fff;
+      border-radius: 10px;
+      padding: 6px 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .theme-btn:hover { background: rgba(255, 255, 255, .12); }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      background: linear-gradient(135deg, var(--purple-primary) 0%, var(--purple-deep) 100%);
+      color: #fff;
+      padding: 56px 20px 64px;
       text-align: center;
     }
-    .visit-btn a {
-      background-color: #007bff;
-      color: #fff;
-      padding: 12px 24px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 600;
+
+    .hero h1 {
+      font-family: "Poppins", sans-serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      margin: 0 0 10px;
+      letter-spacing: .3px;
+      font-weight: 700;
+    }
+
+    .hero p {
+      margin: 0 auto;
+      max-width: 680px;
+      color: rgba(255, 255, 255, .85);
+      font-size: 1rem;
+    }
+
+    .hero .pill {
       display: inline-block;
-      transition: background-color 0.3s;
+      margin-top: 18px;
+      background: rgba(212, 175, 55, .18);
+      border: 1px solid rgba(212, 175, 55, .55);
+      color: var(--gold);
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 999px;
     }
-    .visit-btn a:hover {
-      background-color: #0056b3;
+
+    /* ---------- Layout ---------- */
+    .layout {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 40px;
     }
-  </style>
-</head>
-<body>
-  <h1>Privacy Policy</h1>
-  <p><strong>Last updated:</strong> July 23, 2025</p>
 
-  <p>
-    This privacy policy applies to all applications and services provided by AgandiCodes ("we", "our", or "us"), including but not limited to mobile apps, web apps, games, and learning platforms.
-  </p>
+    @media (max-width: 860px) {
+      .layout { grid-template-columns: 1fr; gap: 24px; padding-top: 24px; }
+    }
 
-  <h2>1. Information We Collect</h2>
-  <p>We may collect non-personal data to improve our services and user experience. This includes:</p>
-  <ul>
-    <li>Usage data (e.g., clicks, session duration, app features used)</li>
-    <li>Device data (e.g., model, OS version, IP address, screen size)</li>
-    <li>Crash logs and diagnostics</li>
-  </ul>
-  <p>
-    Personally identifiable information (such as name, email, or profile photo) is only collected with your explicit consent (e.g., if you sign in using Google, Yahoo, or Facebook).
-  </p>
+    /* ---------- TOC ---------- */
+    .toc {
+      position: sticky;
+      top: 78px;
+      align-self: start;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px 16px;
+      font-size: .9rem;
+      max-height: calc(100vh - 100px);
+      overflow-y: auto;
+    }
 
-  <h2>2. How We Use Data</h2>
-  <p>We use collected data to:</p>
-  <ul>
-    <li>Provide and maintain our services</li>
-    <li>Improve app performance and user experience</li>
-    <li>Display personalized content or ads (if applicable)</li>
-    <li>Analyze user behavior anonymously</li>
-  </ul>
+    .toc h2 {
+      font-family: "Poppins", sans-serif;
+      font-size: .8rem;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--muted-ink);
+      margin: 0 0 10px;
+    }
 
-  <h2>3. Third-Party Services</h2>
-  <p>
-    We may integrate third-party tools and SDKs that have their own privacy practices. These may include:
-  </p>
-  <ul>
-    <li>Google Play Services</li>
-    <li>Firebase Analytics and Crashlytics</li>
-    <li>AdMob or other ad networks (for free apps)</li>
-    <li>Google Sign-In, Facebook Login, etc.</li>
-  </ul>
-  <p>
-    Please review their privacy policies for detailed information on their data usage.
-  </p>
+    .toc ol { margin: 0; padding-left: 18px; color: var(--muted-ink); }
+    .toc li { margin: 6px 0; }
 
-  <h2>4. International Compliance</h2>
-  <p>
-    We are committed to complying with global privacy regulations, including:
-  </p>
-  <ul>
-    <li><strong>GDPR</strong> (European Union) – Right to access, delete or restrict your data</li>
-    <li><strong>CCPA</strong> (California) – Right to opt-out of sale of personal information</li>
-    <li><strong>COPPA</strong> (USA) – No data collection from children under 13 without parental consent</li>
-  </ul>
+    .toc a {
+      color: var(--muted-ink);
+      text-decoration: none;
+      transition: color .15s ease;
+    }
 
-  <h2>5. Children's Privacy</h2>
-  <p>
-    Our services are not directed to children under the age of 13 without verifiable parental consent. If we become aware that a child has submitted personal information, we will delete it immediately.
-  </p>
+    .toc a:hover { color: var(--link); }
 
-  <h2>6. Content Sensitivity</h2>
-  <p>
-    Our apps avoid harmful or inappropriate content, including violence, hate speech, and sexual content, unless age-rated or permitted in your country.
-  </p>
-  <p>
-    If your region requires age confirmation or parental controls, we comply accordingly.
-  </p>
+    @media (max-width: 860px) {
+      .toc { position: static; max-height: none; }
+    }
 
-  <h2>7. Your Rights</h2>
-  <p>Depending on your location, you have rights such as:</p>
-  <ul>
-    <li>Request access to the data we hold about you</li>
-    <li>Request deletion or correction of your data</li>
-    <li>Withdraw consent at any time</li>
-  </ul>
+    /* ---------- Content ---------- */
+    .content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 36px 34px;
+      box-shadow: 0 6px 30px rgba(43, 11, 64, .05);
+    }
 
-  <h2>8. Data Security</h2>
-  <p>
-    We take reasonable security measures to protect your data. All sensitive transmissions are encrypted, and no unnecessary data is stored on our servers.
-  </p>
+    @media (max-width: 520px) {
+      .content { padding: 24px 18px; border-radius: 16px; }
+    }
 
-  <h2>9. Changes to This Policy</h2>
-  <p>
-    We may update this privacy policy from time to time. Changes will be posted on this page with an updated date. Continued use of the service implies your agreement to the updated policy.
-  </p>
+    .content .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 20px;
+      font-size: .82rem;
+      color: var(--muted-ink);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
 
-  <h2>10. Contact Us</h2>
-  <p>
-    If you have questions or concerns regarding this policy or your data rights, contact us at:
-  </p>
-  <p>Email: <a href="mailto:agandicodes@gmail.com">agandicodes@gmail.com</a></p>
+    .content .meta strong { color: var(--ink); font-weight: 600; }
 
-  <div class="visit-btn">
-    <a href="https://agandicodes.github.io" target="_blank">🌐 Visit AgandiCodes Website</a>
-  </div>
-</body>
-</html>
+    .content h2 {
+      font-family: "Poppins", sans-serif;
+      font-size: 1.28rem;
+      color: var(--purple-primary);
+      margin: 34px 0 10px;
+      padding-top: 6px;
+      scroll-margin-top: 90px;
+    }
+
+    body.dark-mode .content h2 { color: #E8CB6A; }
+
+    .content h2:first-of-type { margin-top:
