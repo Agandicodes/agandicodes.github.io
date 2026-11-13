@@ -41,6 +41,7 @@
       --nav-bg: rgba(255, 255, 255, 0.95);
       --nav-text: #333333;
       --card-bg: #FFFFFF;
+      --border: #EAEAEA;
     }
 
     body.dark-mode {
@@ -51,6 +52,7 @@
       --card-bg: #1E1E1E;
       --brand-agandi: #D7D7D7;
       --brand-tagline: #B5B5B5;
+      --border: #333333;
     }
 
     body {
@@ -60,22 +62,65 @@
       transition: background-color 0.3s, color 0.3s;
     }
 
-    /* Animated Tech Waves */
+    /* =========================================
+       2. BACKGROUND ANIMATIONS
+       ========================================= */
+    /* Tech Waves */
     .tech-waves {
       position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
       z-index: -1; pointer-events: none; overflow: hidden; background: var(--bg-color);
     }
     .wave {
       position: absolute; width: 200%; height: 200%;
-      background: rgba(97, 165, 52, 0.03); border-radius: 45%; animation: wave-rotate 25s infinite linear;
+      background: rgba(97, 165, 52, 0.04); border-radius: 45%;
+      animation: wave-rotate 25s infinite linear;
     }
-    .wave:nth-child(2) { background: rgba(146, 144, 145, 0.03); border-radius: 40%; animation: wave-rotate 35s infinite linear reverse; }
-    body.dark-mode .wave { background: rgba(97, 165, 52, 0.05); }
-    body.dark-mode .wave:nth-child(2) { background: rgba(255, 255, 255, 0.02); }
-    @keyframes wave-rotate { 0% { transform: translate(-25%, -25%) rotate(0deg); } 100% { transform: translate(-25%, -25%) rotate(360deg); } }
+    .wave:nth-child(2) {
+      background: rgba(146, 144, 145, 0.04); border-radius: 40%;
+      animation: wave-rotate 35s infinite linear reverse;
+    }
+    body.dark-mode .wave { background: rgba(97, 165, 52, 0.08); }
+    body.dark-mode .wave:nth-child(2) { background: rgba(255, 255, 255, 0.04); }
+
+    /* Gear GIF Animation (from provided URL) */
+    .bg-gear {
+      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+      background: url('https://github.com/Agandicodes/agandicodes.github.io/blob/main/assets/img/skills.gif?raw=true') no-repeat center center;
+      background-size: cover;
+      opacity: 0.10; /* visible on light bg */
+      pointer-events: none;
+      z-index: -2;
+      mix-blend-mode: overlay;
+      animation: gearFloat 40s infinite alternate ease-in-out;
+    }
+    body.dark-mode .bg-gear { opacity: 0.08; }
+
+    /* IoT & Math subtle icons (CSS-generated) */
+    .bg-icons {
+      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+      pointer-events: none; z-index: -1; opacity: 0.06;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='10' y='30' font-size='20' fill='%2361A534'%3E∑%3C/text%3E%3Ctext x='50' y='60' font-size='18' fill='%23929091'%3Eπ%3C/text%3E%3Ctext x='80' y='20' font-size='22' fill='%2361A534'%3E∞%3C/text%3E%3Ctext x='20' y='80' font-size='16' fill='%23929091'%3E⚙%3C/text%3E%3Ctext x='70' y='90' font-size='20' fill='%2361A534'%3E📡%3C/text%3E%3C/svg%3E");
+      background-size: 300px 300px;
+      background-repeat: repeat;
+      animation: iconDrift 60s infinite linear;
+    }
+    body.dark-mode .bg-icons { opacity: 0.08; }
+
+    @keyframes wave-rotate {
+      0% { transform: translate(-25%, -25%) rotate(0deg); }
+      100% { transform: translate(-25%, -25%) rotate(360deg); }
+    }
+    @keyframes gearFloat {
+      0% { transform: scale(1) rotate(0deg); }
+      100% { transform: scale(1.1) rotate(5deg); }
+    }
+    @keyframes iconDrift {
+      0% { background-position: 0 0; }
+      100% { background-position: 300px 300px; }
+    }
 
     /* =========================================
-       2. LOGO & NAVIGATION FIX
+       3. LOGO & NAVIGATION
        ========================================= */
     .brand-logo { display: inline-flex; flex-direction: column; text-decoration: none; }
     .brand-name { font-family: "Poppins", sans-serif; font-weight: 700; font-size: 1.6rem; line-height: 1.1; letter-spacing: -0.5px; }
@@ -83,7 +128,6 @@
     .brand-name .codes { color: var(--brand-codes) !important; }
     .brand-tagline { font-family: "Open Sans", sans-serif; font-weight: 600; font-size: 0.65rem; letter-spacing: 0.05em; color: var(--brand-tagline) !important; margin-top: 2px; }
 
-    /* Fix Navigation Background & Text */
     #header {
       background: var(--nav-bg) !important;
       backdrop-filter: blur(10px);
@@ -93,19 +137,15 @@
     }
     #header.header-scrolled { padding: 5px 0; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
 
-    /* Navigation links text color fix */
     #navbar ul li a, #navbar ul li a:focus, #navbar ul li a:hover {
       color: var(--nav-text) !important;
       transition: color 0.3s;
     }
     #navbar ul li a:hover { color: var(--brand-codes) !important; }
-    
-    /* Dark mode navbar adjustments */
     body.dark-mode #navbar ul li a { color: #FFFFFF !important; }
     body.dark-mode #navbar ul li a:hover { color: var(--brand-codes) !important; }
     body.dark-mode .mobile-nav-toggle { color: #FFFFFF !important; }
 
-    /* Get Started Button - High Contrast */
     #navbar ul li .getstarted {
       background: var(--brand-codes) !important;
       color: #FFFFFF !important;
@@ -114,29 +154,27 @@
     }
     #navbar ul li .getstarted:hover { background: #4d8529 !important; color: #FFFFFF !important; }
 
-    /* Theme Toggle Button Visibility */
-    #theme-toggle { 
-      color: var(--nav-text) !important; 
-      border: 1px solid var(--nav-text) !important; 
+    #theme-toggle {
+      color: var(--nav-text) !important;
+      border: 1px solid var(--nav-text) !important;
       background: transparent !important;
       font-size: 1.1rem;
     }
     body.dark-mode #theme-toggle { color: #FFF !important; border-color: #FFF !important; }
 
     /* =========================================
-       3. ANIMATIONS & SECTIONS
+       4. ANIMATIONS & SECTIONS
        ========================================= */
     .scroll-reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
     .scroll-reveal.is-visible { opacity: 1; transform: translateY(0); }
 
-    /* Dark mode section text fixes */
     body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode h4, body.dark-mode p, body.dark-mode li {
       color: var(--text-color) !important;
     }
     body.dark-mode .section-title h2::before { background: var(--brand-codes); }
 
     /* =========================================
-       4. CHATBOT WIDGET
+       5. CHATBOT WIDGET (fun & engaging)
        ========================================= */
     .chat-widget-btn {
       position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px;
@@ -146,23 +184,23 @@
       z-index: 999; transition: transform 0.3s; border: none;
     }
     .chat-widget-btn:hover { transform: scale(1.1); }
-    
+
     .chat-window {
-      position: fixed; bottom: 90px; right: 20px; width: 320px; height: 400px;
-      background: var(--card-bg); border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      position: fixed; bottom: 90px; right: 20px; width: 340px; height: 420px;
+      background: var(--card-bg); border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);
       display: none; flex-direction: column; z-index: 1000; overflow: hidden;
-      border: 1px solid #eee;
+      border: 1px solid var(--border);
     }
     .chat-window.open { display: flex; animation: slideUp 0.3s ease; }
     @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    
+
     .chat-header { background: var(--brand-agandi); color: white; padding: 15px; font-weight: 600; display: flex; justify-content: space-between; align-items: center; }
     .chat-body { flex: 1; padding: 15px; overflow-y: auto; background: var(--bg-color); display: flex; flex-direction: column; gap: 10px; }
     .chat-message { padding: 10px 14px; border-radius: 12px; max-width: 85%; font-size: 0.9rem; line-height: 1.4; }
     .msg-bot { background: #e9ecef; color: #333; align-self: flex-start; border-bottom-left-radius: 2px; }
     body.dark-mode .msg-bot { background: #333; color: #eee; }
     .msg-user { background: var(--brand-codes); color: #fff; align-self: flex-end; border-bottom-right-radius: 2px; }
-    .chat-input-area { display: flex; border-top: 1px solid #eee; padding: 10px; background: var(--card-bg); }
+    .chat-input-area { display: flex; border-top: 1px solid var(--border); padding: 10px; background: var(--card-bg); }
     .chat-input-area input { flex: 1; border: none; outline: none; padding: 8px; font-size: 0.9rem; background: transparent; color: var(--text-color); }
     .chat-input-area button { background: var(--brand-codes); color: white; border: none; padding: 8px 15px; border-radius: 6px; cursor: pointer; }
 
@@ -172,7 +210,9 @@
 </head>
 
 <body>
-  <!-- Tech Waves Background -->
+  <!-- Background Layers -->
+  <div class="bg-gear"></div>
+  <div class="bg-icons"></div>
   <div class="tech-waves">
     <div class="wave"></div>
     <div class="wave"></div>
@@ -196,6 +236,7 @@
           <li><a class="nav-link scrollto" href="#team">Team</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
           <li><a class="nav-link" href="terms.html">Terms</a></li>
+          <li><a class="nav-link" href="privacy.html">Privacy</a></li>
           <li><a class="getstarted scrollto" href="#about">Get Started</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -363,7 +404,7 @@
       <span id="close-chat" style="cursor:pointer;">✖</span>
     </div>
     <div class="chat-body" id="chat-body">
-      <div class="chat-message msg-bot">Hello! 👋 How can we help you today?</div>
+      <div class="chat-message msg-bot">Hey there! 👋 I'm the AgandiCodes bot. Ask me anything — or just say hi! 😄</div>
     </div>
     <form class="chat-input-area" id="chat-form">
       <input type="text" id="chat-input" placeholder="Type a message..." autocomplete="off" required>
@@ -392,19 +433,16 @@
       }
     }
 
-    // Check initial theme immediately
     if (localStorage.getItem('theme') === 'dark') {
       applyTheme(true);
     }
 
-    // Listen for toggle clicks
     themeBtn.addEventListener('click', () => {
       const isDark = !document.body.classList.contains('dark-mode');
       applyTheme(isDark);
       localStorage.setItem('theme', isDark ? 'dark' : 'light');
     });
 
-    // Listen for cross-tab changes (instant update)
     window.addEventListener('storage', (e) => {
       if (e.key === 'theme') {
         applyTheme(e.newValue === 'dark');
@@ -433,13 +471,33 @@
     }, { threshold: 0.1 });
     revealElements.forEach(el => revealObserver.observe(el));
 
-    // 4. Chatbot Logic
+    // 4. Chatbot Logic – Fun & Engaging
     const chatBtn = document.getElementById('chat-btn');
     const chatWindow = document.getElementById('chat-window');
     const closeChat = document.getElementById('close-chat');
     const chatForm = document.getElementById('chat-form');
     const chatInput = document.getElementById('chat-input');
     const chatBody = document.getElementById('chat-body');
+
+    // Predefined fun responses
+    const funResponses = [
+      "That's awesome! 😎 Tell me more!",
+      "Ooh, interesting! 🤔 I'm all ears (or circuits).",
+      "You just made my LEDs blink with joy! 💡",
+      "Nice one! 🚀 Keep 'em coming!",
+      "I'm learning so much from you! 📚",
+      "Whoa, you're on fire! 🔥 What else?",
+      "Beep boop! 🤖 That's cool.",
+      "I like your style! 😄",
+      "Fascinating! Let me process that... done! ✅",
+      "You're speaking my language! 💻",
+      "High five! ✋ (virtually, of course)",
+      "That's a great point! 🌟"
+    ];
+
+    function replyFunny() {
+      return funResponses[Math.floor(Math.random() * funResponses.length)];
+    }
 
     chatBtn.addEventListener('click', () => chatWindow.classList.toggle('open'));
     closeChat.addEventListener('click', () => chatWindow.classList.remove('open'));
@@ -469,7 +527,13 @@
       }).then(() => {
         const botBubble = document.createElement('div');
         botBubble.className = 'chat-message msg-bot';
-        botBubble.textContent = "Thanks for reaching out! We have received your message and will reply shortly.";
+        botBubble.textContent = replyFunny();
+        chatBody.appendChild(botBubble);
+        chatBody.scrollTop = chatBody.scrollHeight;
+      }).catch(() => {
+        const botBubble = document.createElement('div');
+        botBubble.className = 'chat-message msg-bot';
+        botBubble.textContent = "Oops! My gears slipped a bit 😅 But I got your message! " + replyFunny();
         chatBody.appendChild(botBubble);
         chatBody.scrollTop = chatBody.scrollHeight;
       });
