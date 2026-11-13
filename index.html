@@ -9,9 +9,9 @@
   <meta name="theme-color" content="#FFFFFF">
 
   <!-- Favicons -->
-  <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+  <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico?v=5">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png?v=5">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png?v=5">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Poppins:300,400,500,600,700" rel="stylesheet">
@@ -26,7 +26,7 @@
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Main CSS -->
-  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/style.css?v=5" rel="stylesheet">
 
   <style>
     /* =========================================
@@ -65,7 +65,6 @@
     /* =========================================
        2. BACKGROUND ANIMATIONS
        ========================================= */
-    /* Tech Waves */
     .tech-waves {
       position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
       z-index: -1; pointer-events: none; overflow: hidden; background: var(--bg-color);
@@ -82,10 +81,9 @@
     body.dark-mode .wave { background: rgba(97, 165, 52, 0.08); }
     body.dark-mode .wave:nth-child(2) { background: rgba(255, 255, 255, 0.04); }
 
-    /* Gear GIF Animation (from provided URL) */
     .bg-gear {
       position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-      background: url('https://github.com/Agandicodes/agandicodes.github.io/blob/main/assets/img/skills.gif?raw=true') no-repeat center center;
+      background: url('https://github.com/Agandicodes/agandicodes.github.io/blob/main/assets/img/skills.gif?raw=true&v=5') no-repeat center center;
       background-size: cover;
       opacity: 0.10;
       pointer-events: none;
@@ -95,7 +93,6 @@
     }
     body.dark-mode .bg-gear { opacity: 0.08; }
 
-    /* IoT & Math subtle icons (CSS-generated) */
     .bg-icons {
       position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
       pointer-events: none; z-index: -1; opacity: 0.06;
@@ -236,7 +233,6 @@
       max-width: 100%;
       height: auto;
       border-radius: 12px;
-      /* Subtle shadow to blend with background */
       box-shadow: 0 4px 15px rgba(0,0,0,0.08);
     }
     .footer-skill-col {
@@ -247,7 +243,7 @@
     }
 
     /* =========================================
-       7. CHATBOT WIDGET (fun & engaging)
+       7. CHATBOT WIDGET
        ========================================= */
     .chat-widget-btn {
       position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px;
@@ -279,6 +275,136 @@
 
     body.dark-mode .chat-window { border-color: #333; }
     body.dark-mode .chat-input-area { border-color: #333; }
+
+    /* =========================================
+       8. ONLINE SUPPORT ANIMATION
+       ========================================= */
+    .online-support-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      background: rgba(97, 165, 52, 0.1);
+      border-radius: 50%;
+      color: var(--brand-codes);
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      animation: supportPulse 2s infinite;
+    }
+    @keyframes supportPulse {
+      0% { box-shadow: 0 0 0 0 rgba(97, 165, 52, 0.4); }
+      70% { box-shadow: 0 0 0 15px rgba(97, 165, 52, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(97, 165, 52, 0); }
+    }
+
+    /* =========================================
+       9. SPOTLIGHT SERVICES (VFL, LoRa, IoT)
+       ========================================= */
+    .spotlight-services {
+      background: linear-gradient(135deg, rgba(97, 165, 52, 0.08) 0%, rgba(146, 144, 145, 0.06) 100%);
+      border-radius: 20px;
+      padding: 40px 25px;
+      margin-top: 50px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(97, 165, 52, 0.15);
+    }
+    body.dark-mode .spotlight-services {
+      background: linear-gradient(135deg, rgba(97, 165, 52, 0.12) 0%, rgba(146, 144, 145, 0.08) 100%);
+      border-color: rgba(97, 165, 52, 0.25);
+    }
+    .spotlight-services::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(97, 165, 52, 0.08) 0%, transparent 70%);
+      animation: spotlightRotate 20s linear infinite;
+      pointer-events: none;
+    }
+    @keyframes spotlightRotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .spotlight-title {
+      text-align: center;
+      margin-bottom: 30px;
+      position: relative;
+      z-index: 1;
+    }
+    .spotlight-title h3 {
+      font-family: "Poppins", sans-serif;
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: var(--brand-codes);
+      margin-bottom: 8px;
+    }
+    .spotlight-title p {
+      color: var(--brand-tagline);
+      font-size: 0.95rem;
+    }
+    .spotlight-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 30px 22px;
+      text-align: center;
+      height: 100%;
+      position: relative;
+      z-index: 1;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+      transition: all 0.4s cubic-bezier(0.5, 0, 0, 1);
+    }
+    .spotlight-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 15px 35px rgba(97, 165, 52, 0.2);
+      border-color: var(--brand-codes);
+    }
+    .spotlight-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--brand-codes) 0%, #4d8529 100%);
+      color: #fff;
+      font-size: 2rem;
+      margin-bottom: 18px;
+      box-shadow: 0 8px 20px rgba(97, 165, 52, 0.35);
+      transition: transform 0.4s ease;
+    }
+    .spotlight-card:hover .spotlight-icon {
+      transform: rotate(10deg) scale(1.1);
+    }
+    .spotlight-card h4 {
+      font-family: "Poppins", sans-serif;
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--text-color);
+      margin-bottom: 10px;
+    }
+    .spotlight-card p {
+      font-size: 0.9rem;
+      color: var(--brand-tagline);
+      line-height: 1.5;
+      margin: 0;
+    }
+    .spotlight-badge {
+      display: inline-block;
+      background: var(--brand-codes);
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
   </style>
 </head>
 
@@ -335,8 +461,7 @@
             </div>
           </div>
           <div class="col-lg-6 order-1 order-lg-2 hero-img">
-            <!-- Added cache-busting query parameter to hero img -->
-            <img src="assets/img/hero-img.png?v=1" class="img-fluid animated" alt="">
+            <img src="assets/img/hero-img.png?v=5" class="img-fluid animated" alt="">
           </div>
         </div>
       </div>
@@ -366,8 +491,10 @@
       <div class="container">
         <div class="section-title">
           <h2>Services</h2>
-          <p>Below are some of the services offered at by our team.</p>
+          <p>Below are some of the services offered by our team.</p>
         </div>
+
+        <!-- Existing Core Services -->
         <div class="row">
           <div class="col-xl-3 col-md-6 d-flex align-items-stretch">
             <div class="icon-box">
@@ -394,6 +521,67 @@
             </div>
           </div>
         </div>
+
+        <!-- Spotlight: VFL, LoRa, IoT -->
+        <div class="spotlight-services">
+          <div class="spotlight-title">
+            <h3>⚡ Advanced Tech Solutions</h3>
+            <p>Cutting-edge infrastructure for modern connectivity and monitoring</p>
+          </div>
+          <div class="row g-4">
+            <!-- Visual Fault Locator (VFL) -->
+            <div class="col-lg-4 col-md-6">
+              <div class="spotlight-card">
+                <div class="spotlight-icon">
+                  <i class="bi bi-lightning-charge-fill"></i>
+                </div>
+                <span class="spotlight-badge">Fiber Optics</span>
+                <h4>Visual Fault Locator (VFL)</h4>
+                <p>Precision fiber optic fault location and signal testing for reliable network maintenance.</p>
+              </div>
+            </div>
+            <!-- LoRa Gateways -->
+            <div class="col-lg-4 col-md-6">
+              <div class="spotlight-card">
+                <div class="spotlight-icon">
+                  <i class="bi bi-broadcast-pin"></i>
+                </div>
+                <span class="spotlight-badge">Connectivity</span>
+                <h4>LoRa Gateways</h4>
+                <p>Long-range, low-power IoT gateway deployment and configuration for smart networks.</p>
+              </div>
+            </div>
+            <!-- IoT Sensors -->
+            <div class="col-lg-4 col-md-6">
+              <div class="spotlight-card">
+                <div class="spotlight-icon">
+                  <i class="bi bi-cpu-fill"></i>
+                </div>
+                <span class="spotlight-badge">Smart Tech</span>
+                <h4>IoT Sensors</h4>
+                <p>Integration and deployment of smart sensors for environmental monitoring and automation.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= Online Support Section ======= -->
+    <section id="support" class="apps-section scroll-reveal" style="background: var(--bg-color); border-top: none;">
+      <div class="container text-center">
+        <div class="section-title">
+          <h2>Reliable Online Support</h2>
+          <p>We are here to help you 24/7 with any technical or product-related issues.</p>
+        </div>
+        <div class="d-flex justify-content-center align-items-center flex-column">
+          <div class="online-support-icon">
+            <i class="bi bi-headset"></i>
+          </div>
+          <a href="mailto:agandicodes@gmail.com" class="btn-google-play" style="background: var(--brand-codes); border-color: var(--brand-codes);">
+            <i class="bi bi-chat-dots"></i><span>Contact Support</span>
+          </a>
+        </div>
       </div>
     </section>
 
@@ -417,8 +605,7 @@
         <div class="row">
           <div class="col-lg-6">
             <div class="member d-flex align-items-start">
-              <!-- Added cache-busting query parameter to team img -->
-              <div class="pic"><img src="assets/img/team-2.png?v=1" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="assets/img/team-2.png?v=5" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Mwebaze Moses</h4>
                 <span>Developer</span>
@@ -467,13 +654,11 @@
     <div class="footer-top py-4">
       <div class="container">
         <div class="row">
-          <!-- Contact -->
           <div class="col-lg-4 col-md-6 footer-contact mb-4">
             <h3><span class="agandi" style="color:var(--brand-agandi)">Agandi</span><span class="codes" style="color:var(--brand-codes)">Codes</span></h3>
             <p class="brand-tagline mb-3">Infinite Loop Technology</p>
             <p>Nyamitanga, Mbarara, Uganda<br>Email: agandicodes@gmail.com</p>
           </div>
-          <!-- Links -->
           <div class="col-lg-4 col-md-6 footer-links mb-4">
             <h4>Useful Links</h4>
             <ul>
@@ -483,10 +668,8 @@
               <li><i class="bx bx-chevron-right"></i> <a href="privacy.html">Privacy Policy</a></li>
             </ul>
           </div>
-          <!-- Skills Animation -->
           <div class="col-lg-4 col-md-12 footer-skill-col mt-3 mt-lg-0">
-            <!-- Added cache-busting query parameter to skills.gif -->
-            <img src="https://github.com/Agandicodes/agandicodes.github.io/blob/main/assets/img/skills.gif?raw=true&v=2" alt="AgandiCodes Skills Animation" class="footer-skill-img" style="max-height: 180px;">
+            <img src="https://github.com/Agandicodes/agandicodes.github.io/blob/main/assets/img/skills.gif?raw=true&v=5" alt="AgandiCodes Skills Animation" class="footer-skill-img" style="max-height: 180px;">
           </div>
         </div>
       </div>
@@ -517,7 +700,7 @@
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js?v=5"></script>
 
   <script>
     // 1. Theme Toggle & Instant Live Load
@@ -579,7 +762,6 @@
     const chatInput = document.getElementById('chat-input');
     const chatBody = document.getElementById('chat-body');
 
-    // Predefined fun responses
     const funResponses = [
       "That's awesome! 😎 Tell me more!",
       "Ooh, interesting! 🤔 I'm all ears (or circuits).",
