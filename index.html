@@ -87,7 +87,7 @@
       position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
       background: url('https://github.com/Agandicodes/agandicodes.github.io/blob/main/assets/img/skills.gif?raw=true') no-repeat center center;
       background-size: cover;
-      opacity: 0.10; /* visible on light bg */
+      opacity: 0.10;
       pointer-events: none;
       z-index: -2;
       mix-blend-mode: overlay;
@@ -230,7 +230,24 @@
     }
 
     /* =========================================
-       6. CHATBOT WIDGET (fun & engaging)
+       6. FOOTER WITH SKILLS.GIF
+       ========================================= */
+    .footer-skill-img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      /* Subtle shadow to blend with background */
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+    .footer-skill-col {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+    }
+
+    /* =========================================
+       7. CHATBOT WIDGET (fun & engaging)
        ========================================= */
     .chat-widget-btn {
       position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px;
@@ -318,7 +335,8 @@
             </div>
           </div>
           <div class="col-lg-6 order-1 order-lg-2 hero-img">
-            <img src="assets/img/hero-img.png" class="img-fluid animated" alt="">
+            <!-- Added cache-busting query parameter to hero img -->
+            <img src="assets/img/hero-img.png?v=1" class="img-fluid animated" alt="">
           </div>
         </div>
       </div>
@@ -399,7 +417,8 @@
         <div class="row">
           <div class="col-lg-6">
             <div class="member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/team-2.png" class="img-fluid" alt=""></div>
+              <!-- Added cache-busting query parameter to team img -->
+              <div class="pic"><img src="assets/img/team-2.png?v=1" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Mwebaze Moses</h4>
                 <span>Developer</span>
@@ -448,12 +467,14 @@
     <div class="footer-top py-4">
       <div class="container">
         <div class="row">
-          <div class="col-lg-4 col-md-6 footer-contact">
+          <!-- Contact -->
+          <div class="col-lg-4 col-md-6 footer-contact mb-4">
             <h3><span class="agandi" style="color:var(--brand-agandi)">Agandi</span><span class="codes" style="color:var(--brand-codes)">Codes</span></h3>
             <p class="brand-tagline mb-3">Infinite Loop Technology</p>
             <p>Nyamitanga, Mbarara, Uganda<br>Email: agandicodes@gmail.com</p>
           </div>
-          <div class="col-lg-4 col-md-6 footer-links">
+          <!-- Links -->
+          <div class="col-lg-4 col-md-6 footer-links mb-4">
             <h4>Useful Links</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="index.html">Home</a></li>
@@ -461,6 +482,11 @@
               <li><i class="bx bx-chevron-right"></i> <a href="terms.html">Terms of Service</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="privacy.html">Privacy Policy</a></li>
             </ul>
+          </div>
+          <!-- Skills Animation -->
+          <div class="col-lg-4 col-md-12 footer-skill-col mt-3 mt-lg-0">
+            <!-- Added cache-busting query parameter to skills.gif -->
+            <img src="https://github.com/Agandicodes/agandicodes.github.io/blob/main/assets/img/skills.gif?raw=true&v=2" alt="AgandiCodes Skills Animation" class="footer-skill-img" style="max-height: 180px;">
           </div>
         </div>
       </div>
