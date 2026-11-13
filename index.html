@@ -4,31 +4,17 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>AgandiCodes</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <title>AgandiCodes — Infinite Loop Technology</title>
+  <meta content="AgandiCodes — Infinite Loop Technology. Build, equip and inspire with technology." name="description">
+  <meta name="theme-color" content="#FFFFFF">
 
   <!-- Favicons -->
   <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
-
-  <!-- Apple Touch Icon -->
   <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
 
-  <!-- Android / Chrome Icons -->
-  <link rel="icon" type="image/png" sizes="192x192" href="assets/img/android-chrome-192x192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="assets/img/android-chrome-512x512.png">
-
-  <!-- Web App Manifest -->
-  <link rel="manifest" href="assets/img/site.webmanifest">
-
-  <!-- Theme Color -->
-  <meta name="theme-color" content="#ffffff">
-
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Poppins:300,400,500,600,700" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
@@ -39,371 +25,248 @@
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- Disable right click -->
-  <script>
-    document.addEventListener('contextmenu', function (e) {
-      e.preventDefault();
-    });
-  </script>
-
-  <!-- Apply saved theme early -->
-  <script>
-    (function () {
-      const theme = localStorage.getItem('theme');
-      if (theme === 'dark') {
-        document.documentElement.classList.add('dark-mode');
-      }
-    })();
-  </script>
-
   <!-- Main CSS -->
   <link href="assets/css/style.css" rel="stylesheet">
 
-  <!-- Theme toggle -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const toggleBtn = document.getElementById('theme-toggle');
-      const currentTheme = localStorage.getItem('theme');
+  <style>
+    /* =========================================
+       1. TECH WAVES BACKGROUND & BRANDING
+       ========================================= */
+    :root {
+      --brand-agandi: #929091;
+      --brand-codes: #61A534;
+      --brand-tagline: #999999;
+      --brand-bg: #FFFFFF;
+    }
 
-      if (currentTheme === 'dark') {
-        document.body.classList.add('dark-mode');
-        toggleBtn.textContent = '☀️';
-      }
+    body {
+      background-color: var(--brand-bg);
+      overflow-x: hidden;
+    }
 
-      toggleBtn.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-        const isDark = document.body.classList.contains('dark-mode');
-        toggleBtn.textContent = isDark ? '☀️' : '🌙';
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-      });
-    });
-  </script>
+    /* Animated Tech Waves */
+    .tech-waves {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      pointer-events: none;
+      overflow: hidden;
+      background: var(--brand-bg);
+    }
 
+    .wave {
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: rgba(97, 165, 52, 0.03); /* Very subtle green */
+      border-radius: 45%;
+      animation: wave-rotate 25s infinite linear;
+    }
+
+    .wave:nth-child(2) {
+      background: rgba(146, 144, 145, 0.03); /* Very subtle gray */
+      border-radius: 40%;
+      animation: wave-rotate 35s infinite linear reverse;
+    }
+
+    @keyframes wave-rotate {
+      0% { transform: translate(-25%, -25%) rotate(0deg); }
+      100% { transform: translate(-25%, -25%) rotate(360deg); }
+    }
+
+    /* Logo Typography */
+    .brand-logo { display: inline-flex; flex-direction: column; text-decoration: none; }
+    .brand-name { font-family: "Poppins", sans-serif; font-weight: 700; font-size: 1.6rem; line-height: 1.1; letter-spacing: -0.5px; }
+    .brand-name .agandi { color: var(--brand-agandi) !important; }
+    .brand-name .codes { color: var(--brand-codes) !important; }
+    .brand-tagline { font-family: "Open Sans", sans-serif; font-weight: 600; font-size: 0.65rem; letter-spacing: 0.05em; color: var(--brand-tagline) !important; margin-top: 2px; }
+
+    /* Dark Mode Override */
+    body.dark-mode { background-color: #121212; color: #e6e6e6; }
+    body.dark-mode .tech-waves { background: #121212; }
+    body.dark-mode .brand-name .agandi { color: #d7d7d7 !important; }
+    body.dark-mode .brand-tagline { color: #b5b5b5 !important; }
+
+    /* =========================================
+       2. NAVIGATION & SCROLL ANIMATIONS
+       ========================================= */
+    #header {
+      transition: all 0.3s ease-in-out;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 0 15px rgba(0,0,0,0.05);
+    }
+    
+    #header.header-scrolled {
+      padding: 5px 0;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    body.dark-mode #header { background: rgba(18, 18, 18, 0.9); border-bottom: 1px solid #333; }
+    body.dark-mode #header.header-scrolled { background: rgba(18, 18, 18, 0.95); }
+
+    /* Scroll Reveal Class */
+    .scroll-reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+    .scroll-reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+    /* =========================================
+       3. CHATBOT WIDGET
+       ========================================= */
+    .chat-widget-btn {
+      position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px;
+      background: var(--brand-codes); color: white; border-radius: 50%;
+      display: flex; justify-content: center; align-items: center;
+      font-size: 1.5rem; cursor: pointer; box-shadow: 0 4px 15px rgba(97, 165, 52, 0.4);
+      z-index: 999; transition: transform 0.3s; border: none;
+    }
+    .chat-widget-btn:hover { transform: scale(1.1); }
+    
+    .chat-window {
+      position: fixed; bottom: 90px; right: 20px; width: 320px; height: 400px;
+      background: #fff; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      display: none; flex-direction: column; z-index: 1000; overflow: hidden;
+      border: 1px solid #eee;
+    }
+    .chat-window.open { display: flex; animation: slideUp 0.3s ease; }
+    @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    
+    .chat-header { background: var(--brand-agandi); color: white; padding: 15px; font-weight: 600; display: flex; justify-content: space-between; align-items: center; }
+    .chat-body { flex: 1; padding: 15px; overflow-y: auto; background: #f9f9f9; display: flex; flex-direction: column; gap: 10px; }
+    .chat-message { padding: 10px 14px; border-radius: 12px; max-width: 85%; font-size: 0.9rem; line-height: 1.4; }
+    .msg-bot { background: #e9ecef; color: #333; align-self: flex-start; border-bottom-left-radius: 2px; }
+    .msg-user { background: var(--brand-codes); color: #fff; align-self: flex-end; border-bottom-right-radius: 2px; }
+    .chat-input-area { display: flex; border-top: 1px solid #eee; padding: 10px; background: #fff; }
+    .chat-input-area input { flex: 1; border: none; outline: none; padding: 8px; font-size: 0.9rem; }
+    .chat-input-area button { background: var(--brand-codes); color: white; border: none; padding: 8px 15px; border-radius: 6px; cursor: pointer; }
+    
+    body.dark-mode .chat-window { background: #1e1e1e; border-color: #333; }
+    body.dark-mode .chat-header { background: var(--brand-codes); }
+    body.dark-mode .chat-body { background: #121212; }
+    body.dark-mode .msg-bot { background: #333; color: #eee; }
+    body.dark-mode .chat-input-area { background: #1e1e1e; border-color: #333; }
+    body.dark-mode .chat-input-area input { background: transparent; color: #fff; }
+  </style>
 </head>
 
 <body>
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top ">
-    <div class="container d-flex align-items-center">
+  <!-- Tech Waves Background -->
+  <div class="tech-waves">
+    <div class="wave"></div>
+    <div class="wave"></div>
+  </div>
 
-      <h1 class="logo me-auto"><a href="index.html">AgandiCodes</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center justify-content-between">
+      <h1 class="logo me-auto">
+        <a href="index.html" class="brand-logo">
+          <span class="brand-name"><span class="agandi">Agandi</span><span class="codes">Codes</span></span>
+          <span class="brand-tagline">Infinite Loop Technology</span>
+        </a>
+      </h1>
       <button id="theme-toggle" class="nav-link scrollto btn btn-sm ms-2 px-3">🌙</button>
       <nav id="navbar" class="navbar">
-
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
           <li><a class="nav-link scrollto" href="#about">About</a></li>
           <li><a class="nav-link scrollto" href="#services">Services</a></li>
           <li><a class="nav-link scrollto" href="#team">Team</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-          <li><a class="nav-link" href="https://agandicodestrends.blogspot.com" target="_blank">Blog</a></li>
+          <li><a class="nav-link" href="terms.html">Terms</a></li>
           <li><a class="getstarted scrollto" href="#about">Get Started</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-
+      </nav>
     </div>
-  </header><!-- End Header -->
-
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center">
-
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
-          <h1>Infinite Technology</h1>
-          <h2>
-Come be part
-          </h2>
-          <div class="d-flex justify-content-center justify-content-lg-start">
-            <a href="#about" class="btn-get-started scrollto">Get Started</a>
-            <a href="https://www.youtube.com/watch?v=uVbBw4Q1CZI&t=6s" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Tutorials Video</span></a>
-          </div>
-        </div>
-        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
-          <img src="assets/img/hero-img.png" class="img-fluid animated" alt="">
-        </div>
-      </div>
-    </div>
-
-  </section><!-- End Hero -->
+  </header>
 
   <main id="main">
-    <!-- ======= About Us Section ======= -->
-    <section id="about" class="about">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>About Us</h2>
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center scroll-reveal">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1">
+            <h1><span class="agandi" style="color:var(--brand-agandi)">Agandi</span><span class="codes" style="color:var(--brand-codes)">Codes</span></h1>
+            <h2><span class="brand-tagline" style="font-size:1rem;">Infinite Loop Technology</span></h2>
+            <div class="d-flex justify-content-center justify-content-lg-start mt-3">
+              <a href="#about" class="btn-get-started scrollto">Get Started</a>
+              <a href="https://www.youtube.com/watch?v=uVbBw4Q1CZI" class="glightbox btn-watch-video ms-3"><i class="bi bi-play-circle"></i><span>Tutorials Video</span></a>
+            </div>
+          </div>
+          <div class="col-lg-6 order-1 order-lg-2 hero-img">
+            <img src="assets/img/hero-img.png" class="img-fluid animated" alt="">
+          </div>
         </div>
+      </div>
+    </section>
 
+    <!-- ======= About Us Section ======= -->
+    <section id="about" class="about scroll-reveal">
+      <div class="container">
+        <div class="section-title"><h2>About Us</h2></div>
         <div class="row content">
           <div class="col-lg-6">
-            <p>
-              Our goal is to build, equip in an endless loop of knowledge and technology for the better of the society.
-            </p>
+            <p>Our goal is to build, equip in an endless loop of knowledge and technology for the better of the society.</p>
             <ul>
               <li><i class="ri-check-double-line"></i> Our goal is to impact future generation.</li>
               <li><i class="ri-check-double-line"></i> Our mission is to increase knowledge among youth.</li>
             </ul>
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0">
-            <p>
-             Come join our growing network from day to day. We expect to work impact over millions of youth around the world. And increase on level of innovation world wide
-            </p>
-            <!-- <a href="#" class="btn-learn-more">Learn More</a> -->
+            <p>Come join our growing network from day to day. We expect to work impact over millions of youth around the world. And increase on level of innovation world wide.</p>
           </div>
         </div>
-
       </div>
-    </section><!-- End About Us Section -->
-
-    <!-- ======= Skills Section ======= -->
-    <section id="skills" class="skills">
-      <div class="container" data-aos="fade-up">
-
-        <div class="row">
-          <div class="col-lg-6 d-flex align-items-center" data-aos="fade-right" data-aos-delay="100">
-            <img src="assets/img/skills.gif" class="img-fluid" alt="">
-          </div>
-          <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left" data-aos-delay="100">
-            <h3>Learn various skills quick and easy</h3>
-            <p class="fst-italic">
-              Come and we offer you with freelancing and real programming lessons.
-            </p>
-
-            <div class="skills-content">
-
-              <div class="progress">
-                <span class="skill">Software Development<i class="val">90%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-
-              <div class="progress">
-                <span class="skill">Graphics Design<i class="val">85%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-
-              <div class="progress">
-                <span class="skill">Hardware Programming <i class="val">78%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-
-              <div class="progress">
-                <span class="skill">Network Programming <i class="val">75%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End Skills Section -->
+    </section>
 
     <!-- ======= Services Section ======= -->
-    <section id="services" class="services">
-      <div class="container" data-aos="fade-up">
-
+    <section id="services" class="services scroll-reveal">
+      <div class="container">
         <div class="section-title">
           <h2>Services</h2>
           <p>Below are some of the services offered at by our team.</p>
         </div>
-
         <div class="row">
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch">
             <div class="icon-box">
-              <!-- <div class="icon"><i class="bx bxl-dribbble"></i></div> -->
               <h4><a href="">Graphics Design</a></h4>
               <p>Development of UI for application development use and Other commercial use.</p>
             </div>
           </div>
-
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
             <div class="icon-box">
-              <!-- <div class="icon"><i class="bx bx-file"></i></div> -->
               <h4><a href="">Software Development</a></h4>
-              <p>Mobile development for cross platform.<I>(ReactNative/Kotlin multiplatform/C#/flutter)</I></p>
-              <p>Desktop application for windows, linux, macOs</p>
+              <p>Mobile development for cross platform (ReactNative/Kotlin/C#/flutter).</p>
             </div>
           </div>
-
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0">
             <div class="icon-box">
-              <!-- <div class="icon"><i class="bx bx-tachometer"></i></div> -->
               <h4><a href="">Hardware Development</a></h4>
-              <p>Development of robot with arduino and other good hardware application for mainly test purposes</p>
+              <p>Development of robot with arduino and other good hardware application.</p>
             </div>
           </div>
-
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="400">
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0">
             <div class="icon-box">
-              <!-- <div class="icon"><i class="bx bx-layer"></i></div> -->
               <h4><a href="">Networking</a></h4>
-              <p>Networking programming with packet tracer, and network data processing </p>
+              <p>Networking programming with packet tracer, and network data processing.</p>
             </div>
           </div>
-
         </div>
-
       </div>
-    </section><!-- End Services Section -->
-
-    <!-- ======= Cta Section ======= -->
-    <section id="cta" class="cta">
-      <div class="container" data-aos="zoom-in">
-
-        <div class="row">
-          <div class="col-lg-9 text-center text-lg-start">
-            <h3>Check Out</h3>
-            <p>Come lets inspire the world with technology</p>
-          </div>
-          <div class="col-lg-3 cta-btn-container text-center">
-            <!-- <a class="cta-btn align-middle" href="#">Call To Action</a> -->
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End Cta Section -->
-
-    <!-- ======= Portfolio Section ======= -->
-    <!-- <section id="portfolio" class="portfolio">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Portfolio</h2>
-          <p>Photo of some projects</p>
-        </div>
-
-        <ul id="portfolio-flters" class="d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
-          <li data-filter="*" class="filter-active">All</li>
-          <li data-filter=".filter-app">Android App</li>
-          <li data-filter=".filter-card">HardWare Programming</li>
-          <li data-filter=".filter-web">Graphics Design</li>
-        </ul>
-
-        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt=""></div>
-            <div class="portfolio-info">
-              <h4>Runyankole-Rukiga App</h4>
-              <p>This App teaches basics of Runyakitara langauge in western Uganda.</p>
-              <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Runyankole-Rukiga App"><i class="bx bx-plus"></i></a>
-              <a href="#portfolio" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt=""></div>
-            <div class="portfolio-info">
-              <h4>Animation Design</h4>
-              <p>
-                Animation design for al
-              </p>
-              <a href="assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Animation Design"><i class="bx bx-plus"></i></a>
-              <a href="#portfolio" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt=""></div>
-            <div class="portfolio-info">
-              <h4>Hisabati App</h4>
-              <p>This is a mathmatics teaching application.</p>
-              <a href="assets/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Hisabati App"><i class="bx bx-plus"></i></a>
-              <a href="#portfolio" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt=""></div>
-            <div class="portfolio-info">
-              <h4>Charger</h4>
-              <p>Designing 18v charger</p>
-              <a href="assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Charger"><i class="bx bx-plus"></i></a>
-              <a href="#portfolio" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt=""></div>
-            <div class="portfolio-info">
-              <h4>Cartoon</h4>
-              <p>Designing 2d charater model and enviroment</p>
-              <a href="assets/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Cartoon Design"><i class="bx bx-plus"></i></a>
-              <a href="#portfolio" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt=""></div>
-            <div class="portfolio-info">
-              <h4>BlueChats App</h4>
-              <p>This application teahes network communication between two devices using bluetooth communication</p>
-              <a href="assets/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="BlueChats App"><i class="bx bx-plus"></i></a>
-              <a href="#portfolio" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt=""></div>
-            <div class="portfolio-info">
-              <h4>BreadBoard</h4>
-              <p>Learning Importance and use of breadboard in electronics</p>
-              <a href="assets/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="BreadBoard"><i class="bx bx-plus"></i></a>
-              <a href="#portfolio" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt=""></div>
-            <div class="portfolio-info">
-              <h4>Charger</h4>
-              <p>Designing 18v charger</p>
-              <a href="assets/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Charger"><i class="bx bx-plus"></i></a>
-              <a href="#portfolio" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt=""></div>
-            <div class="portfolio-info">
-              <h4>Banners</h4>
-              <p>Designing banners for study and commercial</p>
-              <a href="assets/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Banner Design"><i class="bx bx-plus"></i></a>
-              <a href="#portfolio" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>End Portfolio Section -->
+    </section>
 
     <!-- ======= Team Section ======= -->
-    <section id="team" class="team">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Team</h2>
-          <p>The infinite technolgy </p>
-        </div>
-
+    <section id="team" class="team scroll-reveal">
+      <div class="container">
+        <div class="section-title"><h2>Team</h2><p>The infinite technology</p></div>
         <div class="row">
-
           <div class="col-lg-6">
-            <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
+            <div class="member d-flex align-items-start">
               <div class="pic"><img src="assets/img/team-2.png" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Mwebaze Moses</h4>
@@ -411,559 +274,166 @@ Come be part
                 <p>Come let's build a better world through innovation.</p>
                 <div class="social">
                   <a href="https://twitter.com/mwebazemoze"><i class="ri-twitter-fill"></i></a>
-                  <!-- <a href=""><i class="ri-facebook-fill"></i></a>
-                  <a href=""><i class="ri-instagram-fill"></i></a> -->
-                  <a href="https://www.linkedin.com/in/moses-m-57b0b9b0/"> <i class="ri-linkedin-box-fill"></i> </a>
+                  <a href="https://www.linkedin.com/in/moses-m-57b0b9b0/"><i class="ri-linkedin-box-fill"></i></a>
                 </div>
               </div>
             </div>
           </div>
-
-          <!-- <div class="col-lg-6 mt-4 mt-lg-0">
-            <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="200">
-              <div class="pic"><img src="assets/img/team/team-2.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Sarah Jhonson</h4>
-                <span>Product Manager</span>
-                <p>Aut maiores voluptates amet et quis praesentium qui senda para</p>
-                <div class="social">
-                  <a href=""><i class="ri-twitter-fill"></i></a>
-                  <a href=""><i class="ri-facebook-fill"></i></a>
-                  <a href=""><i class="ri-instagram-fill"></i></a>
-                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-6 mt-4">
-            <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="300">
-              <div class="pic"><img src="assets/img/team/team-3.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>William Anderson</h4>
-                <span>CTO</span>
-                <p>Quisquam facilis cum velit laborum corrupti fuga rerum quia</p>
-                <div class="social">
-                  <a href=""><i class="ri-twitter-fill"></i></a>
-                  <a href=""><i class="ri-facebook-fill"></i></a>
-                  <a href=""><i class="ri-instagram-fill"></i></a>
-                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-6 mt-4">
-            <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="400">
-              <div class="pic"><img src="assets/img/team/team-4.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Amanda Jepson</h4>
-                <span>Accountant</span>
-                <p>Dolorum tempora officiis odit laborum officiis et et accusamus</p>
-                <div class="social">
-                  <a href=""><i class="ri-twitter-fill"></i></a>
-                  <a href=""><i class="ri-facebook-fill"></i></a>
-                  <a href=""><i class="ri-instagram-fill"></i></a>
-                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div> -->
-
-      </div>
-    </section><!-- End Team Section -->
-
-<!-- ======= Custom Social Feed Section ======= -->
-<section id="social" class="py-5 social-feed">
-  <div class="container">
-    <div class="section-title text-center">
-      <h2>SocialMedia Posts</h2>
-      <p>Follow our latest updates</p>
-    </div>
-
-    <!-- Scroll Buttons for Mobile -->
-    <div class="d-md-none text-center mb-3">
-      <button onclick="scrollLeft()" class="btn btn-outline-dark me-2">⬅️</button>
-      <button onclick="scrollRight()" class="btn btn-outline-dark">➡️</button>
-    </div>
-
-    <div id="social-carousel" class="d-flex overflow-auto gap-3 flex-nowrap px-2"
-         style="scroll-behavior: smooth; scroll-snap-type: x mandatory;">
-      
-      <!-- Twitter Card 1 -->
-      <div class="card flex-shrink-0" style="width: 300px; height: 450px; overflow-y: auto; position: relative; scroll-snap-align: start;">
-        <a href="https://twitter.com/AgandiCodes" target="_blank"
-           style="position: absolute; top: 10px; right: 10px;"
-           class="btn btn-sm btn-outline-primary">Follow</a>
-        <div class="card-body">
-          <h5 class="card-title">Post from X</h5>
-          <blockquote class="twitter-tweet">
-            <p lang="en" dir="ltr">🧑‍💻Untilizing structured database with structed query language. for relational database management system <a href="https://t.co/1LwclB0EAm">pic.twitter.com/1LwclB0EAm</a></p>&mdash; AgandiCodes (@AgandiCodes)
-            <a href="https://twitter.com/AgandiCodes/status/1904074434878599647">March 24, 2025</a>
-          </blockquote>
-          <p class="text-muted small mt-2">Posted: Mar 24, 2025</p>
         </div>
       </div>
-
-      <!-- Twitter Card 2 -->
-      <div class="card flex-shrink-0" style="width: 300px; height: 450px; overflow-y: auto; position: relative; scroll-snap-align: start;">
-        <a href="https://twitter.com/AgandiCodes" target="_blank"
-           style="position: absolute; top: 10px; right: 10px;"
-           class="btn btn-sm btn-outline-primary">Follow</a>
-        <div class="card-body">
-          <h5 class="card-title">Post from X</h5>
-          <blockquote class="twitter-tweet">
-            <a href="https://twitter.com/AgandiCodes/status/1634981902821228545"></a>
-          </blockquote>
-          <p class="text-muted small mt-2">Posted: Mar 10, 2023</p>
-        </div>
-      </div>
-
-      <!-- Twitter Card 3 -->
-      <div class="card flex-shrink-0" style="width: 300px; height: 450px; overflow-y: auto; position: relative; scroll-snap-align: start;">
-        <a href="https://twitter.com/AgandiCodes" target="_blank"
-           style="position: absolute; top: 10px; right: 10px;"
-           class="btn btn-sm btn-outline-primary">Follow</a>
-        <div class="card-body">
-          <h5 class="card-title">Post from X</h5>
-          <blockquote class="twitter-tweet">
-            <a href="https://twitter.com/AgandiCodes/status/1603623831951724545"></a>
-          </blockquote>
-          <p class="text-muted small mt-2">Posted: Dec 15, 2022</p>
-        </div>
-      </div>
-
-      <!-- YouTube Video 1 -->
-      <div class="card flex-shrink-0" style="width: 300px; height: 450px; overflow-y: auto; position: relative; scroll-snap-align: start;">
-        <a href="https://www.youtube.com/@AgandiCodes" target="_blank" 
-           style="position: absolute; top: 10px; right: 10px;" 
-           class="btn btn-sm btn-outline-danger">Subscribe</a>
-        <div class="card-body">
-          <h5 class="card-title">Latest YouTube Video</h5>
-          <div class="ratio ratio-16x9">
-            <iframe src="https://www.youtube.com/embed/uVbBw4Q1CZI" title="AgandiCodes Video" allowfullscreen></iframe>
-          </div>
-          <p class="text-muted small mt-2">Posted: Apr 12, 2023</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- Scroll Controls Script -->
-<!-- <script>
-  const carousel = document.getElementById('social-carousel');
-
-  function scrollLeft() {
-    carousel.scrollBy({ left: -340, behavior: 'smooth' });
-  }
-
-  function scrollRight() {
-    carousel.scrollBy({ left: 340, behavior: 'smooth' });
-  }
-
-  // Auto-scroll every 5 seconds
-  setInterval(() => {
-    const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
-    if (carousel.scrollLeft + 360 >= maxScrollLeft) {
-      carousel.scrollTo({ left: 0, behavior: 'smooth' });
-    } else {
-      scrollRight();
-    }
-  }, 5000);
-</script> -->
-    <script>
-  const carousel = document.getElementById('social-carousel');
-
-  function scrollLeft() {
-    carousel.scrollBy({ left: -340, behavior: 'smooth' });
-  }
-
-  function scrollRight() {
-    carousel.scrollBy({ left: 340, behavior: 'smooth' });
-  }
-
-  // Auto-scroll every 5 seconds
-  setInterval(() => {
-    const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
-    const isAtEnd = Math.ceil(carousel.scrollLeft + carousel.clientWidth) >= maxScrollLeft;
-
-    if (isAtEnd) {
-      carousel.scrollTo({ left: 0, behavior: 'smooth' });
-    } else {
-      scrollRight();
-    }
-  }, 5000);
-</script>
-
-
-<!-- Twitter Embed Script -->
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-<!-- DarkMode Social Feeds -->
-    <style>
-  /* Dark mode for social feed */
-      @media (max-width: 768px) {
-  #social-carousel > .card {
-    scroll-snap-align: center;
-  }
-}
-
-  body.dark-mode .social-feed {
-    background-color: #121212;
-    color: #e0e0e0;
-  }
-
-  body.dark-mode .social-feed .card {
-    background-color: #1e1e1e;
-    border: 1px solid #444;
-    color: #e0e0e0;
-  }
-
-  body.dark-mode .social-feed .card .btn-outline-primary {
-    border-color: #4dabf7;
-    color: #4dabf7;
-  }
-
-  body.dark-mode .social-feed .card .btn-outline-primary:hover {
-    background-color: #4dabf7;
-    color: #000;
-  }
-
-  body.dark-mode .social-feed .btn-outline-danger {
-    border-color: #f66;
-    color: #f66;
-  }
-
-  body.dark-mode .social-feed .btn-outline-danger:hover {
-    background-color: #f66;
-    color: #000;
-  }
-
-  body.dark-mode .social-feed .section-title h2,
-  body.dark-mode .social-feed .section-title p {
-    color: #f0f0f0;
-  }
-
-  body.dark-mode .social-feed .text-muted {
-    color: #bbb !important;
-  }
-</style>
+    </section>
 
     <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Contact</h2>
-          <p>Please feel free to contact us on our address as below:</p>
-        </div>
-
+    <section id="contact" class="contact scroll-reveal">
+      <div class="container">
+        <div class="section-title"><h2>Contact</h2><p>Please feel free to contact us.</p></div>
         <div class="row">
-
           <div class="col-lg-5 d-flex align-items-stretch">
             <div class="info">
-              <div class="address">
-                <i class="bi bi-geo-alt"></i>
-                <h4>Location:</h4>
-                <p>Nyamitanga, Mbarara,Ketete 40301</p>
-              </div>
-
-<div class="email">
-  <i class="bi bi-envelope"></i>
-  <h4>Email:</h4>
-  <p><a href="mailto:agandicodes@gmail.com">agandicodes@gmail.com</a></p>
-  <p><a href="mailto:runyankole@gmail.com">runyankole@gmail.com</a></p>
-</div>
-
-<div class="phone">
-  <i class="bi bi-phone"></i>
-  <h4>Call:</h4>
-  <p><a href="tel:+256771483524">+256 771 483524</a></p>
-</div>
-
-
-              <iframe 
-  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.6293823664134!2d30.63324831531838!3d-0.622778635253469!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19d91f15319e5ae5%3A0xf409c709f84a7bb5!2sNyamitanga%2C%20Mbarara%2C%20Uganda!5e0!3m2!1sen!2sus!4v1717324455501" 
-  frameborder="0" 
-  style="border:0; width: 100%; height: 290px;" 
-  allowfullscreen>
-</iframe>
-
+              <div class="address"><i class="bi bi-geo-alt"></i><h4>Location:</h4><p>Nyamitanga, Mbarara, Ketete 40301</p></div>
+              <div class="email"><i class="bi bi-envelope"></i><h4>Email:</h4><p><a href="mailto:agandicodes@gmail.com">agandicodes@gmail.com</a></p></div>
+              <div class="phone"><i class="bi bi-phone"></i><h4>Call:</h4><p><a href="tel:+256771483524">+256 771 483524</a></p></div>
             </div>
-
           </div>
-
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-<!-- <form action="https://formspree.io/f/mldnevkz" method="POST" role="form" class="php-email-form">
-  <div class="row">
-    <div class="form-group col-md-6">
-      <label for="name">Your Name</label>
-      <input type="text" name="name" class="form-control" id="name" required>
-    </div>
-    <div class="form-group col-md-6">
-      <label for="email">Your Email</label>
-      <input type="email" class="form-control" name="email" id="email" required autocomplete="email">
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="subject">Subject</label>
-    <input type="text" class="form-control" name="subject" id="subject" required>
-  </div>
-  <div class="form-group">
-    <label for="message">Message</label>
-    <textarea class="form-control" name="message" rows="10" required></textarea>
-  </div>
-
-  <!-- Optional: Hidden subject line for email notifications -->
-<!--   <input type="hidden" name="_subject" value="New Contact Message from Your Website">
-
-  <!-- Optional: Anti-spam honeypot field -->
-<!--   <input type="text" name="_gotcha" style="display:none">
-
-  <div class="my-3">
-    <div class="loading" style="display: none;">Loading...</div>
-    <div class="error-message" style="display: none; color: red;"></div>
-    <div class="sent-message" style="display: none; color: green;">Your message has been sent. Thank you!</div>
-  </div>
-
-  <div class="text-center"><button type="submit">Send Message</button></div>
-</form>
- -->
-<!-- <script>
-  document.querySelector('.php-email-form').addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    const form = e.target;
-    const loading = form.querySelector('.loading');
-    const errorMsg = form.querySelector('.error-message');
-    const sentMsg = form.querySelector('.sent-message');
-
-    loading.style.display = 'block';
-    errorMsg.style.display = 'none';
-    sentMsg.style.display = 'none';
-
-    fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: {
-        'Accept': 'application/json'
-      }
-    })
-    .then(async (response) => {
-      loading.style.display = 'none';
-      if (response.ok) {
-        sentMsg.style.display = 'block';
-        form.reset();
-      } else {
-        const data = await response.json();
-        errorMsg.textContent = data.error || 'Oops! Something went wrong.';
-        errorMsg.style.display = 'block';
-      }
-    })
-    .catch(() => {
-      loading.style.display = 'none';
-      errorMsg.textContent = 'Could not submit form. Please try again.';
-      errorMsg.style.display = 'block';
-    });
-  });
-</script>  -->
-
-
-<form action="https://script.google.com/macros/s/AKfycbwUNkPAEqVLXs2CwUtBRxgTVbcIGLWFaVHjS-jAetmOsLWHEy4W0T_eRe_rSFKO2hDM_g/exec" method="POST" role="form" class="php-email-form">
-  <div class="row">
-    <div class="form-group col-md-6">
-      <label for="name">Your Name</label>
-      <input type="text" name="name" class="form-control" id="name" required>
-    </div>
-    <div class="form-group col-md-6">
-      <label for="email">Your Email</label>
-      <input type="email" class="form-control" name="email" id="email" required autocomplete="email">
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="subject">Subject</label>
-    <input type="text" class="form-control" name="subject" id="subject" required>
-  </div>
-  <div class="form-group">
-    <label for="message">Message</label>
-    <textarea class="form-control" name="message" rows="10" required></textarea>
-  </div>
-
-  <!-- Optional: Hidden subject line for email notifications -->
-  <input type="hidden" name="_subject" value="New Contact Message from Your Website">
-
-  <!-- Optional: Anti-spam honeypot field -->
-  <input type="text" name="_gotcha" style="display:none">
-
-  <div class="my-3">
-    <div class="loading" style="display: none;">Loading...</div>
-    <div class="error-message" style="display: none; color: red;"></div>
-    <div class="sent-message" style="display: none; color: green;">Your message has been sent. Thank you!</div>
-  </div>
-
-  <div class="text-center"><button type="submit">Send Message</button></div>
-</form>
-
-<script>
-  document.querySelector('.php-email-form').addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    const form = e.target;
-    const loading = form.querySelector('.loading');
-    const errorMsg = form.querySelector('.error-message');
-    const sentMsg = form.querySelector('.sent-message');
-
-    loading.style.display = 'block';
-    errorMsg.style.display = 'none';
-    sentMsg.style.display = 'none';
-
-    fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: {
-        'Accept': 'application/json'
-      }
-    })
-    .then(async (response) => {
-      loading.style.display = 'none';
-      if (response.ok) {
-        sentMsg.style.display = 'block';
-        form.reset();
-      } else {
-        const data = await response.json();
-        errorMsg.textContent = data.error || 'Oops! Something went wrong.';
-        errorMsg.style.display = 'block';
-      }
-    })
-    .catch(() => {
-      loading.style.display = 'none';
-      errorMsg.textContent = 'Could not submit form. Please try again.';
-      errorMsg.style.display = 'block';
-    });
-  });
-</script>
-
+            <!-- Contact form remains the same -->
+            <form action="https://script.google.com/macros/s/AKfycbwUNkPAEqVLXs2CwUtBRxgTVbcIGLWFaVHjS-jAetmOsLWHEy4W0T_eRe_rSFKO2hDM_g/exec" method="POST" class="php-email-form">
+              <div class="row">
+                <div class="form-group col-md-6"><input type="text" name="name" class="form-control" placeholder="Your Name" required></div>
+                <div class="form-group col-md-6"><input type="email" name="email" class="form-control" placeholder="Your Email" required></div>
+              </div>
+              <div class="form-group"><input type="text" name="subject" class="form-control" placeholder="Subject" required></div>
+              <div class="form-group"><textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea></div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
           </div>
-
         </div>
-
       </div>
-    </section><!-- End Contact Section -->
-
-  </main><!-- End #main -->
+    </section>
+  </main>
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
-
-
     <div class="footer-top">
       <div class="container">
         <div class="row">
-
-          <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>AganadiCodes</h3>
-            <p>
-          Nyamitanga <br>
-          Mbarara, Katete 40301<br>
-          Uganda <br><br>
-          <strong>Phone:</strong> 
-          <a href="tel:+256771483524">+256 771 483524</a><br>
-          <strong>Email:</strong> 
-          <a href="mailto:agandicodes@gmail.com">agandicodes@gmail.com</a><br>
-        </p>
+          <div class="col-lg-4 col-md-6 footer-contact">
+            <h3><span class="agandi" style="color:var(--brand-agandi)">Agandi</span><span class="codes" style="color:var(--brand-codes)">Codes</span></h3>
+            <p class="brand-tagline mb-3">Infinite Loop Technology</p>
+            <p>Nyamitanga, Mbarara, Uganda<br>Email: agandicodes@gmail.com</p>
           </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
+          <div class="col-lg-4 col-md-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="terms.html">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="https://agandicodes.github.io/privacy.html">Privacy policy</a></li>
-              <li><i class="bx bx-chevron-right"></i><a class="nav-link" href="https://agandicodestrends.blogspot.com" target="_blank">Blog</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="https://agandicodes.github.io/qr.html">QR code generator</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="index.html">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="terms.html">Terms of Service</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="privacy.html">Privacy Policy</a></li>
             </ul>
           </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Services</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Mobile Development</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">HardWare Programing</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Networking</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Social Networks</h4>
-            <p>Check out our media links for more info.</p>
-            <div class="social-links mt-3">
-              <a href="https://twitter.com/AgandiCodes" class="twitter"><i class="bx bxl-twitter"></i></a>
-              <a href="https://facebook.com/Techyaleo-100613438521619" class="facebook"><i class="bx bxl-facebook"></i></a>
-              <a href="https://t.co/Vt3hT33ALJ" class="youtube"><i class="bx bxl-youtube"></i></a>
-            </div>
-          </div>
-
         </div>
       </div>
     </div>
-
-    <div class="container footer-bottom clearfix">
-      <div class="copyright">
-        &copy; Copyright <strong><span>AgandiCodes</span></strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
-        <!-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> -->
-      </div>
+    <div class="container text-center py-3">
+      &copy; <span id="year"></span> <strong>AgandiCodes</strong>. All Rights Reserved.
     </div>
-  </footer><!-- End Footer -->
-<script>
-  window.addEventListener('load', () => {
-    const preloader = document.getElementById('preloader');
-    if (preloader) {
-      preloader.style.display = 'none';
-    }
-  });
-</script>
+  </footer>
 
-  <div id="preloader"></div>
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <!-- ======= Chatbot Widget ======= -->
+  <button class="chat-widget-btn" id="chat-btn">💬</button>
+  <div class="chat-window" id="chat-window">
+    <div class="chat-header">
+      <span>AgandiCodes Assistant</span>
+      <span id="close-chat" style="cursor:pointer;">✖</span>
+    </div>
+    <div class="chat-body" id="chat-body">
+      <div class="chat-message msg-bot">Hello! 👋 How can we help you today?</div>
+    </div>
+    <form class="chat-input-area" id="chat-form">
+      <input type="text" id="chat-input" placeholder="Type a message..." autocomplete="off" required>
+      <button type="submit">Send</button>
+    </form>
+  </div>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/aos/aos.js"></script>
+  <!-- Scripts -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-
-  <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-<script>
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", function() {
-    navigator.serviceWorker.register("/sw.js")
-      .then(function(registration) {
-        console.log("ServiceWorker registered:", registration.scope);
-      })
-      .catch(function(error) {
-        console.log("ServiceWorker failed:", error);
-      });
-  });
-}
-</script>
-</body>
 
+  <script>
+    // 1. Scroll Navigation Effect
+    window.addEventListener('scroll', function() {
+      const header = document.getElementById('header');
+      if (window.scrollY > 50) {
+        header.classList.add('header-scrolled');
+      } else {
+        header.classList.remove('header-scrolled');
+      }
+    });
+
+    // 2. Intersection Observer for Scroll Reveal Animations
+    const revealElements = document.querySelectorAll('.scroll-reveal');
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target); // Stop observing once visible
+        }
+      });
+    }, { threshold: 0.1 });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // 3. Chatbot Logic
+    const chatBtn = document.getElementById('chat-btn');
+    const chatWindow = document.getElementById('chat-window');
+    const closeChat = document.getElementById('close-chat');
+    const chatForm = document.getElementById('chat-form');
+    const chatInput = document.getElementById('chat-input');
+    const chatBody = document.getElementById('chat-body');
+
+    chatBtn.addEventListener('click', () => chatWindow.classList.toggle('open'));
+    closeChat.addEventListener('click', () => chatWindow.classList.remove('open'));
+
+    chatForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const msg = chatInput.value.trim();
+      if(!msg) return;
+
+      // Append User Message
+      const userBubble = document.createElement('div');
+      userBubble.className = 'chat-message msg-user';
+      userBubble.textContent = msg;
+      chatBody.appendChild(userBubble);
+      
+      chatInput.value = '';
+      chatBody.scrollTop = chatBody.scrollHeight;
+
+      // Send to Google Script Endpoint (reusing the contact form logic)
+      const formData = new FormData();
+      formData.append('name', 'Chatbot User');
+      formData.append('email', 'chatbot@agandicodes.github.io');
+      formData.append('subject', 'New Chatbot Message');
+      formData.append('message', msg);
+
+      fetch("https://script.google.com/macros/s/AKfycbwUNkPAEqVLXs2CwUtBRxgTVbcIGLWFaVHjS-jAetmOsLWHEy4W0T_eRe_rSFKO2hDM_g/exec", {
+        method: 'POST',
+        body: formData
+      }).then(() => {
+        // Append Bot Response
+        const botBubble = document.createElement('div');
+        botBubble.className = 'chat-message msg-bot';
+        botBubble.textContent = "Thanks for reaching out! We have received your message and will reply shortly.";
+        chatBody.appendChild(botBubble);
+        chatBody.scrollTop = chatBody.scrollHeight;
+      }).catch(() => {
+        alert("Message failed to send. Please try again.");
+      });
+    });
+
+    // Dynamic Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>
