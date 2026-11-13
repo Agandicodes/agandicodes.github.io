@@ -174,7 +174,63 @@
     body.dark-mode .section-title h2::before { background: var(--brand-codes); }
 
     /* =========================================
-       5. CHATBOT WIDGET (fun & engaging)
+       5. GOOGLE PLAY BUTTON
+       ========================================= */
+    .btn-google-play {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #000;
+      color: #fff !important;
+      padding: 10px 22px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      border: 2px solid #000;
+    }
+    .btn-google-play:hover {
+      background: var(--brand-codes);
+      border-color: var(--brand-codes);
+      color: #fff !important;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(97, 165, 52, 0.3);
+    }
+    .btn-google-play i { font-size: 1.1rem; }
+    body.dark-mode .btn-google-play {
+      background: #fff;
+      color: #000 !important;
+      border-color: #fff;
+    }
+    body.dark-mode .btn-google-play:hover {
+      background: var(--brand-codes);
+      border-color: var(--brand-codes);
+      color: #fff !important;
+    }
+
+    /* Apps Section */
+    .apps-section {
+      padding: 60px 0;
+      background: var(--card-bg);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .apps-section .section-title h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--text-color);
+    }
+    .apps-section .section-title p {
+      color: var(--brand-tagline);
+      max-width: 600px;
+      margin: 0 auto 25px;
+    }
+
+    /* =========================================
+       6. CHATBOT WIDGET (fun & engaging)
        ========================================= */
     .chat-widget-btn {
       position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px;
@@ -233,6 +289,7 @@
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
           <li><a class="nav-link scrollto" href="#about">About</a></li>
           <li><a class="nav-link scrollto" href="#services">Services</a></li>
+          <li><a class="nav-link scrollto" href="#apps">Apps</a></li>
           <li><a class="nav-link scrollto" href="#team">Team</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
           <li><a class="nav-link" href="terms.html">Terms</a></li>
@@ -252,9 +309,12 @@
           <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1">
             <h1><span class="agandi" style="color:var(--brand-agandi)">Agandi</span><span class="codes" style="color:var(--brand-codes)">Codes</span></h1>
             <h2><span class="brand-tagline" style="font-size:1rem;">Infinite Loop Technology</span></h2>
-            <div class="d-flex justify-content-center justify-content-lg-start mt-3">
+            <div class="d-flex justify-content-center justify-content-lg-start mt-3 flex-wrap gap-2">
               <a href="#about" class="btn-get-started scrollto">Get Started</a>
-              <a href="https://www.youtube.com/watch?v=uVbBw4Q1CZI" class="glightbox btn-watch-video ms-3"><i class="bi bi-play-circle"></i><span>Tutorials Video</span></a>
+              <a href="https://play.google.com/store/apps/dev?id=7165250292071576506" target="_blank" rel="noopener" class="btn-google-play">
+                <i class="bi bi-google-play"></i><span>Our Apps</span>
+              </a>
+              <a href="https://www.youtube.com/watch?v=uVbBw4Q1CZI" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Tutorials Video</span></a>
             </div>
           </div>
           <div class="col-lg-6 order-1 order-lg-2 hero-img">
@@ -316,6 +376,19 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ======= Our Apps Section ======= -->
+    <section id="apps" class="apps-section scroll-reveal">
+      <div class="container text-center">
+        <div class="section-title">
+          <h2>Our Apps</h2>
+          <p>Discover our full collection of apps and games published on the Google Play Store.</p>
+        </div>
+        <a href="https://play.google.com/store/apps/dev?id=7165250292071576506" target="_blank" rel="noopener" class="btn-google-play" style="font-size:1.05rem;padding:14px 30px;">
+          <i class="bi bi-google-play"></i><span>View All Apps on Google Play</span>
+        </a>
       </div>
     </section>
 
@@ -384,6 +457,7 @@
             <h4>Useful Links</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="index.html">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://play.google.com/store/apps/dev?id=7165250292071576506" target="_blank" rel="noopener">Our Apps on Google Play</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="terms.html">Terms of Service</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="privacy.html">Privacy Policy</a></li>
             </ul>
