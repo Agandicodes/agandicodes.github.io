@@ -27,7 +27,6 @@
       --nav-bg: rgba(255, 255, 255, 0.95);
       --nav-text: #333333;
     }
-
     body.dark-mode {
       --bg-color: #121212;
       --text-color: #E0E0E0;
@@ -40,36 +39,35 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { 
-      font-family: "Open Sans", sans-serif; 
-      background-color: var(--bg-color); 
-      color: var(--text-color); 
-      line-height: 1.6; 
-      transition: background-color 0.3s, color 0.3s; 
-      overflow-x: hidden; 
+    body {
+      font-family: "Open Sans", sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      transition: background-color 0.3s, color 0.3s;
+      overflow-x: hidden;
     }
 
     /* =========================================
-       2. BACKGROUND ANIMATIONS (Gears + IoT + Math + Waves)
+       2. BACKGROUND ANIMATIONS
        ========================================= */
-    .tech-waves { 
-      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; 
-      z-index: -1; pointer-events: none; overflow: hidden; 
-      background: var(--bg-color); transition: background 0.3s; 
+    .tech-waves {
+      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+      z-index: -1; pointer-events: none; overflow: hidden;
+      background: var(--bg-color); transition: background 0.3s;
     }
-    .wave { 
-      position: absolute; width: 200%; height: 200%; 
-      background: rgba(97, 165, 52, 0.04); border-radius: 45%; 
-      animation: wave-rotate 25s infinite linear; 
+    .wave {
+      position: absolute; width: 200%; height: 200%;
+      background: rgba(97, 165, 52, 0.04); border-radius: 45%;
+      animation: wave-rotate 25s infinite linear;
     }
-    .wave:nth-child(2) { 
-      background: rgba(146, 144, 145, 0.04); border-radius: 40%; 
-      animation: wave-rotate 35s infinite linear reverse; 
+    .wave:nth-child(2) {
+      background: rgba(146, 144, 145, 0.04); border-radius: 40%;
+      animation: wave-rotate 35s infinite linear reverse;
     }
     body.dark-mode .wave { background: rgba(97, 165, 52, 0.08); }
     body.dark-mode .wave:nth-child(2) { background: rgba(255, 255, 255, 0.04); }
 
-    /* Gear GIF Animation */
     .bg-gear {
       position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
       background: url('https://github.com/Agandicodes/agandicodes.github.io/blob/main/assets/img/skills.gif?raw=true') no-repeat center center;
@@ -78,7 +76,6 @@
     }
     body.dark-mode .bg-gear { opacity: 0.08; }
 
-    /* IoT & Math subtle icons */
     .bg-icons {
       position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
       pointer-events: none; z-index: -1; opacity: 0.06;
@@ -88,9 +85,9 @@
     }
     body.dark-mode .bg-icons { opacity: 0.08; }
 
-    @keyframes wave-rotate { 
-      0% { transform: translate(-25%, -25%) rotate(0deg); } 
-      100% { transform: translate(-25%, -25%) rotate(360deg); } 
+    @keyframes wave-rotate {
+      0% { transform: translate(-25%, -25%) rotate(0deg); }
+      100% { transform: translate(-25%, -25%) rotate(360deg); }
     }
     @keyframes gearFloat {
       0% { transform: scale(1) rotate(0deg); }
@@ -104,11 +101,11 @@
     /* =========================================
        3. HEADER & NAVIGATION
        ========================================= */
-    header { 
-      padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; 
-      background: var(--nav-bg); backdrop-filter: blur(10px); 
-      position: sticky; top: 0; z-index: 100; 
-      border-bottom: 1px solid var(--border); 
+    header {
+      padding: 20px 40px; display: flex; justify-content: space-between; align-items: center;
+      background: var(--nav-bg); backdrop-filter: blur(10px);
+      position: sticky; top: 0; z-index: 100;
+      border-bottom: 1px solid var(--border);
       transition: background-color 0.3s, border-color 0.3s;
     }
     .brand { text-decoration: none; display: flex; flex-direction: column; }
@@ -116,17 +113,17 @@
     .brand-name .agandi { color: var(--agandi); }
     .brand-name .codes { color: var(--codes); }
     .brand-tagline { font-size: 0.65rem; font-weight: 600; color: var(--tagline); letter-spacing: 0.05em; margin-top: 2px; }
-    
+
     .nav-links { display: flex; align-items: center; }
-    .nav-links a { 
-      margin-left: 20px; text-decoration: none; color: var(--nav-text); 
-      font-weight: 600; transition: color 0.3s; 
+    .nav-links a {
+      margin-left: 20px; text-decoration: none; color: var(--nav-text);
+      font-weight: 600; transition: color 0.3s;
     }
     .nav-links a:hover { color: var(--codes); }
-    
-    .theme-btn { 
-      background: transparent; border: 1px solid var(--nav-text); 
-      padding: 5px 10px; border-radius: 5px; cursor: pointer; 
+
+    .theme-btn {
+      background: transparent; border: 1px solid var(--nav-text);
+      padding: 5px 10px; border-radius: 5px; cursor: pointer;
       color: var(--nav-text); margin-left: 20px; font-size: 1.1rem;
       transition: all 0.3s;
     }
@@ -136,37 +133,35 @@
        ========================================= */
     .hero { text-align: center; padding: 60px 20px 40px; }
     .hero h1 { font-family: "Poppins", sans-serif; font-size: 2.5rem; margin-bottom: 10px; }
-    .hero p { color: var(--tagline); max-width: 600px; margin: 0 auto; }
-    
-    .container-layout { 
-      display: grid; grid-template-columns: 280px 1fr; gap: 40px; 
-      max-width: 1100px; margin: 0 auto; padding: 0 20px 80px; 
+    .hero p { color: var(--tagline); max-width: 640px; margin: 0 auto; }
+
+    .container-layout {
+      display: grid; grid-template-columns: 280px 1fr; gap: 40px;
+      max-width: 1100px; margin: 0 auto; padding: 0 20px 80px;
     }
-    
-    /* TOC */
-    .toc { 
-      position: sticky; top: 100px; background: var(--card-bg); padding: 20px; 
-      border-radius: 12px; border: 1px solid var(--border); height: fit-content; 
-      transition: background 0.3s, border 0.3s; 
+
+    .toc {
+      position: sticky; top: 100px; background: var(--card-bg); padding: 20px;
+      border-radius: 12px; border: 1px solid var(--border); height: fit-content;
+      transition: background 0.3s, border 0.3s;
     }
-    .toc h2 { 
-      font-size: 1rem; font-family: "Poppins", sans-serif; margin-bottom: 15px; 
-      color: var(--tagline); text-transform: uppercase; letter-spacing: 0.05em; 
+    .toc h2 {
+      font-size: 1rem; font-family: "Poppins", sans-serif; margin-bottom: 15px;
+      color: var(--tagline); text-transform: uppercase; letter-spacing: 0.05em;
     }
     .toc ol { padding-left: 20px; color: var(--tagline); }
     .toc li { margin-bottom: 8px; }
     .toc a { text-decoration: none; color: var(--text-color); transition: color 0.3s; }
     .toc a:hover { color: var(--codes); }
 
-    /* Content */
-    .content { 
-      background: var(--card-bg); padding: 40px; border-radius: 12px; 
-      border: 1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.02); 
-      transition: background 0.3s, border 0.3s; 
+    .content {
+      background: var(--card-bg); padding: 40px; border-radius: 12px;
+      border: 1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+      transition: background 0.3s, border 0.3s;
     }
-    .content h2 { 
-      font-family: "Poppins", sans-serif; margin: 30px 0 15px; color: var(--codes); 
-      font-size: 1.3rem; scroll-margin-top: 100px; 
+    .content h2 {
+      font-family: "Poppins", sans-serif; margin: 30px 0 15px; color: var(--codes);
+      font-size: 1.3rem; scroll-margin-top: 100px;
     }
     .content h2:first-child { margin-top: 0; }
     .content p { margin-bottom: 15px; color: var(--text-color); }
@@ -186,7 +181,7 @@
       z-index: 999; transition: transform 0.3s; border: none;
     }
     .chat-widget-btn:hover { transform: scale(1.1); }
-    
+
     .chat-window {
       position: fixed; bottom: 90px; right: 20px; width: 340px; height: 420px;
       background: var(--card-bg); border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);
@@ -195,7 +190,7 @@
     }
     .chat-window.open { display: flex; animation: slideUp 0.3s ease; }
     @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    
+
     .chat-header { background: var(--agandi); color: white; padding: 15px; font-weight: 600; display: flex; justify-content: space-between; align-items: center; }
     .chat-body { flex: 1; padding: 15px; overflow-y: auto; background: var(--bg-color); display: flex; flex-direction: column; gap: 10px; }
     .chat-message { padding: 10px 14px; border-radius: 12px; max-width: 85%; font-size: 0.9rem; line-height: 1.4; }
@@ -231,13 +226,14 @@
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="privacy.html">Privacy</a>
+      <a href="https://play.google.com/store/apps/dev?id=7165250292071576506" target="_blank" rel="noopener">Apps</a>
       <button class="theme-btn" id="theme-toggle">🌙</button>
     </div>
   </header>
 
   <section class="hero">
     <h1>Terms of Service</h1>
-    <p>These terms govern your use of all AgandiCodes websites, mobile applications, games, IoT devices, and HSE-related software.</p>
+    <p>These terms govern your use of all AgandiCodes websites, mobile applications, and games — with data protection and cybersecurity commitments worldwide.</p>
   </section>
 
   <div class="container-layout">
@@ -249,94 +245,130 @@
         <li><a href="#license">3. License to Use</a></li>
         <li><a href="#scope">4. Scope of Services</a></li>
         <li><a href="#games">5. Games & Virtual Items</a></li>
-        <li><a href="#iot">6. IoT & HSE Standards</a></li>
-        <li><a href="#acceptable-use">7. Acceptable Use</a></li>
-        <li><a href="#content">8. Content & Scripture</a></li>
-        <li><a href="#ads">9. Advertising & Third Parties</a></li>
-        <li><a href="#privacy">10. Privacy</a></li>
-        <li><a href="#ip">11. Intellectual Property</a></li>
-        <li><a href="#disclaimer">12. Disclaimer</a></li>
-        <li><a href="#liability">13. Limitation of Liability</a></li>
-        <li><a href="#termination">14. Termination</a></li>
-        <li><a href="#changes">15. Changes</a></li>
-        <li><a href="#law">16. Governing Law</a></li>
-        <li><a href="#contact">17. Contact</a></li>
+        <li><a href="#acceptable-use">6. Acceptable Use</a></li>
+        <li><a href="#content">7. Content & Scripture</a></li>
+        <li><a href="#ads">8. Advertising & Third Parties</a></li>
+        <li><a href="#privacy">9. Privacy & Data Protection</a></li>
+        <li><a href="#cybersecurity">10. Cybersecurity</a></li>
+        <li><a href="#global-compliance">11. Global Compliance</a></li>
+        <li><a href="#ip">12. Intellectual Property</a></li>
+        <li><a href="#disclaimer">13. Disclaimer</a></li>
+        <li><a href="#liability">14. Limitation of Liability</a></li>
+        <li><a href="#termination">15. Termination</a></li>
+        <li><a href="#changes">16. Changes</a></li>
+        <li><a href="#law">17. Governing Law & Disputes</a></li>
+        <li><a href="#contact">18. Contact</a></li>
       </ol>
     </aside>
 
     <main class="content">
       <h2 id="acceptance">1. Acceptance of Terms</h2>
-      <p>These Terms of Service ("Terms") form a binding agreement between you ("you" or "user") and AgandiCodes ("we", "us", or "our"), the developer of all AgandiCodes websites, mobile applications, games, IoT software, and HSE-related tools (collectively, the "Services").</p>
+      <p>These Terms of Service ("Terms") form a binding agreement between you ("you" or "user") and AgandiCodes ("we", "us", or "our"), the developer of all AgandiCodes websites, mobile applications, and games (collectively, the "Services").</p>
       <p>By downloading, installing, accessing, or using any of the Services, you confirm that you have read, understood, and agree to be bound by these Terms and by our <a href="privacy.html">Privacy Policy</a>. If you do not agree, please do not use the Services.</p>
 
       <h2 id="eligibility">2. Eligibility</h2>
-      <p>You must be at least 13 years old to use the Services (or 16 in the EU/EEA where applicable). If you are under the age of majority in your jurisdiction, you may use the Services only with the involvement of a parent or legal guardian who agrees to these Terms on your behalf. For games and HSE tools intended for children, additional parental consent mechanisms may apply as required by COPPA (US) and GDPR-K (EU).</p>
+      <p>You must be at least 13 years old to use the Services (or 16 in the EU/EEA where applicable, and as otherwise required by your local laws in South America, Africa, and Asia). If you are under the age of majority in your jurisdiction, you may use the Services only with the involvement of a parent or legal guardian who agrees to these Terms on your behalf. For games intended for children, additional parental consent mechanisms apply as required by COPPA (US), GDPR-K (EU), LGPD (Brazil), POPIA (South Africa), and other applicable laws.</p>
 
       <h2 id="license">3. License to Use</h2>
-      <p>Subject to your compliance with these Terms, AgandiCodes grants you a limited, non-exclusive, non-transferable, non-sublicensable, revocable license to download, install, and use the Services on devices you own or control, solely for your personal, non-commercial use. For IoT and HSE applications, this license extends only to the intended operational use as described in the accompanying documentation.</p>
+      <p>Subject to your compliance with these Terms, AgandiCodes grants you a limited, non-exclusive, non-transferable, non-sublicensable, revocable license to download, install, and use the Services on devices you own or control, solely for your personal, non-commercial use.</p>
 
       <h2 id="scope">4. Scope of Services</h2>
       <p>AgandiCodes develops and publishes a range of digital products, including but not limited to:</p>
       <ul>
         <li>Mobile and web applications (e.g., Luganda Bible, educational tools)</li>
         <li>Games (casual, educational, and interactive experiences)</li>
-        <li>IoT (Internet of Things) software and hardware integrations</li>
-        <li>HSE (Health, Safety, and Environment) monitoring and compliance tools</li>
         <li>Developer utilities and APIs</li>
       </ul>
       <p>These Terms apply to all such Services unless a specific product is accompanied by its own separate terms, in which case those terms shall govern for that product.</p>
 
       <h2 id="games">5. Games & Virtual Items</h2>
-      <p>Our games may include virtual currencies, items, or features. These are licensed to you, not sold, and have no real-world monetary value. Purchases are final unless required otherwise by applicable law (including EU consumer protection rules). We do not knowingly collect personal data from children in games without verifiable parental consent, consistent with COPPA and GDPR.</p>
-      <p>Games may include in-app purchases and advertisements. You are responsible for any charges incurred through your account. For EU users, you have a 14-day right of withdrawal for digital content purchases unless you expressly consent to immediate access and acknowledge the loss of that right.</p>
+      <p>Our games may include virtual currencies, items, or features. These are licensed to you, not sold, and have no real-world monetary value. Purchases are final unless required otherwise by applicable law (including EU consumer protection rules and similar consumer laws in Brazil, South Africa, and other jurisdictions). We do not knowingly collect personal data from children in games without verifiable parental consent, consistent with COPPA, GDPR-K, LGPD, and POPIA.</p>
+      <p>Games may include in-app purchases and advertisements. You are responsible for any charges incurred through your account. For EU users, you have a 14-day right of withdrawal for digital content purchases unless you expressly consent to immediate access and acknowledge the loss of that right. For Brazilian users, the Consumer Protection Code (CDC) right of withdrawal applies where applicable.</p>
 
-      <h2 id="iot">6. IoT & HSE Standards</h2>
-      <p>Our IoT and HSE-related software is designed to meet applicable safety and environmental standards. However, you acknowledge that:</p>
-      <ul>
-        <li>IoT devices must be installed and operated according to provided instructions and local regulations.</li>
-        <li>HSE tools are advisory in nature and do not replace professional safety assessments or legal compliance obligations.</li>
-        <li>We comply with relevant FCC (US), CE (EU), and other international standards for electronic and software products where applicable.</li>
-        <li>You are responsible for ensuring that your use of IoT/HSE tools complies with local laws and workplace safety regulations.</li>
-      </ul>
-
-      <h2 id="acceptable-use">7. Acceptable Use</h2>
-      <p>You agree not to use the Services to violate any applicable law, post defamatory content, infringe intellectual property rights, interfere with the Services' operations, reverse-engineer security features, or misuse IoT/HSE data. Prohibited activities include:</p>
+      <h2 id="acceptable-use">6. Acceptable Use</h2>
+      <p>You agree not to use the Services to violate any applicable law, post defamatory content, infringe intellectual property rights, interfere with the Services' operations, or reverse-engineer security features. Prohibited activities include:</p>
       <ul>
         <li>Unauthorized access to other users' data or devices</li>
-        <li>Using HSE tools to falsify safety records</li>
         <li>Exploiting game mechanics for unauthorized commercial gain</li>
         <li>Distributing malware or engaging in denial-of-service attacks</li>
+        <li>Attempting to bypass security controls or authentication mechanisms</li>
+        <li>Using the Services to harass, threaten, or harm others</li>
       </ul>
 
-      <h2 id="content">8. Content & Scripture</h2>
+      <h2 id="content">7. Content & Scripture</h2>
       <p>Certain Services (e.g., the Luganda Bible app) include scripture text and religious content. We make reasonable efforts to ensure accuracy, but we do not warrant that the content is free from errors, omissions, or typographical mistakes. Content is provided for personal, non-commercial use.</p>
 
-      <h2 id="ads">9. Advertising & Third-Party Services</h2>
-      <p>The Services may display advertisements provided by third-party partners (including Google AdMob). We are not responsible for the content, products, or services offered by third-party advertisers. For EU users, personalized advertising is subject to your consent as described in our Privacy Policy and cookie consent mechanisms.</p>
+      <h2 id="ads">8. Advertising & Third-Party Services</h2>
+      <p>The Services may display advertisements provided by third-party partners (including Google AdMob). We are not responsible for the content, products, or services offered by third-party advertisers. For EU, UK, Brazilian, and other users where consent is required, personalized advertising is subject to your consent as described in our Privacy Policy and cookie consent mechanisms.</p>
 
-      <h2 id="privacy">10. Privacy</h2>
-      <p>Your use of the Services is also governed by our <a href="privacy.html">Privacy Policy</a>, which explains what information we collect and how we use it. We comply with GDPR (EU), CCPA (California), COPPA (US), and other applicable privacy laws.</p>
+      <h2 id="privacy">9. Privacy & Data Protection</h2>
+      <p>Your use of the Services is also governed by our <a href="privacy.html">Privacy Policy</a>, which explains what information we collect, how we use it, and your rights. We are committed to the following data protection principles worldwide:</p>
+      <ul>
+        <li><strong>Lawfulness, Fairness & Transparency:</strong> We process personal data lawfully and transparently.</li>
+        <li><strong>Purpose Limitation:</strong> Data is collected for specified, explicit, and legitimate purposes.</li>
+        <li><strong>Data Minimization:</strong> We collect only what is necessary.</li>
+        <li><strong>Accuracy:</strong> We take reasonable steps to keep data accurate.</li>
+        <li><strong>Storage Limitation:</strong> Data is retained only as long as necessary.</li>
+        <li><strong>Integrity & Confidentiality:</strong> We protect data with appropriate security measures.</li>
+        <li><strong>Accountability:</strong> We can demonstrate compliance with data protection laws.</li>
+        <li><strong>Privacy by Design & by Default:</strong> Privacy protections are embedded into our products from the outset.</li>
+      </ul>
+      <p>We comply with GDPR (EU/EEA), CCPA/CPRA (California), PIPEDA (Canada), LGPD (Brazil), POPIA (South Africa), NDPR (Nigeria), PDPA (Singapore, Thailand, Malaysia), APPI (Japan), PIPL (China), PIPA (South Korea), India DPDP Act, and other applicable privacy laws.</p>
 
-      <h2 id="ip">11. Intellectual Property</h2>
-      <p>The Services, including all software, design, graphics, logos, game assets, IoT firmware, and the "AgandiCodes" name, are owned by AgandiCodes or its licensors and are protected by intellectual property laws. You may not copy, modify, distribute, or create derivative works without our express written permission.</p>
+      <h2 id="cybersecurity">10. Cybersecurity</h2>
+      <p>We are committed to protecting the confidentiality, integrity, and availability of your data and our Services. Our cybersecurity practices include:</p>
+      <ul>
+        <li><strong>Encryption:</strong> TLS/HTTPS for data in transit and encryption-at-rest for sensitive data.</li>
+        <li><strong>Access Controls:</strong> Role-based access control and multi-factor authentication for administrative accounts.</li>
+        <li><strong>Secure Development:</strong> Secure coding practices, periodic vulnerability scanning, and timely patching.</li>
+        <li><strong>Monitoring & Logging:</strong> Continuous monitoring and audit logging to detect security incidents.</li>
+        <li><strong>Vendor Vetting:</strong> Third-party SDKs and vendors are reviewed for security and privacy compliance.</li>
+        <li><strong>Incident Response:</strong> We maintain an incident response plan to contain, assess, and remediate security incidents.</li>
+      </ul>
+      <p><strong>Breach Notification:</strong> In the event of a personal data breach, we will notify affected users without undue delay if the breach is likely to result in a risk to their rights and freedoms, and we will notify the relevant supervisory authority within the timeframe required by law (e.g., 72 hours under GDPR Art. 33; state breach laws in the US; LGPD, POPIA, and other local requirements).</p>
+      <p><strong>Your Role:</strong> You are responsible for maintaining the confidentiality of your account credentials and for using strong, unique passwords. Notify us immediately at <a href="mailto:agandicodes@gmail.com">agandicodes@gmail.com</a> if you suspect unauthorized access to your account.</p>
 
-      <h2 id="disclaimer">12. Disclaimer</h2>
-      <p>The Services are provided <strong>"as is"</strong> and <strong>"as available"</strong>, without warranties of any kind, whether express, implied, or statutory. This includes, but is not limited to, warranties of merchantability, fitness for a particular purpose, and non-infringement. For IoT/HSE tools, we do not warrant uninterrupted or error-free operation beyond the stated specifications.</p>
+      <h2 id="global-compliance">11. Global Compliance</h2>
+      <p>These Terms and our Services are designed to comply with consumer protection, data protection, and cybersecurity laws worldwide, including:</p>
+      <ul>
+        <li><strong>USA:</strong> COPPA, CCPA/CPRA, state breach notification laws, FTC Act.</li>
+        <li><strong>Canada:</strong> PIPEDA, provincial privacy laws.</li>
+        <li><strong>South America:</strong> Brazil LGPD, Argentina PDPA, Colombia Law 1581.</li>
+        <li><strong>Africa:</strong> South Africa POPIA, Nigeria NDPR, Kenya DPA, Ghana DPA.</li>
+        <li><strong>EU/EEA:</strong> GDPR, ePrivacy Directive, Consumer Rights Directive.</li>
+        <li><strong>Asia:</strong> Singapore PDPA, Japan APPI, China PIPL, South Korea PIPA, India DPDP Act.</li>
+      </ul>
+      <p>Where local law grants you additional rights or protections, we honor them.</p>
 
-      <h2 id="liability">13. Limitation of Liability</h2>
-      <p>To the maximum extent permitted by applicable law, AgandiCodes will not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of your use of the Services. For EU consumers, this limitation does not affect your statutory rights. For US users, this limitation applies to the fullest extent permitted by law. In no event shall our total liability exceed the amount you paid (if any) for the specific Service in the twelve months preceding the claim.</p>
+      <h2 id="ip">12. Intellectual Property</h2>
+      <p>The Services, including all software, design, graphics, logos, game assets, and the "AgandiCodes" name, are owned by AgandiCodes or its licensors and are protected by intellectual property laws. You may not copy, modify, distribute, or create derivative works without our express written permission.</p>
 
-      <h2 id="termination">14. Termination</h2>
-      <p>We may suspend or terminate your access to the Services at any time if we reasonably believe you have violated these Terms, with or without notice. For EU users, you have the right to terminate this agreement at any time by ceasing use of the Services.</p>
+      <h2 id="disclaimer">13. Disclaimer</h2>
+      <p>The Services are provided <strong>"as is"</strong> and <strong>"as available"</strong>, without warranties of any kind, whether express, implied, or statutory. This includes, but is not limited to, warranties of merchantability, fitness for a particular purpose, and non-infringement. Nothing in these Terms limits any statutory rights you may have under applicable consumer protection laws in your jurisdiction.</p>
 
-      <h2 id="changes">15. Changes to These Terms</h2>
+      <h2 id="liability">14. Limitation of Liability</h2>
+      <p>To the maximum extent permitted by applicable law, AgandiCodes will not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of your use of the Services. For EU, UK, Brazilian, South African, and other consumers, this limitation does not affect your statutory rights. For US users, this limitation applies to the fullest extent permitted by law. In no event shall our total liability exceed the amount you paid (if any) for the specific Service in the twelve months preceding the claim.</p>
+
+      <h2 id="termination">15. Termination</h2>
+      <p>We may suspend or terminate your access to the Services at any time if we reasonably believe you have violated these Terms, with or without notice. For EU, Brazilian, and other consumers, you have the right to terminate this agreement at any time by ceasing use of the Services.</p>
+
+      <h2 id="changes">16. Changes to These Terms</h2>
       <p>We may update these Terms from time to time. Your continued use of the Services after changes are posted constitutes your acceptance of the revised Terms. Material changes will be notified through the Services or via email where appropriate.</p>
 
-      <h2 id="law">16. Governing Law</h2>
-      <p>These Terms are governed by and construed in accordance with the laws of the Republic of Uganda, without regard to its conflict of law provisions. However, if you are a consumer in the EU, you may also benefit from mandatory provisions of the law of the country in which you reside. For US users, nothing in these Terms limits your rights under applicable federal or state law.</p>
+      <h2 id="law">17. Governing Law & Disputes</h2>
+      <p>These Terms are governed by and construed in accordance with the laws of the Republic of Uganda, without regard to its conflict of law provisions. However:</p>
+      <ul>
+        <li>If you are a consumer in the <strong>EU/EEA</strong>, you may also benefit from mandatory provisions of the law of the country in which you reside, and you may bring proceedings in your local courts.</li>
+        <li>If you are a consumer in <strong>Brazil</strong>, the Brazilian Consumer Protection Code (CDC) applies, and you may bring proceedings in your local courts.</li>
+        <li>If you are a consumer in <strong>South Africa</strong>, the Consumer Protection Act (CPA) and POPIA apply, and you may bring proceedings before the National Consumer Commission or your local courts.</li>
+        <li>If you are a consumer in the <strong>USA</strong>, nothing in these Terms limits your rights under applicable federal or state law.</li>
+        <li>If you are a consumer in <strong>Canada, Asia, or other regions</strong>, you may benefit from mandatory local consumer protections that cannot be waived by contract.</li>
+      </ul>
+      <p><strong>Dispute Resolution:</strong> Before pursuing formal legal action, we encourage you to contact us at <a href="mailto:agandicodes@gmail.com">agandicodes@gmail.com</a> to resolve any dispute informally. We will make good-faith efforts to resolve complaints within 30 days.</p>
 
-      <h2 id="contact">17. Contact</h2>
+      <h2 id="contact">18. Contact</h2>
       <p>If you have any questions about these Terms, please contact us at: <a href="mailto:agandicodes@gmail.com">agandicodes@gmail.com</a></p>
+      <p><em>Last updated: January 2025</em></p>
     </main>
   </div>
 
@@ -357,9 +389,7 @@
   </div>
 
   <script>
-    // 1. Theme Toggle & Instant Live Load
     const themeBtn = document.getElementById('theme-toggle');
-    
     function applyTheme(isDark) {
       if (isDark) {
         document.body.classList.add('dark-mode');
@@ -369,20 +399,16 @@
         themeBtn.textContent = '🌙';
       }
     }
-
     if (localStorage.getItem('theme') === 'dark') { applyTheme(true); }
-
     themeBtn.addEventListener('click', () => {
       const isDark = !document.body.classList.contains('dark-mode');
       applyTheme(isDark);
       localStorage.setItem('theme', isDark ? 'dark' : 'light');
     });
-
     window.addEventListener('storage', (e) => {
       if (e.key === 'theme') { applyTheme(e.newValue === 'dark'); }
     });
 
-    // 2. Chatbot Logic – Fun & Engaging
     const chatBtn = document.getElementById('chat-btn');
     const chatWindow = document.getElementById('chat-window');
     const closeChat = document.getElementById('close-chat');
@@ -404,10 +430,7 @@
       "High five! ✋ (virtually, of course)",
       "That's a great point! 🌟"
     ];
-
-    function replyFunny() {
-      return funResponses[Math.floor(Math.random() * funResponses.length)];
-    }
+    function replyFunny() { return funResponses[Math.floor(Math.random() * funResponses.length)]; }
 
     chatBtn.addEventListener('click', () => chatWindow.classList.toggle('open'));
     closeChat.addEventListener('click', () => chatWindow.classList.remove('open'));
@@ -416,12 +439,10 @@
       e.preventDefault();
       const msg = chatInput.value.trim();
       if(!msg) return;
-
       const userBubble = document.createElement('div');
       userBubble.className = 'chat-message msg-user';
       userBubble.textContent = msg;
       chatBody.appendChild(userBubble);
-      
       chatInput.value = '';
       chatBody.scrollTop = chatBody.scrollHeight;
 
